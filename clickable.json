@@ -1,8 +1,4 @@
 {
-  "package": "indicator-weather.bhdouglass",
-  "app": "indicator-weather",
-  "sdk": "ubuntu-sdk-15.04",
-  "arch": "armhf",
   "template": "cmake",
   "kill": "qmlscene",
   "scripts": {
