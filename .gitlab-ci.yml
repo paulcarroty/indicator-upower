@@ -1,0 +1,4 @@
+build_xenial:
+  image: clickable/ci-16.04-armhf
+  script:
+  - clickable clean build click-build review publish
