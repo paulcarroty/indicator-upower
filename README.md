@@ -31,9 +31,14 @@ The easiest way to compile and package indicator weather is via [clickable](http
 
 The logo is from the [weather icon icon font by Erik Flowers](https://erikflowers.github.io/weather-icons/).
 
+## Donate
+
+If you like Indicator Weather, consider giving a small donation over at my
+[Liberapay page](https://liberapay.com/bhdouglass).
+
 ## License
 
-Copyright (C) 2016 [Brian Douglass](http://bhdouglass.com/)
+Copyright (C) 2018 [Brian Douglass](http://bhdouglass.com/)
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License version 3, as published
 by the Free Software Foundation.
