@@ -418,7 +418,7 @@ class WeatherIndicator(object):
     def root_state(self):
         vardict = GLib.VariantDict.new()
         vardict.insert_value('visible', GLib.Variant.new_boolean(True))
-        vardict.insert_value('title', GLib.Variant.new_string('Weather'))
+        vardict.insert_value('title', GLib.Variant.new_string(_('Weather')))
 
         temperature = str(self.current_temperature) + '°'
         if self.error:
