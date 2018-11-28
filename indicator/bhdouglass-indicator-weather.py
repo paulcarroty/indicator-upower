@@ -216,7 +216,7 @@ class WeatherIndicator(object):
 
     def current_action_activated(self, action, data):
         logger.debug('current_action_activated')
-        subprocess.Popen(shlex.split('ubuntu-app-launch webbrowser-app https://darksky.net/forecast/{},{}'.format(self.lat, self.lng)))
+        subprocess.Popen(shlex.split('ubuntu-app-launch morph-browser https://darksky.net/forecast/{},{}'.format(self.lat, self.lng)))
 
     def forecast_action_activated(self, action, data):
         logger.debug('forecast_action_activated')
@@ -230,7 +230,7 @@ class WeatherIndicator(object):
             else:
                 url = 'http://openweathermap.org/'
 
-        subprocess.Popen(shlex.split('ubuntu-app-launch webbrowser-app {}'.format(url)))
+        subprocess.Popen(shlex.split('ubuntu-app-launch morph-browser {}'.format(url)))
 
     def settings_action_activated(self, action, data):
         logger.debug('settings_action_activated')
