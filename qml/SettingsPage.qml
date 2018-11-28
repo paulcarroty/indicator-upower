@@ -30,12 +30,16 @@ Page {
                     message.text = i18n.tr("Please specify an api key");
                     message.color = UbuntuColors.orange;
                 }
-                else if (!settings.lat) {
+                else if (!lat.acceptableInput) {
                     message.text = i18n.tr("Please specify the latitude");
+                    // TRANSLATORS: %1 is representing the min/max latitude (e.g. -90 to 90)
+                    message.text += i18n.tr(", within the appropriate range (-%1 to %1)").arg(lat.validator.top);
                     message.color = UbuntuColors.orange;
                 }
-                else if (!settings.lng) {
+                else if (!lng.acceptableInput) {
                     message.text = i18n.tr("Please specify the longitude");
+                    // TRANSLATORS: %1 is representing the min/max longitude (e.g. -180 to 180)
+                    message.text += i18n.tr(", within the appropriate range (-%1 to %1)").arg(lng.validator.top);
                     message.color = UbuntuColors.orange;
                 }
                 else {
@@ -145,6 +149,11 @@ Page {
 
             TextField {
                 id: lat
+                validator: DoubleValidator {
+                    bottom: -90
+                    top: 90
+                    notation: DoubleValidator.StandardNotation
+                }
 
                 Component.onCompleted: text = settings.lat
 
@@ -160,6 +169,11 @@ Page {
 
             TextField {
                 id: lng
+                validator: DoubleValidator {
+                    bottom: -180
+                    top: 180
+                    notation: DoubleValidator.StandardNotation
+                }
 
                 Component.onCompleted: text = settings.lng
 
