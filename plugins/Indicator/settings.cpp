@@ -20,6 +20,7 @@ Settings::Settings() {
     m_lat = object.value("lat").toString().trimmed();
     m_lng = object.value("lng").toString().trimmed();
     m_unit = object.value("unit").toString().trimmed();
+    m_refreshMins = object.value("refresh_mins").toString().trimmed();
 
     if (m_provider != "open_weather_map" && m_provider != "dark_sky") {
         m_provider = "dark_sky";
@@ -35,6 +36,7 @@ Settings::Settings() {
     Q_EMIT latChanged(m_lat);
     Q_EMIT lngChanged(m_lng);
     Q_EMIT unitChanged(m_unit);
+    Q_EMIT refreshMinsChanged(m_refreshMins);
 
     config.close();
 }
@@ -47,6 +49,7 @@ void Settings::save() {
     object.insert("lat", QJsonValue(m_lat.trimmed()));
     object.insert("lng", QJsonValue(m_lng.trimmed()));
     object.insert("unit", QJsonValue(m_unit.trimmed()));
+    object.insert("refresh_mins", QJsonValue(m_refreshMins.trimmed()));
 
     QJsonDocument doc;
     doc.setObject(object);

@@ -21,29 +21,7 @@ Page {
         id: settings
 
         onSaved: {
-            message.visible = true;
-            if (success) {
-                if (
-                    (!settings.darkSkyApiKey && settings.provider == 'dark_sky') ||
-                    (!settings.owmApiKey && settings.provider == 'open_weather_map')
-                ) {
-                    message.text = i18n.tr("Please specify an api key");
-                    message.color = UbuntuColors.orange;
-                }
-                else if (!settings.lat) {
-                    message.text = i18n.tr("Please specify the latitude");
-                    message.color = UbuntuColors.orange;
-                }
-                else if (!settings.lng) {
-                    message.text = i18n.tr("Please specify the longitude");
-                    message.color = UbuntuColors.orange;
-                }
-                else {
-                    message.text = i18n.tr("Saved the settings, please reboot");
-                    message.color = UbuntuColors.green;
-                }
-            }
-            else {
+            if (!success) {
                 message.text = i18n.tr("Failed to save the settings");
                 message.color = UbuntuColors.red;
             }
@@ -145,6 +123,12 @@ Page {
 
             TextField {
                 id: lat
+                validator: DoubleValidator {
+                    bottom: -90
+                    top: 90
+                    notation: DoubleValidator.StandardNotation
+                }
+                inputMethodHints: Qt.ImhDigitsOnly
 
                 Component.onCompleted: text = settings.lat
 
@@ -160,6 +144,12 @@ Page {
 
             TextField {
                 id: lng
+                validator: DoubleValidator {
+                    bottom: -180
+                    top: 180
+                    notation: DoubleValidator.StandardNotation
+                }
+                inputMethodHints: Qt.ImhDigitsOnly
 
                 Component.onCompleted: text = settings.lng
 
@@ -181,11 +171,74 @@ Page {
                 Layout.preferredHeight: units.gu(1)
             }
 
+            Label {
+                text: i18n.tr("Weather refresh interval (minutes)")
+                Layout.fillWidth: true
+            }
+
+            TextField {
+                id: refreshMins
+                validator: IntValidator {
+                    bottom: 1
+                    top: 60
+                }
+                inputMethodHints: Qt.ImhDigitsOnly
+
+                Component.onCompleted: {
+                    if (settings.refreshMins) {
+                        text = settings.refreshMins;
+                    } else {
+                        text = '30';
+                    }
+                }
+
+                onTextChanged: {
+                    settings.refreshMins = text;
+                }
+            }
+
+            Rectangle { // Spacer
+                Layout.preferredHeight: units.gu(1)
+            }
+
             Button {
                 text: i18n.tr("Save")
                 onClicked: {
-                    message.visible = false;
-                    settings.save();
+                    message.visible = true;
+
+                    var valid = false;
+                    if (
+                        (!settings.darkSkyApiKey && settings.provider == 'dark_sky') ||
+                        (!settings.owmApiKey && settings.provider == 'open_weather_map')
+                    ) {
+                        message.text = i18n.tr("Please specify an api key");
+                        message.color = UbuntuColors.orange;
+                    }
+                    else if (!lat.acceptableInput) {
+                        message.text = i18n.tr("Please specify the latitude") + "<br>";
+                        // TRANSLATORS: %1 is representing the min/max latitude (e.g. -90 to 90)
+                        message.text += i18n.tr("within the appropriate range (-%1 to %1)").arg(lat.validator.top);
+                        message.color = UbuntuColors.orange;
+                    }
+                    else if (!lng.acceptableInput) {
+                        message.text = i18n.tr("Please specify the longitude") + "<br>";
+                        // TRANSLATORS: %1 is representing the min/max longitude (e.g. -180 to 180)
+                        message.text += i18n.tr("within the appropriate range (-%1 to %1)").arg(lng.validator.top);
+                        message.color = UbuntuColors.orange;
+                    }
+                    else if (!refreshMins.acceptableInput) {
+                        message.text = i18n.tr("Please specify the weather refresh interval") + "<br>";
+                        // TRANSLATORS: %1 and %2 are the min/max minutes for refreshing the weather (e.g. 1 to 60)
+                        message.text += i18n.tr("in minutes (%1 to %2)").arg(refreshMins.validator.bottom).arg(refreshMins.validator.top);
+                        message.color = UbuntuColors.orange;
+                    }
+                    else {
+                        valid = true;
+                        message.text = i18n.tr("Saved the settings, please reboot");
+                        message.color = UbuntuColors.green;
+                    }
+
+                    if (valid) settings.save();
                 }
                 color: UbuntuColors.orange
             }
@@ -220,6 +273,11 @@ Page {
             Label {
                 id: message
                 visible: false
+            }
+
+            // Required to prevent OSK from hiding input
+            Rectangle { // Spacer
+                Layout.preferredHeight: units.gu(25)
             }
         }
     }
