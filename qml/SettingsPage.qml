@@ -42,6 +42,13 @@ Page {
                     message.text += i18n.tr(", within the appropriate range (-%1 to %1)").arg(lng.validator.top);
                     message.color = UbuntuColors.orange;
                 }
+                else if (!refreshMins.acceptableInput) {
+                    // TRANSLATORS: %1 and %2 are the min/max minutes for refreshing the weather (e.g. 1 to 60)
+                    message.text = i18n.tr(
+                        "Please specify the weather refresh interval in minutes (%1 to %2)"
+                    ).arg(refreshMins.validator.bottom).arg(refreshMins.validator.top);
+                    message.color = UbuntuColors.orange;
+                }
                 else {
                     message.text = i18n.tr("Saved the settings, please reboot");
                     message.color = UbuntuColors.green;
@@ -189,6 +196,31 @@ Page {
             TemperatureUnitSelect {
                 settings: settings
                 Layout.fillWidth: true
+            }
+
+            Rectangle { // Spacer
+                Layout.preferredHeight: units.gu(1)
+            }
+
+            Label {
+                text: i18n.tr("Weather refresh interval (minutes)")
+                Layout.fillWidth: true
+            }
+
+            TextField {
+                id: refreshMins
+                validator: IntValidator {
+                    bottom: 1
+                    top: 60
+                }
+
+                Component.onCompleted: {
+                    settings.refreshMins ? text = settings.refreshMins : text = '30' ;
+                }
+
+                onTextChanged: {
+                    settings.refreshMins = text;
+                }
             }
 
             Rectangle { // Spacer

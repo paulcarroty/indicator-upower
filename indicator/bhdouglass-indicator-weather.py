@@ -80,6 +80,7 @@ class WeatherIndicator(object):
     unit = 'f'
     retry_timeout = 1
     owm_city_id = ''
+    refresh_mins = 30
 
     def __init__(self, bus):
         self.get_config()
@@ -119,6 +120,9 @@ class WeatherIndicator(object):
 
             if 'unit' in config_json:
                 self.unit = config_json['unit'].strip()
+
+            if 'refresh_mins' in config_json and config_json['refresh_mins'].strip().isnumeric():
+                self.refresh_mins = int(config_json['refresh_mins'].strip())
 
         if self.unit != 'f' and self.unit != 'c' and self.unit != 'k':
             self.unit = 'f'
@@ -412,7 +416,7 @@ class WeatherIndicator(object):
         self.bus.export_action_group(BUS_OBJECT_PATH, self.action_group)
         self.menu_export = self.bus.export_menu_model(BUS_OBJECT_PATH_PHONE, self.menu)
 
-        GLib.timeout_add_seconds(60 * 30, self.update_weather)  # TODO allow this to be configurable
+        GLib.timeout_add_seconds(60 * self.refresh_mins, self.update_weather)
         self.update_weather()
 
     def root_state(self):
