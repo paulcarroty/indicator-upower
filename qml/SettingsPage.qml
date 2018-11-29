@@ -21,40 +21,7 @@ Page {
         id: settings
 
         onSaved: {
-            message.visible = true;
-            if (success) {
-                if (
-                    (!settings.darkSkyApiKey && settings.provider == 'dark_sky') ||
-                    (!settings.owmApiKey && settings.provider == 'open_weather_map')
-                ) {
-                    message.text = i18n.tr("Please specify an api key");
-                    message.color = UbuntuColors.orange;
-                }
-                else if (!lat.acceptableInput) {
-                    message.text = i18n.tr("Please specify the latitude");
-                    // TRANSLATORS: %1 is representing the min/max latitude (e.g. -90 to 90)
-                    message.text += i18n.tr(", within the appropriate range (-%1 to %1)").arg(lat.validator.top);
-                    message.color = UbuntuColors.orange;
-                }
-                else if (!lng.acceptableInput) {
-                    message.text = i18n.tr("Please specify the longitude");
-                    // TRANSLATORS: %1 is representing the min/max longitude (e.g. -180 to 180)
-                    message.text += i18n.tr(", within the appropriate range (-%1 to %1)").arg(lng.validator.top);
-                    message.color = UbuntuColors.orange;
-                }
-                else if (!refreshMins.acceptableInput) {
-                    // TRANSLATORS: %1 and %2 are the min/max minutes for refreshing the weather (e.g. 1 to 60)
-                    message.text = i18n.tr(
-                        "Please specify the weather refresh interval in minutes (%1 to %2)"
-                    ).arg(refreshMins.validator.bottom).arg(refreshMins.validator.top);
-                    message.color = UbuntuColors.orange;
-                }
-                else {
-                    message.text = i18n.tr("Saved the settings, please reboot");
-                    message.color = UbuntuColors.green;
-                }
-            }
-            else {
+            if (!success) {
                 message.text = i18n.tr("Failed to save the settings");
                 message.color = UbuntuColors.red;
             }
@@ -230,8 +197,42 @@ Page {
             Button {
                 text: i18n.tr("Save")
                 onClicked: {
-                    message.visible = false;
-                    settings.save();
+                    message.visible = true;
+
+                    var valid = false;
+                    if (
+                        (!settings.darkSkyApiKey && settings.provider == 'dark_sky') ||
+                        (!settings.owmApiKey && settings.provider == 'open_weather_map')
+                    ) {
+                        message.text = i18n.tr("Please specify an api key");
+                        message.color = UbuntuColors.orange;
+                    }
+                    else if (!lat.acceptableInput) {
+                        message.text = i18n.tr("Please specify the latitude");
+                        // TRANSLATORS: %1 is representing the min/max latitude (e.g. -90 to 90)
+                        message.text += i18n.tr(", within the appropriate range (-%1 to %1)").arg(lat.validator.top);
+                        message.color = UbuntuColors.orange;
+                    }
+                    else if (!lng.acceptableInput) {
+                        message.text = i18n.tr("Please specify the longitude");
+                        // TRANSLATORS: %1 is representing the min/max longitude (e.g. -180 to 180)
+                        message.text += i18n.tr(", within the appropriate range (-%1 to %1)").arg(lng.validator.top);
+                        message.color = UbuntuColors.orange;
+                    }
+                    else if (!refreshMins.acceptableInput) {
+                        // TRANSLATORS: %1 and %2 are the min/max minutes for refreshing the weather (e.g. 1 to 60)
+                        message.text = i18n.tr(
+                            "Please specify the weather refresh interval in minutes (%1 to %2)"
+                        ).arg(refreshMins.validator.bottom).arg(refreshMins.validator.top);
+                        message.color = UbuntuColors.orange;
+                    }
+                    else {
+                        valid = true;
+                        message.text = i18n.tr("Saved the settings, please reboot");
+                        message.color = UbuntuColors.green;
+                    }
+
+                    if (valid) settings.save();
                 }
                 color: UbuntuColors.orange
             }
