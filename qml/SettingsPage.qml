@@ -128,6 +128,7 @@ Page {
                     top: 90
                     notation: DoubleValidator.StandardNotation
                 }
+                inputMethodHints: Qt.ImhDigitsOnly
 
                 Component.onCompleted: text = settings.lat
 
@@ -148,6 +149,7 @@ Page {
                     top: 180
                     notation: DoubleValidator.StandardNotation
                 }
+                inputMethodHints: Qt.ImhDigitsOnly
 
                 Component.onCompleted: text = settings.lng
 
@@ -180,9 +182,14 @@ Page {
                     bottom: 1
                     top: 60
                 }
+                inputMethodHints: Qt.ImhDigitsOnly
 
                 Component.onCompleted: {
-                    settings.refreshMins ? text = settings.refreshMins : text = '30' ;
+                    if (settings.refreshMins) {
+                        text = settings.refreshMins;
+                    } else {
+                        text = '30';
+                    }
                 }
 
                 onTextChanged: {
@@ -208,22 +215,21 @@ Page {
                         message.color = UbuntuColors.orange;
                     }
                     else if (!lat.acceptableInput) {
-                        message.text = i18n.tr("Please specify the latitude");
+                        message.text = i18n.tr("Please specify the latitude") + "<br>";
                         // TRANSLATORS: %1 is representing the min/max latitude (e.g. -90 to 90)
-                        message.text += i18n.tr(", within the appropriate range (-%1 to %1)").arg(lat.validator.top);
+                        message.text += i18n.tr("within the appropriate range (-%1 to %1)").arg(lat.validator.top);
                         message.color = UbuntuColors.orange;
                     }
                     else if (!lng.acceptableInput) {
-                        message.text = i18n.tr("Please specify the longitude");
+                        message.text = i18n.tr("Please specify the longitude") + "<br>";
                         // TRANSLATORS: %1 is representing the min/max longitude (e.g. -180 to 180)
-                        message.text += i18n.tr(", within the appropriate range (-%1 to %1)").arg(lng.validator.top);
+                        message.text += i18n.tr("within the appropriate range (-%1 to %1)").arg(lng.validator.top);
                         message.color = UbuntuColors.orange;
                     }
                     else if (!refreshMins.acceptableInput) {
+                        message.text = i18n.tr("Please specify the weather refresh interval") + "<br>";
                         // TRANSLATORS: %1 and %2 are the min/max minutes for refreshing the weather (e.g. 1 to 60)
-                        message.text = i18n.tr(
-                            "Please specify the weather refresh interval in minutes (%1 to %2)"
-                        ).arg(refreshMins.validator.bottom).arg(refreshMins.validator.top);
+                        message.text += i18n.tr("in minutes (%1 to %2)").arg(refreshMins.validator.bottom).arg(refreshMins.validator.top);
                         message.color = UbuntuColors.orange;
                     }
                     else {
@@ -267,6 +273,11 @@ Page {
             Label {
                 id: message
                 visible: false
+            }
+
+            // Required to prevent OSK from hiding input
+            Rectangle { // Spacer
+                Layout.preferredHeight: units.gu(25)
             }
         }
     }
