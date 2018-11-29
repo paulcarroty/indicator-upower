@@ -201,6 +201,11 @@ Page {
                 Layout.preferredHeight: units.gu(1)
             }
 
+            Label {
+                id: message
+                visible: false
+            }
+
             Button {
                 text: i18n.tr("Save")
                 onClicked: {
@@ -268,16 +273,6 @@ Page {
                 textSize: Label.XSmall
 
                 text: i18n.tr('* Before uninstalling the app be sure to uninstall the indicator here first')
-            }
-
-            Label {
-                id: message
-                visible: false
-            }
-
-            // Required to prevent OSK from hiding input
-            Rectangle { // Spacer
-                Layout.preferredHeight: units.gu(25)
             }
         }
     }

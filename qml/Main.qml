@@ -7,6 +7,7 @@ MainView {
     objectName: 'mainView'
     applicationName: 'indicator-weather'
     automaticOrientation: true
+    anchorToKeyboard: true
 
     width: units.gu(45)
     height: units.gu(75)
