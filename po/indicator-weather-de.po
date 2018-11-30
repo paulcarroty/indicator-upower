@@ -78,11 +78,11 @@ msgstr "Einstellungen konnten nicht gespeichert werden"
 
 #: ../qml/SettingsPage.qml:76
 msgid "Dark Sky API Key"
-msgstr "Dark Sky API Key"
+msgstr "Dark Sky API Schlüssel"
 
 #: ../qml/SettingsPage.qml:93
 msgid "OpenWeatherMap API Key"
-msgstr "OpenWeatherMap API Key"
+msgstr "OpenWeatherMap API Schlüssel"
 
 #: ../qml/SettingsPage.qml:110
 msgid "Click to signup for an API key"
