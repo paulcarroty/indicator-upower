@@ -86,7 +86,7 @@ msgstr "OpenWeatherMap API Schlüssel"
 
 #: ../qml/SettingsPage.qml:110
 msgid "Click to signup for an API key"
-msgstr "Hier klicken, um einen API Key zu erhalten"
+msgstr "Hier klicken, um einen API Schlüssel zu erhalten"
 
 #: ../qml/SettingsPage.qml:120
 msgid "Latitude"
