@@ -110,27 +110,27 @@ msgstr "Bitte gib Deinen API Key ein"
 
 #: ../qml/SettingsPage.qml:223 ../indicator/bhdouglass-indicator-weather.py:302
 msgid "Please specify the latitude"
-msgstr "Bitte gib den Breitengrad ein"
+msgstr "Bitte gib einen Breitengrad innerhalb"
 
 #: ../qml/SettingsPage.qml:225 ../qml/SettingsPage.qml:231
 msgid "within the appropriate range (-%1 to %1)"
-msgstr "innerhalb des zulässigen Bereichs (-%1 bis %1)"
+msgstr "des zulässigen Bereichs ein (-%1 bis %1)"
 
 #: ../qml/SettingsPage.qml:229 ../indicator/bhdouglass-indicator-weather.py:305
 msgid "Please specify the longitude"
-msgstr "Bitte gib den Längengrad ein"
+msgstr "Bitte gib einen Längengrad innerhalb"
 
 #: ../qml/SettingsPage.qml:235
 msgid "Please specify the weather refresh interval"
-msgstr "Bitte gib den Breitengrad ein"
+msgstr "Bitte ein Aktualisierungsintervall"
 
 #: ../qml/SettingsPage.qml:237
 msgid "in minutes (%1 to %2)"
-msgstr "in Minuten (%1 bis %2)"
+msgstr "in Minuten eingeben (%1 bis %2)"
 
 #: ../qml/SettingsPage.qml:242
 msgid "Saved the settings, please reboot"
-msgstr "Einstellungen gespeichert, bitte neu starten"
+msgstr "Einstellungen gespeichert, bitte Gerät neu starten"
 
 #: ../qml/SettingsPage.qml:254
 msgid "Install Indicator"
