@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: indicator-weather.bhdouglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-02 04:56+0000\n"
+"POT-Creation-Date: 2018-12-02 06:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,22 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: ../qml/TemperatureUnitSelect.qml:19
+msgid "Temperature Unit"
+msgstr ""
+
+#: ../qml/TemperatureUnitSelect.qml:42
+msgid "Fahrenheit"
+msgstr ""
+
+#: ../qml/TemperatureUnitSelect.qml:70
+msgid "Celsius"
+msgstr ""
+
+#: ../qml/TemperatureUnitSelect.qml:98
+msgid "Kelvin"
+msgstr ""
 
 #: ../qml/AboutPage.qml:6 ../qml/SettingsPage.qml:14
 msgid "About"
@@ -39,34 +55,6 @@ msgstr ""
 msgid "Donate"
 msgstr ""
 
-#: ../qml/WeatherProviderSelect.qml:19
-msgid "Weather Provider"
-msgstr ""
-
-#: ../qml/WeatherProviderSelect.qml:41
-msgid "Dark Sky"
-msgstr ""
-
-#: ../qml/WeatherProviderSelect.qml:68
-msgid "OpenWeatherMap"
-msgstr ""
-
-#: ../qml/TemperatureUnitSelect.qml:19
-msgid "Temperature Unit"
-msgstr ""
-
-#: ../qml/TemperatureUnitSelect.qml:42
-msgid "Fahrenheit"
-msgstr ""
-
-#: ../qml/TemperatureUnitSelect.qml:70
-msgid "Celsius"
-msgstr ""
-
-#: ../qml/TemperatureUnitSelect.qml:98
-msgid "Kelvin"
-msgstr ""
-
 #: ../qml/SettingsPage.qml:25
 msgid "Failed to save the settings"
 msgstr ""
@@ -87,73 +75,85 @@ msgstr ""
 msgid "Latitude"
 msgstr ""
 
-#: ../qml/SettingsPage.qml:141
+#: ../qml/SettingsPage.qml:143
 msgid "Longitude"
 msgstr ""
 
-#: ../qml/SettingsPage.qml:175
+#: ../qml/SettingsPage.qml:179
 msgid "Weather refresh interval (minutes)"
 msgstr ""
 
-#: ../qml/SettingsPage.qml:210
+#: ../qml/SettingsPage.qml:214
 msgid "Save"
 msgstr ""
 
-#: ../qml/SettingsPage.qml:224 ../indicator/bhdouglass-indicator-weather.py:299
+#: ../qml/SettingsPage.qml:228 ../indicator/bhdouglass-indicator-weather.py:299
 msgid "Please specify an api key"
 msgstr ""
 
-#: ../qml/SettingsPage.qml:228 ../indicator/bhdouglass-indicator-weather.py:302
+#: ../qml/SettingsPage.qml:232 ../indicator/bhdouglass-indicator-weather.py:302
 msgid "Please specify the latitude"
 msgstr ""
 
-#: ../qml/SettingsPage.qml:230 ../qml/SettingsPage.qml:236
+#: ../qml/SettingsPage.qml:234 ../qml/SettingsPage.qml:240
 msgid "within the appropriate range (-%1 to %1)"
 msgstr ""
 
-#: ../qml/SettingsPage.qml:234 ../indicator/bhdouglass-indicator-weather.py:305
+#: ../qml/SettingsPage.qml:238 ../indicator/bhdouglass-indicator-weather.py:305
 msgid "Please specify the longitude"
 msgstr ""
 
-#: ../qml/SettingsPage.qml:240
+#: ../qml/SettingsPage.qml:244
 msgid "Please specify the weather refresh interval"
 msgstr ""
 
-#: ../qml/SettingsPage.qml:242
+#: ../qml/SettingsPage.qml:246
 msgid "in minutes (%1 to %2)"
 msgstr ""
 
-#: ../qml/SettingsPage.qml:247
+#: ../qml/SettingsPage.qml:251
 msgid "Saved the settings, please reboot"
 msgstr ""
 
-#: ../qml/SettingsPage.qml:259
+#: ../qml/SettingsPage.qml:263
 msgid "Install Indicator"
 msgstr ""
 
-#: ../qml/SettingsPage.qml:270
+#: ../qml/SettingsPage.qml:274
 msgid "Uninstall Indicator"
 msgstr ""
 
-#: ../qml/SettingsPage.qml:280
+#: ../qml/SettingsPage.qml:284
 msgid ""
 "* Before uninstalling the app be sure to uninstall the indicator here first"
 msgstr ""
 
-#: ../qml/SettingsPage.qml:291
+#: ../qml/SettingsPage.qml:295
 msgid "Successfully installed, please reboot"
 msgstr ""
 
-#: ../qml/SettingsPage.qml:295
+#: ../qml/SettingsPage.qml:299
 msgid "Failed to install"
 msgstr ""
 
-#: ../qml/SettingsPage.qml:303
+#: ../qml/SettingsPage.qml:307
 msgid "Successfully uninstalled, please reboot"
 msgstr ""
 
-#: ../qml/SettingsPage.qml:307
+#: ../qml/SettingsPage.qml:311
 msgid "Failed to uninstall"
+msgstr ""
+
+#: ../qml/WeatherProviderSelect.qml:19
+msgid "Weather Provider"
+msgstr ""
+
+#: ../qml/WeatherProviderSelect.qml:41
+msgid "Dark Sky"
+msgstr ""
+
+#: ../qml/WeatherProviderSelect.qml:68
+msgid "OpenWeatherMap"
 msgstr ""
 
 #: ../indicator/bhdouglass-indicator-weather.py:135

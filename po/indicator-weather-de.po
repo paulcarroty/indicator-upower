@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ut-indicator-weather\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-29 20:28+0000\n"
-"PO-Revision-Date: 2018-11-30 21:31+0100\n"
+"PO-Revision-Date: 2018-12-02 07:32+0100\n"
 "Last-Translator: Daniel Frost <one@frostinfo.de>\n"
 "Language-Team: German <de@li.org>\n"
 "Language: de\n"
@@ -37,8 +37,8 @@ msgid ""
 "A Brian Douglass app, consider donating if you like it and want to see more "
 "apps like it!"
 msgstr ""
-"Eine Brian Douglass App, überlege zu spenden, wenn du sie magst und mehr "
-"solche Apps sehen möchtest!"
+"Eine Brian Douglass App. Wenn du sie magst und die Entwicklung weiterer "
+"solche Apps unterstützen möchtest denke über eine Spende nach!"
 
 #: ../qml/AboutPage.qml:69
 msgid "Donate"
@@ -90,11 +90,11 @@ msgstr "Hier klicken, um einen API Schlüssel zu erhalten"
 
 #: ../qml/SettingsPage.qml:120
 msgid "Latitude"
-msgstr "Breitengrad"
+msgstr "Breitengrad (Lat)"
 
 #: ../qml/SettingsPage.qml:141
 msgid "Longitude"
-msgstr "Längengrad"
+msgstr "Längengrad (Long)"
 
 #: ../qml/SettingsPage.qml:175
 msgid "Weather refresh interval (minutes)"
