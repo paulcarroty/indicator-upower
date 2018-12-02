@@ -113,10 +113,10 @@ class WeatherIndicator(object):
                 self.owm_api_key = config_json['owm_api_key'].strip()
 
             if 'lat' in config_json:
-                self.lat = config_json['lat'].strip()
+                self.lat = config_json['lat'].strip().replace(',', '.')
 
             if 'lng' in config_json:
-                self.lng = config_json['lng'].strip()
+                self.lng = config_json['lng'].strip().replace(',', '.')
 
             if 'unit' in config_json:
                 self.unit = config_json['unit'].strip()

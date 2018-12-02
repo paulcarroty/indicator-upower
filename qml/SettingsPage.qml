@@ -211,6 +211,11 @@ Page {
                 onClicked: {
                     message.visible = true;
 
+                    settings.lat = settings.lat.replace(',', '.')
+                    lat.text = lat.text.replace(',', '.')
+                    settings.lng = settings.lng.replace(',', '.')
+                    lng.text = lng.text.replace(',', '.')
+
                     var valid = false;
                     if (
                         (!settings.darkSkyApiKey && settings.provider == 'dark_sky') ||
