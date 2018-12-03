@@ -126,6 +126,8 @@ Page {
                 validator: DoubleValidator {
                     bottom: -90
                     top: 90
+                    decimals: 4
+                    locale : "."
                     notation: DoubleValidator.StandardNotation
                 }
                 inputMethodHints: Qt.ImhDigitsOnly
@@ -147,6 +149,8 @@ Page {
                 validator: DoubleValidator {
                     bottom: -180
                     top: 180
+                    decimals: 4
+                    locale : "."
                     notation: DoubleValidator.StandardNotation
                 }
                 inputMethodHints: Qt.ImhDigitsOnly
