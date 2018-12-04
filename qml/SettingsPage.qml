@@ -127,7 +127,7 @@ Page {
                     bottom: -90
                     top: 90
                     decimals: 8
-                    locale : i18n.language
+                    locale: 'en_US'  // Force using decimals
                     notation: DoubleValidator.StandardNotation
                 }
                 inputMethodHints: Qt.ImhDigitsOnly
@@ -150,12 +150,12 @@ Page {
                     bottom: -180
                     top: 180
                     decimals: 8
-                    locale : i18n.language
+                    locale: 'en_US'  // Force using decimals
                     notation: DoubleValidator.StandardNotation
                 }
                 inputMethodHints: Qt.ImhDigitsOnly
 
-                Component.onCompleted: text = settings.lng
+                Component.onCompleted: text = settings.lng;
 
                 onTextChanged: {
                     settings.lng = text;
