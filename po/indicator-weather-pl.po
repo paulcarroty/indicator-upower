@@ -1,0 +1,256 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Brian Douglass
+# This file is distributed under the same license as the indicator-weather.bhdouglass package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: indicator-weather.bhdouglass\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-04 04:55+0000\n"
+"PO-Revision-Date: 2019-02-12 23:42+0100\n"
+"Last-Translator: Daniel Frańczak <danielfranczak5@wp.pl>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../qml/AboutPage.qml:6 ../qml/SettingsPage.qml:14
+msgid "About"
+msgstr "Informacje"
+
+#: ../qml/AboutPage.qml:35 ../qml/SettingsPage.qml:9
+msgid "Indicator Weather"
+msgstr "Indicator Weather"
+
+#: ../qml/AboutPage.qml:53
+msgid "The app icon is based on a weather icon by Erik Flowers (SIL OFL 1.1)"
+msgstr "Ikona aplikacji jest oparta na ikonie pogody autorstwa Erika Flowersa "
+"(SIL OFL 1.1)"
+
+#: ../qml/AboutPage.qml:61
+msgid ""
+"A Brian Douglass app, consider donating if you like it and want to see more "
+"apps like it!"
+msgstr ""
+"Aplikacja Briana Douglassa, rozważ darowiznę, jeśli Ci się spodoba i chcesz "
+"zobaczyć więcej takich aplikacji!"
+
+#: ../qml/AboutPage.qml:69
+msgid "Donate"
+msgstr "Wspomóż"
+
+#: ../qml/WeatherProviderSelect.qml:19
+msgid "Weather Provider"
+msgstr "Dostawca pogodowy"
+
+#: ../qml/WeatherProviderSelect.qml:41
+msgid "Dark Sky"
+msgstr "Dark Sky"
+
+#: ../qml/WeatherProviderSelect.qml:68
+msgid "OpenWeatherMap"
+msgstr "OpenWeatherMap"
+
+#: ../qml/TemperatureUnitSelect.qml:19
+msgid "Temperature Unit"
+msgstr "Jednostka temperatury"
+
+#: ../qml/TemperatureUnitSelect.qml:42
+msgid "Fahrenheit"
+msgstr "Fahrenheit"
+
+#: ../qml/TemperatureUnitSelect.qml:70
+msgid "Celsius"
+msgstr "Celsjusz"
+
+#: ../qml/TemperatureUnitSelect.qml:98
+msgid "Kelvin"
+msgstr "Kelwin"
+
+#: ../qml/SettingsPage.qml:25
+msgid "Failed to save the settings"
+msgstr "Nie udało się zapisać ustawień"
+
+#: ../qml/SettingsPage.qml:76
+msgid "Dark Sky API Key"
+msgstr "Klucz API Dark Sky"
+
+#: ../qml/SettingsPage.qml:93
+msgid "OpenWeatherMap API Key"
+msgstr "Klucz API OpenWeatherMap"
+
+#: ../qml/SettingsPage.qml:110
+msgid "Click to signup for an API key"
+msgstr "Kliknij, aby zarejestrować klucz API"
+
+#: ../qml/SettingsPage.qml:120
+msgid "Latitude"
+msgstr "Szerokość geograficzna"
+
+#: ../qml/SettingsPage.qml:143
+msgid "Longitude"
+msgstr "Długość geograficzna"
+
+#: ../qml/SettingsPage.qml:179
+msgid "Weather refresh interval (minutes)"
+msgstr "Interwał odświeżania pogody (minuty)"
+
+#: ../qml/SettingsPage.qml:214
+msgid "Save"
+msgstr "Zapisz"
+
+#: ../qml/SettingsPage.qml:228 ../indicator/bhdouglass-indicator-weather.py:299
+msgid "Please specify an api key"
+msgstr "Proszę podać klucz API"
+
+#: ../qml/SettingsPage.qml:232 ../indicator/bhdouglass-indicator-weather.py:302
+msgid "Please specify the latitude"
+msgstr "Proszę podać szerokość geograficzną"
+
+#: ../qml/SettingsPage.qml:234 ../qml/SettingsPage.qml:240
+msgid "within the appropriate range (-%1 to %1)"
+msgstr "w odpowiednim zakresie (-%1 do %1)"
+
+#: ../qml/SettingsPage.qml:238 ../indicator/bhdouglass-indicator-weather.py:305
+msgid "Please specify the longitude"
+msgstr "Proszę podać długość geograficzną"
+
+#: ../qml/SettingsPage.qml:244
+msgid "Please specify the weather refresh interval"
+msgstr "Proszę podać interwał odświeżania pogody"
+
+#: ../qml/SettingsPage.qml:246
+msgid "in minutes (%1 to %2)"
+msgstr "w minutach (%1 do %2)"
+
+#: ../qml/SettingsPage.qml:251
+msgid "Saved the settings, please reboot"
+msgstr "Ustawienia zapisane, uruchom ponownie"
+
+#: ../qml/SettingsPage.qml:263
+msgid "Install Indicator"
+msgstr "Zainstaluj wskaźnik"
+
+#: ../qml/SettingsPage.qml:274
+msgid "Uninstall Indicator"
+msgstr "Odinstaluj wskaźnik"
+
+#: ../qml/SettingsPage.qml:284
+msgid ""
+"* Before uninstalling the app be sure to uninstall the indicator here first"
+msgstr ""
+"* Przed odinstalowaniem aplikacji należy najpierw odinstalować wskaźnik"
+
+#: ../qml/SettingsPage.qml:295
+msgid "Successfully installed, please reboot"
+msgstr "Pomyślnie zainstalowano, uruchom ponownie"
+
+#: ../qml/SettingsPage.qml:299
+msgid "Failed to install"
+msgstr "Instalacja nie powiodła się"
+
+#: ../qml/SettingsPage.qml:307
+msgid "Successfully uninstalled, please reboot"
+msgstr "Pomyślnie odinstalowano, uruchom ponownie"
+
+#: ../qml/SettingsPage.qml:311
+msgid "Failed to uninstall"
+msgstr "Nie udało się odinstalować"
+
+#: ../indicator/bhdouglass-indicator-weather.py:135
+#: ../indicator/bhdouglass-indicator-weather.py:136
+#: ../indicator/bhdouglass-indicator-weather.py:154
+msgid "Clear"
+msgstr "Bezchmurnie"
+
+#: ../indicator/bhdouglass-indicator-weather.py:137
+#: ../indicator/bhdouglass-indicator-weather.py:160
+#: ../indicator/bhdouglass-indicator-weather.py:162
+msgid "Rainy"
+msgstr "Deszczowo"
+
+#: ../indicator/bhdouglass-indicator-weather.py:138
+#: ../indicator/bhdouglass-indicator-weather.py:166
+msgid "Snowy"
+msgstr "Śnieżnie"
+
+#: ../indicator/bhdouglass-indicator-weather.py:139
+msgid "Sleet"
+msgstr "Śnieg z deszczem"
+
+#: ../indicator/bhdouglass-indicator-weather.py:140
+#: ../indicator/bhdouglass-indicator-weather.py:170
+#: ../indicator/bhdouglass-indicator-weather.py:172
+msgid "Windy"
+msgstr "Wietrznie"
+
+#: ../indicator/bhdouglass-indicator-weather.py:141
+#: ../indicator/bhdouglass-indicator-weather.py:158
+msgid "Foggy"
+msgstr "Mgliście"
+
+#: ../indicator/bhdouglass-indicator-weather.py:142
+#: ../indicator/bhdouglass-indicator-weather.py:143
+#: ../indicator/bhdouglass-indicator-weather.py:144
+#: ../indicator/bhdouglass-indicator-weather.py:156
+msgid "Cloudy"
+msgstr "Pochmurnie"
+
+#: ../indicator/bhdouglass-indicator-weather.py:145
+#: ../indicator/bhdouglass-indicator-weather.py:168
+msgid "Hail"
+msgstr "Grad"
+
+#: ../indicator/bhdouglass-indicator-weather.py:146
+#: ../indicator/bhdouglass-indicator-weather.py:164
+msgid "Stormy"
+msgstr "Burzliwie"
+
+#: ../indicator/bhdouglass-indicator-weather.py:147
+#: ../indicator/bhdouglass-indicator-weather.py:174
+msgid "Tornado"
+msgstr "Tornado"
+
+#: ../indicator/bhdouglass-indicator-weather.py:176
+msgid "Hurricane"
+msgstr "Huragan"
+
+#: ../indicator/bhdouglass-indicator-weather.py:178
+msgid "Extreme Cold"
+msgstr "Ekstremalnie zimno"
+
+#: ../indicator/bhdouglass-indicator-weather.py:180
+msgid "Extreme Heat"
+msgstr "Ekstremalne ciepło"
+
+#: ../indicator/bhdouglass-indicator-weather.py:268
+msgid "Forecast"
+msgstr "Prognoza"
+
+#: ../indicator/bhdouglass-indicator-weather.py:271
+msgid "Weather Settings"
+msgstr "Ustawienia pogody"
+
+#: ../indicator/bhdouglass-indicator-weather.py:318
+#: ../indicator/bhdouglass-indicator-weather.py:327
+#: ../indicator/bhdouglass-indicator-weather.py:340
+#: ../indicator/bhdouglass-indicator-weather.py:344
+#: ../indicator/bhdouglass-indicator-weather.py:359
+#: ../indicator/bhdouglass-indicator-weather.py:368
+#: ../indicator/bhdouglass-indicator-weather.py:379
+#: ../indicator/bhdouglass-indicator-weather.py:383
+msgid "Error fetching weather"
+msgstr "Błąd przy pobieraniu pogody"
+
+#: ../indicator/bhdouglass-indicator-weather.py:425
+msgid "Weather"
+msgstr "Pogoda"
+
+#. TRANSLATORS You must ensure that both {condition} and {temperature} remain intact as they are used for replacing with the actual values. For example: Clear and 75°
+#: ../indicator/bhdouglass-indicator-weather.py:439
+#, python-brace-format
+msgid "{condition} and {temperature}°"
+msgstr "{condition}, {temperature}°"
