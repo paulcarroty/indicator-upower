@@ -115,53 +115,71 @@ Page {
                     onClicked: Qt.openUrlExternally('https://openweathermap.org/appid')
                 }
             }
-
-            Label {
-                text: i18n.tr("Latitude")
-                Layout.fillWidth: true
+            
+            
+            Rectangle { // Spacer
+                Layout.preferredHeight: units.gu(1)
             }
 
-            TextField {
-                id: lat
-                validator: DoubleValidator {
-                    bottom: -90
-                    top: 90
-                    decimals: 8
-                    locale: 'en_US'  // Force using decimals
-                    notation: DoubleValidator.StandardNotation
+            RowLayout {
+                
+                TextField {
+                    id: lat
+                    validator: DoubleValidator {
+                        bottom: -90
+                        top: 90
+                        decimals: 8
+                        locale: 'en_US'  // Force using decimals
+                        notation: DoubleValidator.StandardNotation
+                    }
+                    inputMethodHints: Qt.ImhDigitsOnly
+
+                    Component.onCompleted: text = settings.lat
+
+                    onTextChanged: {
+                        settings.lat = text;
+                    }
                 }
-                inputMethodHints: Qt.ImhDigitsOnly
+                
+                Label {
+                    text: i18n.tr("Latitude")
+                    Layout.fillWidth: true
+                }
+            }
+            
+            RowLayout {
+                
+                TextField {
+                    id: lng
+                    validator: DoubleValidator {
+                        bottom: -180
+                        top: 180
+                        decimals: 8
+                        locale: 'en_US'  // Force using decimals
+                        notation: DoubleValidator.StandardNotation
+                    }
+                    inputMethodHints: Qt.ImhDigitsOnly
 
-                Component.onCompleted: text = settings.lat
+                    Component.onCompleted: text = settings.lng;
 
-                onTextChanged: {
-                    settings.lat = text;
+                    onTextChanged: {
+                        settings.lng = text;
+                    }
+                }
+                
+                Label {
+                    text: i18n.tr("Longitude")
+                    Layout.fillWidth: true
                 }
             }
 
-            Label {
-                text: i18n.tr("Longitude")
-                Layout.fillWidth: true
-            }
-
-            TextField {
-                id: lng
-                validator: DoubleValidator {
-                    bottom: -180
-                    top: 180
-                    decimals: 8
-                    locale: 'en_US'  // Force using decimals
-                    notation: DoubleValidator.StandardNotation
-                }
-                inputMethodHints: Qt.ImhDigitsOnly
-
-                Component.onCompleted: text = settings.lng;
-
-                onTextChanged: {
-                    settings.lng = text;
+            Button {
+                text: i18n.tr("How to get coordinates")
+                onClicked: {
+                    pageStack.push(Qt.resolvedUrl('CoordHelp.qml'));
                 }
             }
-
+            
             Rectangle { // Spacer
                 Layout.preferredHeight: units.gu(1)
             }

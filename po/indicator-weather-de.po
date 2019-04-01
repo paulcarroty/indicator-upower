@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ut-indicator-weather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-29 20:28+0000\n"
-"PO-Revision-Date: 2018-12-02 07:32+0100\n"
+"POT-Creation-Date: 2019-03-31 06:15+0000\n"
+"PO-Revision-Date: 2019-03-31 08:16+0200\n"
 "Last-Translator: Daniel Frost <one@frostinfo.de>\n"
 "Language-Team: German <de@li.org>\n"
 "Language: de\n"
@@ -16,7 +16,23 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2017-01-08 04:28+0000\n"
-"X-Generator: Poedit 2.2\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#: ../qml/TemperatureUnitSelect.qml:19
+msgid "Temperature Unit"
+msgstr "Temperatureinheit"
+
+#: ../qml/TemperatureUnitSelect.qml:42
+msgid "Fahrenheit"
+msgstr "Fahrenheit"
+
+#: ../qml/TemperatureUnitSelect.qml:70
+msgid "Celsius"
+msgstr "Celsius"
+
+#: ../qml/TemperatureUnitSelect.qml:98
+msgid "Kelvin"
+msgstr "Kelvin"
 
 #: ../qml/AboutPage.qml:6 ../qml/SettingsPage.qml:14
 msgid "About"
@@ -24,7 +40,7 @@ msgstr "Über"
 
 #: ../qml/AboutPage.qml:35 ../qml/SettingsPage.qml:9
 msgid "Indicator Weather"
-msgstr "Wetter-Indikator"
+msgstr "Wetter Indikator"
 
 #: ../qml/AboutPage.qml:53
 msgid "The app icon is based on a weather icon by Erik Flowers (SIL OFL 1.1)"
@@ -44,34 +60,6 @@ msgstr ""
 msgid "Donate"
 msgstr "Spenden"
 
-#: ../qml/WeatherProviderSelect.qml:19
-msgid "Weather Provider"
-msgstr "Wetterdienst"
-
-#: ../qml/WeatherProviderSelect.qml:41
-msgid "Dark Sky"
-msgstr "Dark Sky"
-
-#: ../qml/WeatherProviderSelect.qml:68
-msgid "OpenWeatherMap"
-msgstr "OpenWeatherMap"
-
-#: ../qml/TemperatureUnitSelect.qml:19
-msgid "Temperature Unit"
-msgstr "Temperatureinheit"
-
-#: ../qml/TemperatureUnitSelect.qml:42
-msgid "Fahrenheit"
-msgstr "Fahrenheit"
-
-#: ../qml/TemperatureUnitSelect.qml:70
-msgid "Celsius"
-msgstr "Celsius"
-
-#: ../qml/TemperatureUnitSelect.qml:98
-msgid "Kelvin"
-msgstr "Kelvin"
-
 #: ../qml/SettingsPage.qml:25
 msgid "Failed to save the settings"
 msgstr "Einstellungen konnten nicht gespeichert werden"
@@ -88,78 +76,133 @@ msgstr "OpenWeatherMap API Schlüssel"
 msgid "Click to signup for an API key"
 msgstr "Hier klicken, um einen API Schlüssel zu erhalten"
 
-#: ../qml/SettingsPage.qml:120
+#: ../qml/SettingsPage.qml:145
 msgid "Latitude"
 msgstr "Breitengrad (Lat)"
 
-#: ../qml/SettingsPage.qml:141
+#: ../qml/SettingsPage.qml:171
 msgid "Longitude"
 msgstr "Längengrad (Long)"
 
-#: ../qml/SettingsPage.qml:175
+#: ../qml/SettingsPage.qml:177 ../qml/CoordHelp.qml:6
+msgid "How to get coordinates"
+msgstr "Woher bekomme ich Koordinaten"
+
+#: ../qml/SettingsPage.qml:197
 msgid "Weather refresh interval (minutes)"
 msgstr "Aktualisierungsintervall Wetterdaten"
 
-#: ../qml/SettingsPage.qml:210
+#: ../qml/SettingsPage.qml:232
 msgid "Save"
 msgstr "Speichern"
 
-#: ../qml/SettingsPage.qml:219 ../indicator/bhdouglass-indicator-weather.py:299
+#: ../qml/SettingsPage.qml:246 ../indicator/bhdouglass-indicator-weather.py:299
 msgid "Please specify an api key"
 msgstr "Bitte gib Deinen API Key ein"
 
-#: ../qml/SettingsPage.qml:223 ../indicator/bhdouglass-indicator-weather.py:302
+#: ../qml/SettingsPage.qml:250 ../indicator/bhdouglass-indicator-weather.py:302
 msgid "Please specify the latitude"
 msgstr "Bitte gib einen Breitengrad innerhalb"
 
-#: ../qml/SettingsPage.qml:225 ../qml/SettingsPage.qml:231
+#: ../qml/SettingsPage.qml:252 ../qml/SettingsPage.qml:258
 msgid "within the appropriate range (-%1 to %1)"
 msgstr "des zulässigen Bereichs ein (-%1 bis %1)"
 
-#: ../qml/SettingsPage.qml:229 ../indicator/bhdouglass-indicator-weather.py:305
+#: ../qml/SettingsPage.qml:256 ../indicator/bhdouglass-indicator-weather.py:305
 msgid "Please specify the longitude"
 msgstr "Bitte gib einen Längengrad innerhalb"
 
-#: ../qml/SettingsPage.qml:235
+#: ../qml/SettingsPage.qml:262
 msgid "Please specify the weather refresh interval"
 msgstr "Bitte ein Aktualisierungsintervall"
 
-#: ../qml/SettingsPage.qml:237
+#: ../qml/SettingsPage.qml:264
 msgid "in minutes (%1 to %2)"
 msgstr "in Minuten eingeben (%1 bis %2)"
 
-#: ../qml/SettingsPage.qml:242
+#: ../qml/SettingsPage.qml:269
 msgid "Saved the settings, please reboot"
 msgstr "Einstellungen gespeichert, bitte Gerät neu starten"
 
-#: ../qml/SettingsPage.qml:254
+#: ../qml/SettingsPage.qml:281
 msgid "Install Indicator"
 msgstr "Indikator installieren"
 
-#: ../qml/SettingsPage.qml:265
+#: ../qml/SettingsPage.qml:292
 msgid "Uninstall Indicator"
 msgstr "Indikator deinstallieren"
 
-#: ../qml/SettingsPage.qml:275
+#: ../qml/SettingsPage.qml:302
 msgid ""
 "* Before uninstalling the app be sure to uninstall the indicator here first"
 msgstr "*Vor dem Deinstallieren der App zuerst den Indikator deinstallieren"
 
-#: ../qml/SettingsPage.qml:286
+#: ../qml/SettingsPage.qml:313
 msgid "Successfully installed, please reboot"
 msgstr "Installation erfolgreich, bitte neu starten"
 
-#: ../qml/SettingsPage.qml:290
+#: ../qml/SettingsPage.qml:317
 msgid "Failed to install"
 msgstr "Installation fehlgeschlagen"
 
-#: ../qml/SettingsPage.qml:298
+#: ../qml/SettingsPage.qml:325
 msgid "Successfully uninstalled, please reboot"
 msgstr "Deinstallation erfolgreich, bitte neu starten"
 
-#: ../qml/SettingsPage.qml:302
+#: ../qml/SettingsPage.qml:329
 msgid "Failed to uninstall"
 msgstr "Deinstallation fehlgeschlagen"
+
+#: ../qml/WeatherProviderSelect.qml:19
+msgid "Weather Provider"
+msgstr "Wetterdienst"
+
+#: ../qml/WeatherProviderSelect.qml:41
+msgid "Dark Sky"
+msgstr "Dark Sky"
+
+#: ../qml/WeatherProviderSelect.qml:68
+msgid "OpenWeatherMap"
+msgstr "OpenWeatherMap"
+
+#: ../qml/CoordHelp.qml:35
+msgid "To obtain coordinates for your location visit OpenStreetMap:"
+msgstr "Um Koordinaten zu ermitteln gehe zu OpenStreetMap:"
+
+#: ../qml/CoordHelp.qml:71
+msgid ""
+"Navigate to your location, tap into the map and hold (or right click). From "
+"the context menu select <show address>."
+msgstr ""
+"Navigiere zu dem gewünschten Ort, tippe und halte in die Karte (oder "
+"Rechtsklick). Wähle <Adresse anzeigen> aus dem Kontextmenü."
+
+#: ../qml/CoordHelp.qml:79
+msgid ""
+"A window opens with several information including coordinates. Those are "
+"given as 'Latitude' first, followed by 'Longitude'."
+msgstr ""
+"Es öffnet sich ein Fenster mit verschiedenen Informationen inklusive der "
+"Koordinaten. Diese werden in der Reihenfolge Breite 'Lat' und Länge 'Long' "
+"angezeigt."
+
+#: ../qml/CoordHelp.qml:87
+msgid ""
+"Enter the coordinates in Indicator Weather with the desired number of "
+"decimals. Bear in mind that 1 degree is aproximately 111 km."
+msgstr ""
+"Gib die Koordinaten mit der gewünschten Nachkommastellenzahl in Wetter "
+"Indikator ein. Bedenke, dass 1 Grad ca. 111 km entspricht."
+
+#: ../qml/CoordHelp.qml:95
+msgid ""
+"To check the location install the indicator and from the pull down menu "
+"select 'forecast'. That should open the webpage of the selected provider on "
+"your location."
+msgstr ""
+"Um die Koordinaten zu überprüfen installiere den Indikator und wähle "
+"'Wettervorhersage' aus dem Menü. Das sollte die Webseite des Wetteranbieters "
+"an deinem Ort öffnen."
 
 #: ../indicator/bhdouglass-indicator-weather.py:135
 #: ../indicator/bhdouglass-indicator-weather.py:136
@@ -255,3 +298,9 @@ msgstr "Wetter"
 #, python-brace-format
 msgid "{condition} and {temperature}°"
 msgstr "{condition} bei {temperature}°"
+
+#~ msgid "How to get coords ..."
+#~ msgstr "Woher bekomme ich Koordinaten ..."
+
+#~ msgid "www.openstreetmap.org"
+#~ msgstr "www.openstreetmap.org"
