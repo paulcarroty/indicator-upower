@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: indicator-weather.bhdouglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-31 06:15+0000\n"
+"POT-Creation-Date: 2019-04-01 04:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,20 +17,37 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/TemperatureUnitSelect.qml:19
-msgid "Temperature Unit"
+#: ../qml/CoordHelp.qml:6 ../qml/SettingsPage.qml:177
+msgid "How to get coordinates"
 msgstr ""
 
-#: ../qml/TemperatureUnitSelect.qml:42
-msgid "Fahrenheit"
+#: ../qml/CoordHelp.qml:35
+msgid "To obtain coordinates for your location visit OpenStreetMap:"
 msgstr ""
 
-#: ../qml/TemperatureUnitSelect.qml:70
-msgid "Celsius"
+#: ../qml/CoordHelp.qml:71
+msgid ""
+"Navigate to your location, tap into the map and hold (or right click). From "
+"the context menu select <show address>."
 msgstr ""
 
-#: ../qml/TemperatureUnitSelect.qml:98
-msgid "Kelvin"
+#: ../qml/CoordHelp.qml:79
+msgid ""
+"A window opens with several information including coordinates. Those are "
+"given as 'Latitude' first, followed by 'Longitude'."
+msgstr ""
+
+#: ../qml/CoordHelp.qml:87
+msgid ""
+"Enter the coordinates in Indicator Weather with the desired number of "
+"decimals. Bear in mind that 1 degree is aproximately 111 km."
+msgstr ""
+
+#: ../qml/CoordHelp.qml:95
+msgid ""
+"To check the location install the indicator and from the pull down menu "
+"select 'forecast'. That should open the webpage of the selected provider on "
+"your location."
 msgstr ""
 
 #: ../qml/AboutPage.qml:6 ../qml/SettingsPage.qml:14
@@ -55,6 +72,34 @@ msgstr ""
 msgid "Donate"
 msgstr ""
 
+#: ../qml/WeatherProviderSelect.qml:19
+msgid "Weather Provider"
+msgstr ""
+
+#: ../qml/WeatherProviderSelect.qml:41
+msgid "Dark Sky"
+msgstr ""
+
+#: ../qml/WeatherProviderSelect.qml:68
+msgid "OpenWeatherMap"
+msgstr ""
+
+#: ../qml/TemperatureUnitSelect.qml:19
+msgid "Temperature Unit"
+msgstr ""
+
+#: ../qml/TemperatureUnitSelect.qml:42
+msgid "Fahrenheit"
+msgstr ""
+
+#: ../qml/TemperatureUnitSelect.qml:70
+msgid "Celsius"
+msgstr ""
+
+#: ../qml/TemperatureUnitSelect.qml:98
+msgid "Kelvin"
+msgstr ""
+
 #: ../qml/SettingsPage.qml:25
 msgid "Failed to save the settings"
 msgstr ""
@@ -77,10 +122,6 @@ msgstr ""
 
 #: ../qml/SettingsPage.qml:171
 msgid "Longitude"
-msgstr ""
-
-#: ../qml/SettingsPage.qml:177 ../qml/CoordHelp.qml:6
-msgid "How to get coordinates"
 msgstr ""
 
 #: ../qml/SettingsPage.qml:197
@@ -146,47 +187,6 @@ msgstr ""
 
 #: ../qml/SettingsPage.qml:329
 msgid "Failed to uninstall"
-msgstr ""
-
-#: ../qml/WeatherProviderSelect.qml:19
-msgid "Weather Provider"
-msgstr ""
-
-#: ../qml/WeatherProviderSelect.qml:41
-msgid "Dark Sky"
-msgstr ""
-
-#: ../qml/WeatherProviderSelect.qml:68
-msgid "OpenWeatherMap"
-msgstr ""
-
-#: ../qml/CoordHelp.qml:35
-msgid "To obtain coordinates for your location visit OpenStreetMap:"
-msgstr ""
-
-#: ../qml/CoordHelp.qml:71
-msgid ""
-"Navigate to your location, tap into the map and hold (or right click). From "
-"the context menu select <show address>."
-msgstr ""
-
-#: ../qml/CoordHelp.qml:79
-msgid ""
-"A window opens with several information including coordinates. Those are "
-"given as 'Latitude' first, followed by 'Longitude'."
-msgstr ""
-
-#: ../qml/CoordHelp.qml:87
-msgid ""
-"Enter the coordinates in Indicator Weather with the desired number of "
-"decimals. Bear in mind that 1 degree is aproximately 111 km."
-msgstr ""
-
-#: ../qml/CoordHelp.qml:95
-msgid ""
-"To check the location install the indicator and from the pull down menu "
-"select 'forecast'. That should open the webpage of the selected provider on "
-"your location."
 msgstr ""
 
 #: ../indicator/bhdouglass-indicator-weather.py:135
