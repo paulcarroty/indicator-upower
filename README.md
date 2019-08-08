@@ -4,7 +4,7 @@ A weather indicator for Ubuntu Touch. Indicator Weather uses data from
 [Dark Sky](https://darksky.net/poweredby/) or [OpenWeatherMap](https://openweathermap.org/appid)
 to provide a current weather outlook on the Ubuntu Touch indicator bar.
 
-[Get it on the OpenStore.](https://open-store.io/app/indicator-weather.bhdouglass)
+[![OpenStore](https://open-store.io/badges/en_US.png)](https://open-store.io/app/indicator-weather.bhdouglass)
 
 ## Translating
 
@@ -38,7 +38,7 @@ If you like Indicator Weather, consider giving a small donation over at my
 
 ## License
 
-Copyright (C) 2018 [Brian Douglass](http://bhdouglass.com/)
+Copyright (C) 2019 [Brian Douglass](http://bhdouglass.com/)
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License version 3, as published
 by the Free Software Foundation.
