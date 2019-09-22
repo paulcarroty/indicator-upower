@@ -3,11 +3,11 @@ publish:
   only:
     - tags
   script:
-    - clickable clean build click-build
+    - clickable clean build review
     - clickable publish "$CI_COMMIT_MESSAGE"
   artifacts:
     paths:
-      - build/*.click
+      - build/*/app/*.click
     expire_in: 1 week
 
 build:
@@ -15,8 +15,8 @@ build:
   except:
     - tags
   script:
-    - clickable clean build click-build
+    - clickable clean build review
   artifacts:
     paths:
-      - build/*.click
+      - build/*/app/*.click
     expire_in: 1 week
