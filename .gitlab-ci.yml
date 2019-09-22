@@ -3,7 +3,7 @@ publish:
   only:
     - tags
   script:
-    - clickable clean build review
+    - clickable clean build
     - clickable publish "$CI_COMMIT_MESSAGE"
   artifacts:
     paths:
@@ -15,7 +15,7 @@ build:
   except:
     - tags
   script:
-    - clickable clean build review
+    - clickable clean build
   artifacts:
     paths:
       - build/*/app/*.click
