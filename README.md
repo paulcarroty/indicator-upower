@@ -1,7 +1,8 @@
 # Indicator upower for Ubuntu Touch
 
 A upower indicator for Ubuntu Touch, spin-off from bhdouglass's Indicator Weather.
-it's uses data from from the cli command [Upower ](https://upower.freedesktop.org/) embedded into the Ubuntu touch operating system.
+it's uses data from the cli command [Upower ](https://upower.freedesktop.org/) embedded into the Ubuntu touch operating system.
+
 Upower might be devices dependent, please raise a bug to enable your devices.
 
 [![OpenStore](https://open-store.io/badges/en_US.png)](https://open-store.io/app/indicator.upower-ernesst)
