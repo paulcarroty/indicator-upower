@@ -6,7 +6,7 @@ import Indicator 1.0
 Page {
     header: PageHeader {
         id: header
-        title: i18n.tr("Indicator Weather")
+        title: i18n.tr("Upower's Indicator")
 
         trailingActionBar.actions: [
             Action {
@@ -49,152 +49,8 @@ Page {
             }
             spacing: units.gu(1)
 
-            RowLayout {
-                Layout.fillWidth: true
-
-                WeatherProviderSelect {
-                    settings: settings
-                    Layout.fillWidth: true
-                }
-
-                Image {
-                    visible: settings.provider == 'dark_sky'
-                    source: "../assets/darksky.png"
-
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: Qt.openUrlExternally('https://darksky.net/poweredby/')
-                    }
-
-                    Layout.preferredWidth: parent.width / 4
-                    Layout.preferredHeight: width / 2
-                }
-            }
-
             Label {
-                visible: settings.provider == 'dark_sky'
-                text: i18n.tr("Dark Sky API Key")
-                Layout.fillWidth: true
-            }
-
-            TextField {
-                visible: settings.provider == 'dark_sky'
-                id: darkSkyApiKey
-
-                Component.onCompleted: text = settings.darkSkyApiKey
-
-                onTextChanged: {
-                    settings.darkSkyApiKey = text;
-                }
-            }
-
-            Label {
-                visible: settings.provider == 'open_weather_map'
-                text: i18n.tr("OpenWeatherMap API Key")
-                Layout.fillWidth: true
-            }
-
-            TextField {
-                visible: settings.provider == 'open_weather_map'
-                id: owmApiKey
-
-                Component.onCompleted: text = settings.owmApiKey
-
-                onTextChanged: {
-                    settings.owmApiKey = text;
-                }
-            }
-
-            Label {
-                visible: settings.provider == 'open_weather_map'
-                text: i18n.tr("Click to signup for an API key")
-                color: 'blue'
-
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: Qt.openUrlExternally('https://openweathermap.org/appid')
-                }
-            }
-            
-            
-            Rectangle { // Spacer
-                Layout.preferredHeight: units.gu(1)
-            }
-
-            RowLayout {
-                
-                TextField {
-                    id: lat
-                    validator: DoubleValidator {
-                        bottom: -90
-                        top: 90
-                        decimals: 8
-                        locale: 'en_US'  // Force using decimals
-                        notation: DoubleValidator.StandardNotation
-                    }
-                    inputMethodHints: Qt.ImhDigitsOnly
-
-                    Component.onCompleted: text = settings.lat
-
-                    onTextChanged: {
-                        settings.lat = text;
-                    }
-                }
-                
-                Label {
-                    text: i18n.tr("Latitude")
-                    Layout.fillWidth: true
-                }
-            }
-            
-            RowLayout {
-                
-                TextField {
-                    id: lng
-                    validator: DoubleValidator {
-                        bottom: -180
-                        top: 180
-                        decimals: 8
-                        locale: 'en_US'  // Force using decimals
-                        notation: DoubleValidator.StandardNotation
-                    }
-                    inputMethodHints: Qt.ImhDigitsOnly
-
-                    Component.onCompleted: text = settings.lng;
-
-                    onTextChanged: {
-                        settings.lng = text;
-                    }
-                }
-                
-                Label {
-                    text: i18n.tr("Longitude")
-                    Layout.fillWidth: true
-                }
-            }
-
-            Button {
-                text: i18n.tr("How to get coordinates")
-                onClicked: {
-                    pageStack.push(Qt.resolvedUrl('CoordHelp.qml'));
-                }
-            }
-            
-            Rectangle { // Spacer
-                Layout.preferredHeight: units.gu(1)
-            }
-
-            TemperatureUnitSelect {
-                settings: settings
-                Layout.fillWidth: true
-            }
-
-            Rectangle { // Spacer
-                Layout.preferredHeight: units.gu(1)
-            }
-
-            Label {
-                text: i18n.tr("Weather refresh interval (minutes)")
+                text: i18n.tr("Upower queries interval (minutes)")
                 Layout.fillWidth: true
             }
 
@@ -222,6 +78,45 @@ Page {
             Rectangle { // Spacer
                 Layout.preferredHeight: units.gu(1)
             }
+            Label {
+                text: i18n.tr("Battery charge threshold alarm (%)")
+                Layout.fillWidth: true
+            }
+
+            TextField {
+                id: thresholdCharging
+                validator: IntValidator {
+                    bottom: 70
+                    top: 100
+                }
+                inputMethodHints: Qt.ImhDigitsOnly
+
+                Component.onCompleted: {
+                    if (settings.thresholdCharging) {
+                        text = settings.thresholdCharging;
+                    } else {
+                        text = '80';
+                    }
+                }
+
+                onTextChanged: {
+                    settings.thresholdCharging = text;
+                }
+            }
+            Label {
+                text: i18n.tr("Set 100% to desactivate the alarm")
+                Layout.fillWidth: true
+            }
+            Label {
+                text: i18n.tr("How to prolong Lithium-based Batteries ? %1").arg("<a href=\"https://duckduckgo.com/?q=+How+to+Prolong+Lithium-based+charging+80\"> Please read the following link</a>");
+                onLinkActivated: Qt.openUrlExternally(link)
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+            }
+            Rectangle { // Spacer
+                Layout.preferredHeight: units.gu(1)
+            }
+
 
             Label {
                 id: message
@@ -232,36 +127,17 @@ Page {
                 text: i18n.tr("Save")
                 onClicked: {
                     message.visible = true;
-
-                    settings.lat = settings.lat.replace(',', '.')
-                    lat.text = lat.text.replace(',', '.')
-                    settings.lng = settings.lng.replace(',', '.')
-                    lng.text = lng.text.replace(',', '.')
-
                     var valid = false;
-                    if (
-                        (!settings.darkSkyApiKey && settings.provider == 'dark_sky') ||
-                        (!settings.owmApiKey && settings.provider == 'open_weather_map')
-                    ) {
-                        message.text = i18n.tr("Please specify an api key");
-                        message.color = UbuntuColors.orange;
-                    }
-                    else if (!lat.acceptableInput) {
-                        message.text = i18n.tr("Please specify the latitude") + "<br>";
-                        // TRANSLATORS: %1 is representing the min/max latitude (e.g. -90 to 90)
-                        message.text += i18n.tr("within the appropriate range (-%1 to %1)").arg(lat.validator.top);
-                        message.color = UbuntuColors.orange;
-                    }
-                    else if (!lng.acceptableInput) {
-                        message.text = i18n.tr("Please specify the longitude") + "<br>";
-                        // TRANSLATORS: %1 is representing the min/max longitude (e.g. -180 to 180)
-                        message.text += i18n.tr("within the appropriate range (-%1 to %1)").arg(lng.validator.top);
-                        message.color = UbuntuColors.orange;
-                    }
-                    else if (!refreshMins.acceptableInput) {
-                        message.text = i18n.tr("Please specify the weather refresh interval") + "<br>";
+                    if (!refreshMins.acceptableInput) {
+                        message.text = i18n.tr("Please specify the Upower queries interval") + "<br>";
                         // TRANSLATORS: %1 and %2 are the min/max minutes for refreshing the weather (e.g. 1 to 60)
                         message.text += i18n.tr("in minutes (%1 to %2)").arg(refreshMins.validator.bottom).arg(refreshMins.validator.top);
+                        message.color = UbuntuColors.orange;
+                    }
+                    else if (!thresholdCharging.acceptableInput) {
+                        message.text = i18n.tr("Battery charge threshold alarm") + "<br>";
+                        // TRANSLATORS: %1 and %2 are the min/max minutes for refreshing the weather (e.g. 1 to 60)
+                        message.text += i18n.tr("in minutes (%1 to %2)").arg(thresholdCharging.validator.bottom).arg(thresholdCharging.validator.top);
                         message.color = UbuntuColors.orange;
                     }
                     else {

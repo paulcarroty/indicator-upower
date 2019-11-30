@@ -32,33 +32,71 @@ Page {
             Label {
                 Layout.fillWidth: true
 
-                text: i18n.tr('Indicator Weather')
+                text: i18n.tr('Upower\'s Indicator')
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WordWrap
             }
 
             UbuntuShape {
-                Layout.preferredHeight: units.gu(10)
-                Layout.preferredWidth: units.gu(10)
+                Layout.preferredHeight: units.gu(20)
+                Layout.preferredWidth: units.gu(20)
                 Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
 
                 source:  Image {
                     source: '../assets/logo.svg'
                 }
             }
-
             Label {
                 Layout.fillWidth: true
 
-                text: i18n.tr('The app icon is based on a weather icon by Erik Flowers (SIL OFL 1.1)');
+                text: i18n.tr('A big thanks to:');
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WordWrap
             }
-
             Label {
                 Layout.fillWidth: true
 
-                text: i18n.tr('A Brian Douglass app, consider donating if you like it and want to see more apps like it!')
+                text: i18n.tr('Brian Douglass\'s application %1 and his help.').arg("<a href=\"https://gitlab.com/bhdouglass/indicator-weather\"> indicator weather</a>");
+                onLinkActivated: Qt.openUrlExternally(link)
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.WordWrap
+            }
+            Label {
+                Layout.fillWidth: true
+
+                text: i18n.tr("BigET\'s application %1").arg("<a href=\"https://github.com/BigET/NotificationPost\">Notification Post</a>");
+                onLinkActivated: Qt.openUrlExternally(link)
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.WordWrap
+            }
+            Label {
+                Layout.fillWidth: true
+
+                text: i18n.tr("Gustavo Reis for the Suru++ logo %1").arg("<a href=\"https://github.com/gusbemacbe/suru-plus\">credits and honors</a>");
+                onLinkActivated: Qt.openUrlExternally(link)
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.WordWrap
+            }
+            Label {
+                Layout.fillWidth: true
+
+                text: i18n.tr("%1 command line tool").arg("<a href=\"https://upower.freedesktop.org/\">UPower</a>");
+                onLinkActivated: Qt.openUrlExternally(link)
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.WordWrap
+            }
+            Label {
+                Layout.fillWidth: true
+
+                text: i18n.tr("Ubports documentation on %1").arg("<a href=\"https://docs.ubports.com/en/latest/appdev/guides/pushnotifications.html/\">push notification</a>");
+                onLinkActivated: Qt.openUrlExternally(link)
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.WordWrap
+            }
+            Label {
+                Layout.fillWidth: true
+
+                text: i18n.tr('Consider donating to Ubports!')
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WordWrap
             }
@@ -68,7 +106,7 @@ Page {
 
                 text: i18n.tr('Donate')
                 color: UbuntuColors.orange
-                onClicked: Qt.openUrlExternally('https://liberapay.com/bhdouglass')
+                onClicked: Qt.openUrlExternally('https://ubports.com/donate')
             }
         }
     }

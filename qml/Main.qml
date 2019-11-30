@@ -5,7 +5,6 @@ import Ubuntu.Components 1.3
 MainView {
     id: root
     objectName: 'mainView'
-    applicationName: 'indicator-weather'
     automaticOrientation: true
     anchorToKeyboard: true
 

@@ -1,8 +1,8 @@
-project(indicator-weather C CXX)
+project(indicator-upower C CXX)
 cmake_minimum_required(VERSION 3.0.0)
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
-set(VERSION "1.5.1")
+set(VERSION "0.1")
 
 find_package(Qt5Core)
 find_package(Qt5Qml)
@@ -24,7 +24,7 @@ set(QT_IMPORTS_DIR "lib/${ARCH_TRIPLET}")
 set(CMAKE_INSTALL_PREFIX /)
 set(DATA_DIR /)
 set(DESKTOP_DIR ${DATA_DIR})
-set(DESKTOP_FILE_NAME "indicator-weather.desktop")
+set(DESKTOP_FILE_NAME "indicator-upower.desktop")
 
 # This command figures out the target architecture for use in the manifest file
 execute_process(
@@ -35,7 +35,12 @@ execute_process(
 
 configure_file(manifest.json.in ${CMAKE_CURRENT_BINARY_DIR}/manifest.json)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/manifest.json DESTINATION ${CMAKE_INSTALL_PREFIX})
-install(FILES "indicator-weather.apparmor" DESTINATION ${DATA_DIR})
+install(FILES "indicator-upower.apparmor" DESTINATION ${DATA_DIR})
+install(FILES "indicator-upower.service" DESTINATION ${DATA_DIR})
+install(FILES "indicator-upower-helper.apparmor" DESTINATION ${DATA_DIR})
+install(FILES "indicator-upower-helper.json" DESTINATION ${DATA_DIR})
+install(FILES "indicator-upower.application" DESTINATION ${DATA_DIR})
+install(FILES "indicator-upower-helper" PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ DESTINATION ${DATA_DIR})
 install(DIRECTORY qml DESTINATION ${DATA_DIR})
 install(DIRECTORY assets DESTINATION ${DATA_DIR})
 
@@ -56,7 +61,7 @@ add_custom_target(${DESKTOP_FILE_NAME} ALL
     COMMAND LC_ALL=C ${INTLTOOL_MERGE} -d -u ${CMAKE_SOURCE_DIR}/po ${CMAKE_SOURCE_DIR}/${DESKTOP_FILE_NAME}.in ${DESKTOP_FILE_NAME}
 
     # TODO see if there is a better way to do this
-    COMMAND sed -i 's/indicator-weather-//g' ${CMAKE_CURRENT_BINARY_DIR}/${DESKTOP_FILE_NAME}
+    COMMAND sed -i 's/indicator-upower-//g' ${CMAKE_CURRENT_BINARY_DIR}/${DESKTOP_FILE_NAME}
 )
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${DESKTOP_FILE_NAME} DESTINATION ${DATA_DIR})

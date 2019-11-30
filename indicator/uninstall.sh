@@ -2,7 +2,7 @@
 
 set -e
 
-rm /home/phablet/.config/upstart/bhdouglass-indicator-weather.conf
-rm /home/phablet/.local/share/unity/indicators/com.bhdouglass.indicator.weather
+rm /home/phablet/.config/upstart/ernesst-indicator-upower.conf
+rm /home/phablet/.local/share/unity/indicators/com.ernesst.indicator.upower
 
-echo "indicator-weather uninstalled"
+echo "indicator-upower uninstalled"

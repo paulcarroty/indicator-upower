@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service id="indicator.upower.ernesst_indicator-upower">
+  <type>webapps</type>
+  <name>indicator-upower</name>
+  <provider>indicator-upower</provider>
+</service>

@@ -1,44 +1,42 @@
-# Indicator Weather for Ubuntu Touch
+# Indicator upower for Ubuntu Touch
 
-A weather indicator for Ubuntu Touch. Indicator Weather uses data from
-[Dark Sky](https://darksky.net/poweredby/) or [OpenWeatherMap](https://openweathermap.org/appid)
-to provide a current weather outlook on the Ubuntu Touch indicator bar.
+A upower indicator for Ubuntu Touch, spin-off from bhdouglass's Indicator Weather.
+it's uses data from from the cli command [Upower ](https://upower.freedesktop.org/) embedded into the Ubuntu touch operating system.
+Upower might be devices dependent, please raise a bug to enable your devices.
 
-[![OpenStore](https://open-store.io/badges/en_US.png)](https://open-store.io/app/indicator-weather.bhdouglass)
+[![OpenStore](https://open-store.io/badges/en_US.png)](https://open-store.io/app/indicator.upower-ernesst)
 
 ## Translating
 
-If you are interested in translating indicator weather, head over to our
-[Launchpad page for translations](https://translations.launchpad.net/ut-indicator-weather).
+To be enable
 
 ## About the Indicator
-
-The indicator itself is rather simple. It's a python script that exports a Gtk
+As for Indicator Weather, the indicator itself is rather simple. It's a python script that exports a Gtk
 menu over DBus. To start the script there is an Upstart config file located at
-indicator/bhdouglass-indicator-weather.conf. This starts the indicator when
+.config/upstart/ernesst-indicator-upower.conf. This starts the indicator when
 Unity starts the rest of the indicators. The other important file is
-indicator/com.bhdouglass.indicator.weather. This file lets Unity know where to
+.local/share/unity/indicators/com.ernesst.indicator.upower. This file lets Unity know where to
 find the indicator on DBus and where to place the indicator on the indicator bar.
 
 If you are interested in creating your own indicator for Ubuntu Touch and have
-questions, I would be glad to help. Just contact me via [my website](https://bhdouglass.com/contact.html).
+questions, I would be glad to help.
+Moreover the Indicator Master, Brian Douglass, can be Just contact via [my website](https://bhdouglass.com/contact.html).
 
 ## Building
 
-The easiest way to compile and package indicator weather is via [clickable](https://github.com/bhdouglass/clickable).
+The easiest way to compile and package indicator upower is via [clickable](https://github.com/bhdouglass/clickable).
 
 ## Logo
 
-The logo is from the [weather icon icon font by Erik Flowers](https://erikflowers.github.io/weather-icons/).
+The logo is from the [gusbemacbe github repository of Suru-plus icons](https://github.com/gusbemacbe/suru-plus).
 
 ## Donate
 
-If you like Indicator Weather, consider giving a small donation over at my
-[Liberapay page](https://liberapay.com/bhdouglass).
+Please consider giving a small donation to the [Ubports project](https://ubports.com/donate).
 
 ## License
 
-Copyright (C) 2019 [Brian Douglass](http://bhdouglass.com/)
+Copyright (C) 2019 Ernesst
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License version 3, as published
 by the Free Software Foundation.

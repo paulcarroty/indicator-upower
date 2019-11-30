@@ -16,12 +16,12 @@ Indicator::Indicator() :
 
 void Indicator::install() {
     //TODO don't hardcode this
-    m_installProcess.start("bash /opt/click.ubuntu.com/indicator-weather.bhdouglass/current/indicator/install.sh");
+    m_installProcess.start("bash /opt/click.ubuntu.com/indicator.upower.ernesst/current/indicator/install.sh");
 }
 
 void Indicator::uninstall() {
     //TODO don't hardcode this
-    m_uninstallProcess.start("bash /opt/click.ubuntu.com/indicator-weather.bhdouglass/current/indicator/uninstall.sh");
+    m_uninstallProcess.start("bash /opt/click.ubuntu.com/indicator.upower.ernesst/current/indicator/uninstall.sh");
 }
 
 void Indicator::onInstallFinished(int exitCode, QProcess::ExitStatus exitStatus) {
@@ -46,8 +46,8 @@ void Indicator::onUninstallFinished(int exitCode, QProcess::ExitStatus exitStatu
 }
 
 bool Indicator::checkInstalled() {
-    QFileInfo session("/home/phablet/.config/upstart/bhdouglass-indicator-weather.conf");
-    QFileInfo indicator("/home/phablet/.local/share/unity/indicators/com.bhdouglass.indicator.weather");
+    QFileInfo session("/home/phablet/.config/upstart/ernesst-indicator-upower.conf");
+    QFileInfo indicator("/home/phablet/.local/share/unity/indicators/com.ernesst.indicator.upower");
 
     m_isInstalled = session.exists() && indicator.exists();
     Q_EMIT isInstalledChanged(m_isInstalled);

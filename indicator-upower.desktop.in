@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=Indicator Weather
+_Name=indicator-upower
 Exec=qmlscene qml/Main.qml
 Icon=assets/logo.png
 Terminal=false
