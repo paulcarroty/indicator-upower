@@ -50,15 +50,15 @@ Page {
             spacing: units.gu(1)
 
             Label {
-                text: i18n.tr("Upower queries interval (minutes)")
+                text: i18n.tr("Upower queries interval (seconds)")
                 Layout.fillWidth: true
             }
 
             TextField {
-                id: refreshMins
+                id: refreshMins // name to be update to seconds
                 validator: IntValidator {
-                    bottom: 1
-                    top: 60
+                    bottom: 30
+                    top: 3600
                 }
                 inputMethodHints: Qt.ImhDigitsOnly
 
@@ -129,15 +129,15 @@ Page {
                     message.visible = true;
                     var valid = false;
                     if (!refreshMins.acceptableInput) {
-                        message.text = i18n.tr("Please specify the Upower queries interval") + "<br>";
-                        // TRANSLATORS: %1 and %2 are the min/max minutes for refreshing the weather (e.g. 1 to 60)
-                        message.text += i18n.tr("in minutes (%1 to %2)").arg(refreshMins.validator.bottom).arg(refreshMins.validator.top);
+                        message.text = i18n.tr("Please specify the Upower queries interval in seconds") + "<br>";
+                        // TRANSLATORS: %1 and %2 are the min/max seconds for refreshing the indicator (e.g. 1 to 60)
+                        message.text += i18n.tr("in seconds (%1 to %2)").arg(refreshMins.validator.bottom).arg(refreshMins.validator.top);
                         message.color = UbuntuColors.orange;
                     }
                     else if (!thresholdCharging.acceptableInput) {
-                        message.text = i18n.tr("Battery charge threshold alarm") + "<br>";
-                        // TRANSLATORS: %1 and %2 are the min/max minutes for refreshing the weather (e.g. 1 to 60)
-                        message.text += i18n.tr("in minutes (%1 to %2)").arg(thresholdCharging.validator.bottom).arg(thresholdCharging.validator.top);
+                        message.text = i18n.tr("Battery charge percentage threshold alarm") + "<br>";
+                        // TRANSLATORS: %1 and %2 are the min/max UpowerIndicator for the alarm (e.g. 70 to 100)
+                        message.text += i18n.tr("in percentage (%1 to %2)").arg(thresholdCharging.validator.bottom).arg(thresholdCharging.validator.top);
                         message.color = UbuntuColors.orange;
                     }
                     else {

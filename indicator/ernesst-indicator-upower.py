@@ -176,7 +176,7 @@ class UpowerIndicator(object):
         self.bus.export_action_group(BUS_OBJECT_PATH, self.action_group)
         self.menu_export = self.bus.export_menu_model(BUS_OBJECT_PATH_PHONE, self.menu)
 
-        GLib.timeout_add_seconds(30 * self.refresh_mins, self._update_menu)
+        GLib.timeout_add_seconds(self.refresh_mins, self._update_menu)
         self._update_menu()
 
     def root_state(self):
