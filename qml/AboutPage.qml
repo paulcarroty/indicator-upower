@@ -32,7 +32,7 @@ Page {
             Label {
                 Layout.fillWidth: true
 
-                text: i18n.tr('Upower\'s Indicator')
+                text: i18n.tr('Indicator Upower')
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WordWrap
             }
