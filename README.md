@@ -16,7 +16,7 @@ To be enable
  * BigET's application [Notification Post](https://github.com/BigET/NotificationPost),
  * Gustavo Reis for the Suru++ logo: [credits and honors](https://github.com/gusbemacbe/suru-plus),
  * [Upower](https://upower.freedesktop.org/) command line tool,
- * Ubports documentation on push notification (https://docs.ubports.com/en/latest/appdev/guides/pushnotifications.html/).
+ * Ubports documentation on [push notification](https://docs.ubports.com/en/latest/appdev/guides/pushnotifications.html/).
 
 
 
