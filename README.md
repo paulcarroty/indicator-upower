@@ -11,6 +11,15 @@ Upower might be devices dependent, please raise a bug to enable your devices.
 
 To be enable
 
+## Credits
+ * Brian Douglass's application [indicator weather](https://gitlab.com/bhdouglass/indicator-weather) and his help,
+ * BigET's application [Notification Post](https://github.com/BigET/NotificationPost),
+ * Gustavo Reis for the Suru++ logo: [credits and honors](https://github.com/gusbemacbe/suru-plus),
+ * [Upower](https://upower.freedesktop.org/) command line tool,
+ * Ubports documentation on push notification (https://docs.ubports.com/en/latest/appdev/guides/pushnotifications.html/).
+
+
+
 ## About the Indicator
 As for Indicator Weather, the indicator itself is rather simple. It's a python script that exports a Gtk
 menu over DBus. To start the script there is an Upstart config file located at
