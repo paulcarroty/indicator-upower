@@ -16,10 +16,12 @@ Settings::Settings() {
 
     m_refreshMins = object.value("refresh_mins").toString().trimmed();
     m_thresholdCharging = object.value("threshold_Charging").toString().trimmed();
+    m_repeat_alarm = object.value("repeat_alarm").toString().trimmed();
+
 
     Q_EMIT refreshMinsChanged(m_refreshMins);
     Q_EMIT thresholdChargingChanged(m_thresholdCharging);
-
+    Q_EMIT repeat_alarmChanged(m_repeat_alarm);
     config.close();
 }
 
@@ -27,6 +29,7 @@ void Settings::save() {
     QJsonObject object;
     object.insert("refresh_mins", QJsonValue(m_refreshMins.trimmed()));
     object.insert("threshold_Charging", QJsonValue(m_thresholdCharging.trimmed()));
+    object.insert("repeat_alarm", QJsonValue(m_repeat_alarm.trimmed()));
 
     QJsonDocument doc;
     doc.setObject(object);

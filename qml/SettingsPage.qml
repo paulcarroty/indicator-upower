@@ -116,8 +116,31 @@ Page {
             Rectangle { // Spacer
                 Layout.preferredHeight: units.gu(1)
             }
+            Label {
+                text: i18n.tr("Repeat threshold alarm (yes = 1, No = 0)")
+                Layout.fillWidth: true
+            }
 
+            TextField {
+                id: repeat_alarm // name to be update to seconds
+                validator: IntValidator {
+                    bottom: 0
+                    top: 1
+                }
+                inputMethodHints: Qt.ImhDigitsOnly
 
+                Component.onCompleted: {
+                    if (settings.repeat_alarm) {
+                        text = settings.repeat_alarm;
+                    } else {
+                        text = '0';
+                    }
+                }
+
+                onTextChanged: {
+                    settings.repeat_alarm = text;
+                }
+            }
             Label {
                 id: message
                 visible: false

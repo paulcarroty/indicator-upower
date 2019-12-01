@@ -1,7 +1,7 @@
 include(FindGettext)
 find_program(GETTEXT_XGETTEXT_EXECUTABLE xgettext)
 
-set(DOMAIN "indicator-weather")
+set(DOMAIN "indicator-upower")
 set(POT_FILE ${DOMAIN}.pot)
 file(GLOB PO_FILES *.po)
 
@@ -16,8 +16,8 @@ add_custom_target(${POT_FILE} ALL
         --from-code=UTF-8
         --c++ --qt --language=python --add-comments=TRANSLATORS
         --keyword=tr --keyword=tr:1,2 --keyword=N_ --keyword=_
-        --package-name='indicator-weather.bhdouglass'
-        --copyright-holder='Brian Douglass'
+        --package-name='indicator.upower.ernesst'
+        --copyright-holder='Ernesst''
         ${I18N_SRC_FILES}
     COMMAND ${CMAKE_COMMAND} -E copy ${POT_FILE} ${CMAKE_CURRENT_SOURCE_DIR})
 

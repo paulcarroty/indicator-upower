@@ -40,6 +40,8 @@ class UpowerIndicator(object):
     config_file = "/home/phablet/.config/indicator.upower.ernesst/config.json"  # TODO don't hardcode this
     refresh_mins = 5
     threshold_Charging = 80
+    Repeat_Alarm_setting = 0
+    #Alarm_toperformed = 0
 
     def __init__(self, bus):
         self.get_config()
@@ -60,15 +62,21 @@ class UpowerIndicator(object):
         self.BATT_Time_Full_print = ''
         self.BATT_Time_print = ''
         self.get_phone_file = ''
+        self.Alarm_tobeperformed = 0
+        self.current_ma = 1
 
 
     def get_phone(self):
         if path.exists("/sys/devices/f9923000.i2c/i2c-84/84-0036/power_supply/battery/current_now"): # specific to Nexus 5
             self.get_phone_file = "/sys/devices/f9923000.i2c/i2c-84/84-0036/power_supply/battery/current_now"
-        else:
-            self.get_phone_file = ''
-        logger.debug("Current file detected: " + self.get_phone_file)
-
+            self.current_ma = 0
+            logger.debug("Current file detected: " + self.get_phone_file)
+        if path.exists("/sys/devices/qpnp-charger-f6284000/power_supply/battery/current_now"): # specific to OnePlus One
+            self.get_phone_file = "/sys/devices/qpnp-charger-f6284000/power_supply/battery/current_now"
+            logger.debug("Current file detected: " + self.get_phone_file)
+#        else:
+#            self.get_phone_file = ''
+#            logger.debug("Current file detected: none")
 
     def get_config(self):
         with open(self.config_file, 'r') as f:
@@ -84,6 +92,8 @@ class UpowerIndicator(object):
             if 'threshold_Charging' in config_json and config_json['threshold_Charging'].strip().isnumeric():
                 self.threshold_Charging = int(config_json['threshold_Charging'].strip())
 
+            if 'repeat_alarm' in config_json and config_json['repeat_alarm'].strip().isnumeric():
+                self.Repeat_Alarm_setting = int(config_json['repeat_alarm'].strip())
 
     def settings_action_activated(self, action, data):
         logger.debug('settings_action_activated')
@@ -91,12 +101,21 @@ class UpowerIndicator(object):
         subprocess.Popen(shlex.split('ubuntu-app-launch indicator.upower.ernesst_indicator-upower_@VERSION@'))
 
     def _battery_action(self):
-        print(self.BATT_Per)
-        print(self.BATT_status)
-        if self.BATT_Per > self.threshold_Charging and self.BATT_status == "charging" :
+        #print(self.Alarm_tobeperformed)
+        if self.Repeat_Alarm_setting != 1 and self.BATT_Per < self.threshold_Charging :
+            self.Alarm_tobeperformed = 0
+#        if self.Repeat_Alarm_setting != 1 and self.BATT_Per > self.threshold_Charging and self.Alarm_performed = 0:
+#            self.Alarm_performed = 1
+        if self.Repeat_Alarm_setting == 1 :
+            self.Alarm_tobeperformed = 0
+
+        if self.BATT_Per > self.threshold_Charging and self.BATT_status == "charging" and self.Alarm_tobeperformed == 0 :
             json_bat = "\'\"{\\\"message\\\": \\\"foobar\\\", \\\"notification\\\":{\\\"card\\\": {\\\"summary\\\": \\\"" + self.BATT_Per_print + "\\\", \\\"body\\\": \\\"" + "Please disconnect your charger" + "\\\", \\\"popup\\\": true, \\\"persist\\\": true}, \\\"sound\\\": true, \\\"vibrate\\\": {\\\"pattern\\\": [200, 100], \\\"duration\\\": 200,\\\"repeat\\\": 2 }}}\"\'"
             subprocess.Popen("/usr/bin/gdbus call --session --dest com.ubuntu.Postal --object-path /com/ubuntu/Postal/indicator_2eupower_2eernesst --method com.ubuntu.Postal.Post indicator.upower.ernesst_indicator-upower " +  json_bat, shell=True)
             logger.debug(self.BATT_Per_print + " Please detach the phone from charger")
+            self.Alarm_tobeperformed = 1
+        else:
+            self.Alarm_set = 1
         #if self.BATT_Volt and self.BATT_NRJ and self.BATT_status == "discharging":
         #    json_bat = "\'\"{\\\"message\\\": \\\"foobar\\\", \\\"notification\\\":{\\\"card\\\": {\\\"summary\\\": \\\"" + self.BATT_current_print + "\\\", \\\"body\\\": \\\"" + self.BATT_Time_Empt_print + "\\\", \\\"popup\\\": true, \\\"persist\\\": true}, \\\"sound\\\": true, \\\"vibrate\\\": {\\\"pattern\\\": [200, 100], \\\"duration\\\": 200,\\\"repeat\\\": 2 }}}\"\'"
         #    subprocess.Popen("/usr/bin/gdbus call --session --dest com.ubuntu.Postal --object-path /com/ubuntu/Postal/com_2eedi_2enpost --method com.ubuntu.Postal.Post com.edi.npost_npost " +  json_bat, shell=True)
@@ -123,30 +142,13 @@ class UpowerIndicator(object):
     def _create_section(self):
         BATT_info_list = []
         BATT_info_list = self.battery_query()
-        print(BATT_info_list)
+        #print(BATT_info_list)
         section = Gio.Menu()
         settings_menu_item = Gio.MenuItem.new(_('Upower\'s Battery Information: '))
         section.append_item(settings_menu_item)
-        if BATT_info_list[0]:
-            settings_menu_item = Gio.MenuItem.new(BATT_info_list[0])
-            section.append_item(settings_menu_item)
-        if BATT_info_list[1]:
-            settings_menu_item = Gio.MenuItem.new(BATT_info_list[1])
-            section.append_item(settings_menu_item)
-        if BATT_info_list[2]:
-            settings_menu_item = Gio.MenuItem.new(BATT_info_list[2])
-            section.append_item(settings_menu_item)
-        if BATT_info_list[3]:
-            settings_menu_item = Gio.MenuItem.new(BATT_info_list[3])
-            section.append_item(settings_menu_item)
-        if BATT_info_list[4]:
-            settings_menu_item = Gio.MenuItem.new(BATT_info_list[4])
-            section.append_item(settings_menu_item)
-        if BATT_info_list[5]:
-            settings_menu_item = Gio.MenuItem.new(BATT_info_list[5])
-            section.append_item(settings_menu_item)
-        if BATT_info_list[6]:
-            settings_menu_item = Gio.MenuItem.new(BATT_info_list[6])
+        for word in BATT_info_list:
+            print(word)
+            settings_menu_item = Gio.MenuItem.new(word)
             section.append_item(settings_menu_item)
         self._battery_action()
 
@@ -244,7 +246,10 @@ class UpowerIndicator(object):
                 if path.exists(self.get_phone_file):
                     F = open(self.get_phone_file,'r')
                     Current_data = F.read().split()
-                    self.BATT_current = round(int(Current_data[0]) /1000)
+                    if self.current_ma == 0:
+                        self.BATT_current = round(int(Current_data[0]) /1000)
+                    else:
+                        self.BATT_current = round(int(Current_data[0]))
                     F.close()
             self.BATT_current_print = "Current: " + str(self.BATT_current) + " mA"
             print(self.BATT_current_print)
@@ -273,7 +278,7 @@ class UpowerIndicator(object):
             BATT_info_list.append(self.BATT_Volt_print)
         if self.BATT_Time_print:
             BATT_info_list.append(self.BATT_Time_print)
-        print(BATT_info_list)
+        #print(BATT_info_list)
         return BATT_info_list
 
 if __name__ == '__main__':
@@ -287,5 +292,5 @@ if __name__ == '__main__':
     wi = UpowerIndicator(bus)
     wi.run()
 
-    logger.debug('Weather Indicator startup completed')
+    logger.debug('Upower Indicator startup completed')
     GLib.MainLoop().run()
