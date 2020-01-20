@@ -40,9 +40,18 @@ install(FILES "indicator-upower.service" DESTINATION ${DATA_DIR})
 install(FILES "indicator-upower-helper.apparmor" DESTINATION ${DATA_DIR})
 install(FILES "indicator-upower-helper.json" DESTINATION ${DATA_DIR})
 install(FILES "indicator-upower.application" DESTINATION ${DATA_DIR})
+install(FILES "qtquickcontrols2.conf" DESTINATION ${DATA_DIR})
 install(FILES "indicator-upower-helper" PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ DESTINATION ${DATA_DIR})
 install(DIRECTORY qml DESTINATION ${DATA_DIR})
 install(DIRECTORY assets DESTINATION ${DATA_DIR})
+
+set(
+    SRCS
+    main.cpp
+)
+add_executable(${PROJECT_NAME} ${SRCS} ${RSCS} ${indicator-upower_SRC})
+qt5_use_modules(${PROJECT_NAME} Gui Qml Quick QuickControls2)
+install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${DATA_DIR})
 
 # Translations
 file(GLOB_RECURSE I18N_SRC_FILES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/po qml/*.qml indicator/*.py)

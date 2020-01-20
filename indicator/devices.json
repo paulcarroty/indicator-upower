@@ -1,0 +1,26 @@
+{
+    "OnePlus3": {
+        "src": "",
+        "current_units": "mA"
+    },
+    "cedric": {
+        "src": "",
+        "current_units": "mA"
+    },
+    "hammerhead": {
+        "src": "/sys/devices/f9923000.i2c/i2c-84/84-0036/power_supply/battery/current_now",
+        "current_units": "uA"
+    },
+    "mako": {
+        "src": "",
+        "current_units": "mA"
+    },
+    "bacon": {
+        "src": "/sys/devices/qpnp-charger-f6284000/power_supply/battery/current_now",
+        "current_units": "mA"
+    },
+    "vegetahd": {
+        "src": "/sys/devices/platform/battery/power_supply/battery/Battery/Average/Current",
+        "current_units": "mA"
+    }
+}

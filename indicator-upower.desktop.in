@@ -1,6 +1,6 @@
 [Desktop Entry]
 _Name=indicator-upower
-Exec=qmlscene qml/Main.qml
+Exec=indicator-upower
 Icon=assets/logo.png
 Terminal=false
 Type=Application
