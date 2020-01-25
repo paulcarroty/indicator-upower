@@ -9,6 +9,7 @@ Upower is devices dependent, please raise a bug to enable your devices.
 
 Known support :
 
+
 |   Devices  | Status |    Current   | Temperature | Charge | Voltage | Remaining life  | Limit battery's charge |
 |:----------:|:------:|:------------:|:-----------:|:------:|:-------:|:---------------:|:----------------------:|
 |   OP3(T)   |    x   |       x      |      x      |    x   |    x    |        x        |            x           |
