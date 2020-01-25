@@ -10,7 +10,7 @@ Upower is devices dependent, please raise a bug to enable your devices.
 Known support :
 
 
-|   Devices  | Status |    Current   | Temperature | Charge | Voltage | Remaining life  | Limit battery's charge |
+|   Devices  | Status |    Current   | Temperature | Charge | Voltage | Remaining life  | Limiting battery's charge |
 |:----------:|:------:|:------------:|:-----------:|:------:|:-------:|:---------------:|:----------------------:|
 |   OP3(T)   |    x   |       x      |      x      |    x   |    x    |        x        |            x           |
 |    Mako    |    x   |       x      |      x      |    x   |    x    |        x        |           no           |
@@ -18,6 +18,11 @@ Known support :
 |   Cedric   |    x   |       x      |      x      |    x   |    x    |        x        |           no           |
 |    Bacon   |    x   |       x      |      x      |    x   |    x    |        no       |           no           |
 |  vegetahd  |    x   | not reliable |      x      |    x   |    x    |        no       |           no           |
+
+
+## Limiting battery's Charge
+- It's a feature which needs to be enable on the device itself.
+Please create a bug request against the repository of your device and mentions this commit : https://github.com/Halium/android_device_oneplus_oneplus3/pull/10/commits/f9154c467c0f6c6d9748f9d854dff01b44cce66f
 
 ## Installation
 - Install the application from OpenStore,

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: indicator.upower.ernesst\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-21 03:49+0000\n"
+"POT-Creation-Date: 2020-01-25 03:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -134,14 +134,10 @@ msgstr ""
 msgid "Donate"
 msgstr ""
 
-#: ../indicator/ernesst-indicator-upowerWIP.py:187
 #: ../indicator/ernesst-indicator-upower.py:214
-#: ../indicator/ernesst-indicator-upower-bkp.py:157
 msgid "Upower's Battery Information: "
 msgstr ""
 
-#: ../indicator/ernesst-indicator-upowerWIP.py:227
 #: ../indicator/ernesst-indicator-upower.py:254
-#: ../indicator/ernesst-indicator-upower-bkp.py:197
 msgid "Upower"
 msgstr ""
