@@ -3,9 +3,25 @@
 A upower indicator for Ubuntu Touch, spin-off from bhdouglass's Indicator Weather.
 it's uses data from the cli command [Upower ](https://upower.freedesktop.org/) embedded into the Ubuntu touch operating system.
 
-Upower might be devices dependent, please raise a bug to enable your devices.
+Upower is devices dependent, please raise a bug to enable your devices.
 
 [![OpenStore](https://open-store.io/badges/en_US.png)](https://open-store.io/app/indicator.upower-ernesst)
+
+Known support :
+|   Devices  | Status |    Current   | Temperature | Charge | Voltage | Remaining life  | Limit battery's charge |
+|:----------:|:------:|:------------:|:-----------:|:------:|:-------:|:---------------:|:----------------------:|
+|   OP3(T)   |    x   |       x      |      x      |    x   |    x    |        x        |            x           |
+|    Mako    |    x   |       x      |      x      |    x   |    x    |        x        |           no           |
+| Hammerhead |    x   |       x      |      x      |    x   |    x    |        no       |           no           |
+|   Cedric   |    x   |       x      |      x      |    x   |    x    |        x        |           no           |
+|    Bacon   |    x   |       x      |      x      |    x   |    x    |        no       |           no           |
+|  vegetahd  |    x   | not reliable |      x      |    x   |    x    |        no       |           no           |
+
+## Installation
+- Install the application from OpenStore,
+- Go to the upower app, set setting and save,
+- install the indicators,
+- Reboot.
 
 ## Translating
 

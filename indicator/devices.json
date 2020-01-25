@@ -20,7 +20,7 @@
         "current_units": "mA"
     },
     "vegetahd": {
-        "src": "/sys/devices/platform/battery/power_supply/battery/Battery/Average/Current",
+        "src": "/sys/devices/platform/battery/power_supply/battery/BatteryAverageCurrent",
         "current_units": "mA"
     }
 }
