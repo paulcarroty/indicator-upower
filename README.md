@@ -8,6 +8,7 @@ Upower is devices dependent, please raise a bug to enable your devices.
 [![OpenStore](https://open-store.io/badges/en_US.png)](https://open-store.io/app/indicator.upower-ernesst)
 
 Known support :
+
 |   Devices  | Status |    Current   | Temperature | Charge | Voltage | Remaining life  | Limit battery's charge |
 |:----------:|:------:|:------------:|:-----------:|:------:|:-------:|:---------------:|:----------------------:|
 |   OP3(T)   |    x   |       x      |      x      |    x   |    x    |        x        |            x           |
