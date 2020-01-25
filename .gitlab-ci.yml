@@ -1,4 +1,5 @@
-publish:
+publish-armhf:
+  stage: deploy
   image: clickable/ci-16.04-armhf
   only:
     - tags
@@ -10,8 +11,57 @@ publish:
       - build/*/app/*.click
     expire_in: 1 week
 
-build:
+publish-arm64:
+  stage: deploy
+  image: clickable/ci-16.04-arm64
+  only:
+    - tags
+  script:
+    - clickable clean build publish
+  artifacts:
+    paths:
+      - build/*/app/*.click
+    expire_in: 1 week
+
+publish-amd64:
+  stage: deploy
+  image: clickable/ci-16.04-amd64
+  only:
+    - tags
+  script:
+    - clickable clean build publish
+  artifacts:
+    paths:
+      - build/*/app/*.click
+    expire_in: 1 week
+
+build-armhf:
+  stage: build
   image: clickable/ci-16.04-armhf
+  except:
+    - tags
+  script:
+    - clickable clean build
+  artifacts:
+    paths:
+      - build/*/app/*.click
+    expire_in: 1 week
+
+build-arm64:
+  stage: build
+  image: clickable/ci-16.04-arm64
+  except:
+    - tags
+  script:
+    - clickable clean build
+  artifacts:
+    paths:
+      - build/*/app/*.click
+    expire_in: 1 week
+
+build-amd64:
+  stage: build
+  image: clickable/ci-16.04-amd64
   except:
     - tags
   script:
