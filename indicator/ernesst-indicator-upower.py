@@ -10,7 +10,7 @@ from subprocess import Popen, PIPE
 import re
 from gi.repository import Gio
 from gi.repository import GLib
-
+from number import parseNumber
 
 
 import gettext
@@ -288,7 +288,7 @@ class UpowerIndicator(object):
                 self.BATT_Per_print = "Charge: " + str(self.BATT_Per) + "%"
          #       print(self.BATT_Per_print)
             if re.search("temperature", element):
-                self.BATT_temp = float(element.split()[1])
+                self.BATT_temp = float(parseNumber(element.split()[1]))
                 self.BATT_temp_print = "Temperature: " + str(self.BATT_temp) + " C"
          #       print(self.BATT_temp_print)
             if re.search("time to empty", element):
@@ -308,7 +308,7 @@ class UpowerIndicator(object):
          #       print("Update: " + str(self.BATT_update))
             if self.phone_current_file == '':
                 if self.BATT_Volt and self.BATT_NRJ:
-                    self.BATT_current = round((float(self.BATT_NRJ) / float(self.BATT_Volt))*1000)
+                    self.BATT_current = round((float(parseNumber(self.BATT_NRJ)) / float(parseNumber(self.BATT_Volt)))*1000)
             else:
                 logger.debug("0 " + str(self.phone_current_file))
                 if path.exists(self.phone_current_file):
@@ -319,9 +319,9 @@ class UpowerIndicator(object):
                     F.close()
             if self.BATT_current:
                 if self.phone_current_unit == "uA":
-                    self.BATT_current = round(float(self.BATT_current) /1000)
+                    self.BATT_current = round(float(parseNumber(self.BATT_current)) /1000)
                 if self.phone_current_unit == "mA":
-                    self.BATT_current = round(float(self.BATT_current))
+                    self.BATT_current = round(float(parseNumber(self.BATT_current)))
                 self.BATT_current_print = "Current: " + str(self.BATT_current) + " mA"
             #print(self.BATT_current_print)
 
