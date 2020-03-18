@@ -5,6 +5,7 @@ import subprocess
 import shlex
 import logging
 import os.path
+import datetime
 from os import path
 from subprocess import Popen, PIPE
 import re
@@ -60,6 +61,21 @@ class UpowerIndicator(object):
         self.BATT_Time_Full_print = ''
         self.BATT_Time_print = ''
         self.phone_current_file = ''
+        self.BATT_cycle_count = ''
+        self.BATT_cycle_count_print = ''
+        self.phone_cycle_count_file = ''
+        self.BATT_Per = ''
+        self.BATT_Per_print = ''
+        self.phone_per_file = ''
+        self.BATT_status = ''
+        self.BATT_status_print = ''
+        self.phone_status_file = ''
+        self.BATT_temp = ''
+        self.BATT_temp_print = ''
+        self.phone_temp_file = ''
+        self.BATT_capacity = ''
+        self.BATT_capacity_print = ''
+        self.phone_capacity_file = ''
         self.phone_current_unit = ''
         self.Alarm_tobeperformed = 1
         self.device_name = ''
@@ -117,17 +133,18 @@ class UpowerIndicator(object):
             try:
                 config_json = json.load(f)
             except:
-                logger.warning('Failed to load the config file: {}'.format(str(sys.exc_info()[1])))
+                logger.debug('Failed to load the config file: {}'.format(str(sys.exc_info()[1])))
             print(config_json)
             if 'device' in config_json and config_json['device'].strip():
                 self.device_name = config_json['device'].strip()
                 self.read_device_config()
             else:
+                print(path.exists("/system/build.prop"))
                 if path.exists("/system/build.prop"):
                     build_prop_file = open("/system/build.prop")
                     for line in build_prop_file:
                         if re.search("ro.product.device", line):
-           #                 print(line)
+                            print(line)
                             try:
                                 device = line.split("=")[1]
                                 device = device.rstrip()
@@ -140,7 +157,7 @@ class UpowerIndicator(object):
                                 f.close()
 
                             except:
-                                logger.warning('Failed to read device name: {}'.format(str(sys.exc_info()[1])))
+                                logger.debug('Failed to read device name: {}'.format(str(sys.exc_info()[1])))
 
     def read_device_config(self):
         with open(self.config_file_device) as f:
@@ -149,7 +166,16 @@ class UpowerIndicator(object):
                 config_json_device = json.load(f)
                 self.phone_current_file = config_json_device[self.device_name]["src"]
                 self.phone_current_unit = config_json_device[self.device_name]["current_units"]
-#                print(config_json_device)
+                if self.device_name == "OnePlus3":
+                    self.phone_cycle_count_file = config_json_device[self.device_name]["cycle_count"]
+                    self.phone_capacity_file = config_json_device[self.device_name]["capacity"]
+                if self.device_name == "turbo":
+                    self.phone_cycle_count_file = config_json_device[self.device_name]["cycle_count"]
+                    self.phone_per_file = config_json_device[self.device_name]["percentage"]
+                    self.phone_status_file = config_json_device[self.device_name]["status"]
+                    self.phone_temp_file = config_json_device[self.device_name]["temp"]
+
+
                 if self.phone_current_file != '':
                     logger.debug("Battery current information file found: " + self.phone_current_file)
                 else:
@@ -159,15 +185,14 @@ class UpowerIndicator(object):
                 logger.warning('Failed to load the device config file: {}'.format(str(sys.exc_info()[1])))
 
 
-
     def settings_action_activated(self, action, data):
         logger.debug('settings_action_activated')
         # For some reason ubuntu-app-launch hangs without the version, so let cmake set it for us
-        subprocess.Popen(shlex.split('ubuntu-app-launch indicator.upower.ernesst_indicator-upower_0.1'))
+        subprocess.Popen(shlex.split('ubuntu-app-launch indicator.upower.ernesst_indicator-upower_0.3'))
 
     def _battery_action(self):
     ## Define a buffer to reinitialize notification status
-        if self.Repeat_Alarm_setting != 1 and self.BATT_Per < 0.8 * self.threshold_Charging :
+        if self.Repeat_Alarm_setting != 1 and int(self.BATT_Per) < 0.8 * self.threshold_Charging :
             self.Alarm_tobeperformed = 1
 
     ## Push PUSH_Notification
@@ -193,10 +218,6 @@ class UpowerIndicator(object):
         if self.Repeat_Alarm_setting == 1 :
             self.Alarm_tobeperformed = 1
 
-
-
-
-
     def _setup_actions(self):
         root_action = Gio.SimpleAction.new_stateful(self.ROOT_ACTION, None, self.root_state())
         self.action_group.insert(root_action)
@@ -209,18 +230,13 @@ class UpowerIndicator(object):
     def _create_section(self):
         BATT_info_list = []
         BATT_info_list = self.battery_query()
-        #print(BATT_info_list)
         section = Gio.Menu()
         settings_menu_item = Gio.MenuItem.new(_('Upower\'s Battery Information: '))
         section.append_item(settings_menu_item)
         for word in BATT_info_list:
-            #print(word)
             settings_menu_item = Gio.MenuItem.new(word)
             section.append_item(settings_menu_item)
         self._battery_action()
-
-#        settings_menu_item = Gio.MenuItem.new(_('Battery Settings'), 'indicator.{}'.format(self.SETTINGS_ACTION))
-#        section.append_item(settings_menu_item)
         return section
 
     def _setup_menu(self):
@@ -252,15 +268,7 @@ class UpowerIndicator(object):
         vardict = GLib.VariantDict.new()
         vardict.insert_value('visible', GLib.Variant.new_boolean(True))
         vardict.insert_value('title', GLib.Variant.new_string(_('Upower')))
-
-        #temperature = str(self.current_temperature) + '°'
-        #temperature = str(76) + '°'
-        #if self.error:
-        #    temperature = ''
-
-        #vardict.insert_value('label', GLib.Variant.new_string(temperature))
         icon = Gio.ThemedIcon.new("weather-chance-of-storm")
-        #icon = Gio.ThemedIcon.new(unity_battery_plugged)
         vardict.insert_value('icon', icon.serialize())
 
         return vardict.end()
@@ -270,85 +278,148 @@ class UpowerIndicator(object):
         stdout = process.communicate()
         stdout = stdout[0].decode('UTF-8').split("\n")
         BATT_info_list = []
-        #print("****")
+
+#### TODO to redifine the for loop, as current it's a dirty mix by looking at sys file too,
+
         for element in stdout:
-#        print(element)
+#### Capture battery voltage
             if re.search("voltage:", element):
                 self.BATT_Volt = element.split()[1]
-                #            print(element.split())
                 self.BATT_Volt_print = "Voltage: " + str(self.BATT_Volt) + "V"
-         #       print(self.BATT_Volt_print)
+#### Capture battery Energy
             if re.search("energy-rate:", element):
                 self.BATT_NRJ = element.split()[1]
-                #            print(element.split()[1])
-         #       print("Battery NRJ: " + str(self.BATT_NRJ) + "W")
-            if re.search("percentage:", element):
-                self.BATT_Per = element.split()[1]
-                self.BATT_Per = int(self.BATT_Per[:-1])
-                self.BATT_Per_print = "Charge: " + str(self.BATT_Per) + "%"
-         #       print(self.BATT_Per_print)
-            if re.search("temperature", element):
-                self.BATT_temp = float(parseNumber(element.split()[1]))
-                self.BATT_temp_print = "Temperature: " + str(self.BATT_temp) + " C"
-         #       print(self.BATT_temp_print)
+#### Capture battery percentage
+            if self.phone_per_file =='':
+                if re.search("percentage:", element):
+                    self.BATT_Per = element.split()[1]
+                    self.BATT_Per = int(self.BATT_Per[:-1])
+                    self.BATT_Per_print = "Charge: " + str(self.BATT_Per) + "%"
+            else:
+                #logger.debug("0 " + str(self.phone_per_file))
+                if path.exists(self.phone_per_file):
+                    F = open(self.phone_per_file,'r')
+                    per_data = F.read().split()
+                    self.BATT_Per = per_data[0]
+                    self.BATT_Per = int(self.BATT_Per[:-1])
+                    #logger.debug("3 " + str(self.BATT_Per))
+                    F.close()
+                if self.BATT_Per:
+                    self.BATT_Per_print = "Status: " + str(self.BATT_Per)
+#### Capture battery temperature
+            if self.phone_temp_file =='':
+                if re.search("temperature", element):
+                    self.BATT_temp = float(parseNumber(element.split()[1]))
+                    self.BATT_temp_print = "Temperature: " + str(self.BATT_temp) + " C"
+            else:
+                #logger.debug("0 " + str(self.phone_temp_file))
+                if path.exists(self.phone_temp_file):
+                    F = open(self.phone_temp_file,'r')
+                    temp_data = F.read().split()
+                    self.BATT_temp = temp_data[0]
+                    self.BATT_temp = round(float(self.BATT_temp)/10),0)
+                    #logger.debug("3 " + str(self.BATT_temp))
+                    F.close()
+                if self.BATT_temp:
+                    self.BATT_temp_print = "Temperature: " + str(self.BATT_temp) + " C"
+
+#### Capture battery time to empty
             if re.search("time to empty", element):
                 self.BATT_Time_Empt = element.split("       ")[1]
                 self.BATT_Time_Empt_print = "Remaining life time: " + str(self.BATT_Time_Empt)
-         #       print(self.BATT_Time_Empt_print)
+#### Capture battery time to full
             if re.search("time to full", element):
                 self.BATT_Time_Full = element.split("       ")[1]
                 self.BATT_Time_Full_print = "Remaining charging time: " + str(self.BATT_Time_Full)
-         #       print(self.BATT_Time_Full_print)
-            if re.search("state", element):
-                self.BATT_status = element.split()[1]
-                self.BATT_status_print = "Status: " + str(self.BATT_status)
-         #       print(self.BATT_status_print )
-            if re.search("updated", element):
-                self.BATT_update = element.split("              ")[1]
-         #       print("Update: " + str(self.BATT_update))
+#### Capture battery status
+            if self.phone_status_file =='':
+                if re.search("state", element):
+                    self.BATT_status = element.split()[1]
+                    self.BATT_status_print = "Status: " + str(self.BATT_status)
+            else:
+                #logger.debug("0 " + str(self.phone_status_file))
+                if path.exists(self.phone_status_file):
+                    F = open(self.phone_status_file,'r')
+                    status_data = F.read().split()
+                    self.BATT_status = status_data[0]
+                    #logger.debug("3 " + str(self.BATT_status))
+                    F.close()
+                if self.BATT_status:
+                    self.BATT_status_print = "Status: " + str(self.BATT_status)
+#### Define battery last update - Not entirely correct but independent of phone
+            self.BATT_update = "Last update : " + datetime.datetime.now().strftime("%H:%M:%S")
+#### Capture battery current
             if self.phone_current_file == '':
                 if self.BATT_Volt and self.BATT_NRJ:
                     self.BATT_current = round((float(parseNumber(self.BATT_NRJ)) / float(parseNumber(self.BATT_Volt)))*1000)
             else:
-                logger.debug("0 " + str(self.phone_current_file))
+                #logger.debug("0 " + str(self.phone_current_file))
                 if path.exists(self.phone_current_file):
                     F = open(self.phone_current_file,'r')
                     Current_data = F.read().split()
                     self.BATT_current = Current_data[0]
-                    logger.debug("1 " + str(self.BATT_current))
+                    #logger.debug("1 " + str(self.BATT_current))
                     F.close()
+#### Capture battery cycle count
+            if self.phone_cycle_count_file != '':
+                #logger.debug("0 " + str(self.phone_cycle_count_file))
+                if path.exists(self.phone_cycle_count_file):
+                    F = open(self.phone_cycle_count_file,'r')
+                    Count_data = F.read().split()
+                    self.BATT_cycle_count = Count_data[0]
+                    #logger.debug("2 " + str(self.BATT_cycle_count))
+                    F.close()
+            if self.BATT_cycle_count:
+                self.BATT_cycle_count_print = "Battery Cycles: " + str(self.BATT_cycle_count)
+#### Capture battery estimated capacity
+            if self.phone_capacity_file != '':
+                #logger.debug("0 " + str(self.phone_capacity_file))
+                if path.exists(self.phone_capacity_file):
+                    F = open(self.phone_capacity_file,'r')
+                    Capacity_data = F.read().split()
+                    self.BATT_capacity = Capacity_data[0]
+                    #logger.debug("3 " + str(self.BATT_capacity))
+                    F.close()
+            if self.BATT_capacity:
+                self.BATT_capacity_print = "Estimated capacity: " + str(self.BATT_capacity)+ " mAh"
+#### Adjust current unit
             if self.BATT_current:
                 if self.phone_current_unit == "uA":
                     self.BATT_current = round(float(parseNumber(self.BATT_current)) /1000)
                 if self.phone_current_unit == "mA":
                     self.BATT_current = round(float(parseNumber(self.BATT_current)))
                 self.BATT_current_print = "Current: " + str(self.BATT_current) + " mA"
-            #print(self.BATT_current_print)
+#### select battery status print
+            if self.phone_status_file =='':
+                if self.BATT_status == "charging" :
+                    if self.BATT_Time_Full_print:
+                        self.BATT_Time_print = self.BATT_Time_Full_print
+                else:
+                    if self.BATT_Time_Empt_print:
+                        self.BATT_Time_print = self.BATT_Time_Empt_print
 
-        if self.BATT_status == "charging" :
-            if self.BATT_Time_Full_print:
-                self.BATT_Time_print = self.BATT_Time_Full_print
-        else:
-            if self.BATT_Time_Empt_print:
-                self.BATT_Time_print = self.BATT_Time_Empt_print
-        #print("****")
         process.kill()
 
-        #print(Commande)
-        if self.BATT_update:
+        #print(hasattr(self, 'BATT_update'))
+        if hasattr(self, 'BATT_update') and self.BATT_update !='':
             BATT_info_list.append(self.BATT_update)
-        if self.BATT_status_print:
-            BATT_info_list.append(self.BATT_status_print)
-        if self.BATT_current_print:
-            BATT_info_list.append(self.BATT_current_print)
-        if self.BATT_temp_print:
+        if hasattr(self, 'BATT_capacity_print') and self.BATT_capacity_print !='':
+            BATT_info_list.append(self.BATT_capacity_print)
+        if hasattr(self, 'BATT_cycle_count_print') and self.BATT_cycle_count_print != '':
+            BATT_info_list.append(self.BATT_cycle_count_print)
+        if hasattr(self, 'BATT_temp_print') and self.BATT_temp_print !='':
             BATT_info_list.append(self.BATT_temp_print)
-        if self.BATT_Per_print:
+        if hasattr(self, 'BATT_status_print') and self.BATT_status_print !='':
+            BATT_info_list.append(self.BATT_status_print)
+        if hasattr(self, 'BATT_current_print') and self.BATT_current_print !='':
+            BATT_info_list.append(self.BATT_current_print)
+        if hasattr(self, 'BATT_Per_print') and self.BATT_Per_print !='':
             BATT_info_list.append(self.BATT_Per_print)
-        if self.BATT_Volt_print:
-            BATT_info_list.append(self.BATT_Volt_print)
-        if self.BATT_Time_print:
+#        if hasattr(self, 'BATT_Volt_print'):
+#            BATT_info_list.append(self.BATT_Volt_print)
+        if hasattr(self, 'BATT_Time_print') and self.BATT_Time_print !='':
             BATT_info_list.append(self.BATT_Time_print)
+
         #print(BATT_info_list)
         return BATT_info_list
 

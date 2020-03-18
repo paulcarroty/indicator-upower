@@ -1,7 +1,17 @@
 {
     "OnePlus3": {
         "src": "",
-        "current_units": "mA"
+        "current_units": "mA",
+        "cycle_count":"/sys/class/power_supply/battery/cycle_count",
+        "health": "/sys/class/power_supply/battery/health",
+        "capacity":"/sys/class/power_supply/battery/charge_full_design"
+    },
+    "OnePlus3T": {
+        "src": "",
+        "current_units": "mA",
+        "cycle_count":"/sys/class/power_supply/battery/cycle_count",
+        "health": "/sys/class/power_supply/battery/health",
+        "capacity":"/sys/class/power_supply/battery/charge_full_design"
     },
     "cedric": {
         "src": "",
@@ -22,5 +32,13 @@
     "vegetahd": {
         "src": "/sys/devices/platform/battery/power_supply/battery/BatteryAverageCurrent",
         "current_units": "mA"
+    },
+    "turbo": {
+        "src": "/sys/devices/14e00000.hsi2c/i2c-6/6-0055/power_supply/bq2753x-0/current_now",
+        "current_units": "uA",
+        "status" :"/sys/devices/14e00000.hsi2c/i2c-6/6-0055/power_supply/bq2753x-0/status",
+        "percentage":"/sys/devices/14e00000.hsi2c/i2c-6/6-0055/power_supply/bq2753x-0/capacity",
+        "cycle_count":"/sys/devices/14e00000.hsi2c/i2c-6/6-0055/power_supply/bq2753x-0/cycle_count",
+        "temp":"/sys/devices/14e00000.hsi2c/i2c-6/6-0055/power_supply/bq2753x-0/temp"
     }
 }
