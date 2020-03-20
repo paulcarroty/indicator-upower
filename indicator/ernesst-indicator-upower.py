@@ -301,11 +301,11 @@ class UpowerIndicator(object):
                     F = open(self.phone_per_file,'r')
                     per_data = F.read().split()
                     self.BATT_Per = per_data[0]
-                    self.BATT_Per = int(self.BATT_Per[:-1])
+                    self.BATT_Per = int(self.BATT_Per)
                     #logger.debug("3 " + str(self.BATT_Per))
                     F.close()
                 if self.BATT_Per:
-                    self.BATT_Per_print = "Status: " + str(self.BATT_Per)
+                    self.BATT_Per_print = "Charge: " + str(self.BATT_Per) + "%"
 #### Capture battery temperature
             if self.phone_temp_file =='':
                 if re.search("temperature", element):
@@ -317,7 +317,7 @@ class UpowerIndicator(object):
                     F = open(self.phone_temp_file,'r')
                     temp_data = F.read().split()
                     self.BATT_temp = temp_data[0]
-                    self.BATT_temp = round(float(self.BATT_temp)/10),0)
+                    self.BATT_temp = round(float(self.BATT_temp)/10,0) #Convert into C unit
                     #logger.debug("3 " + str(self.BATT_temp))
                     F.close()
                 if self.BATT_temp:
