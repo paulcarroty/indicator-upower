@@ -1,0 +1,123 @@
+name: CI
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build-armhf:
+    runs-on: ubuntu-latest
+    if: "!contains(github.ref, 'refs/tags')"
+    container:
+      image: clickable/ci-16.04-armhf
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Build
+        run: clickable clean build
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: armhf-build
+          path: build/*/app/*.click
+          retention-days: 7
+
+  build-arm64:
+    runs-on: ubuntu-latest
+    if: "!contains(github.ref, 'refs/tags')"
+    container:
+      image: clickable/ci-16.04-arm64
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Build
+        run: clickable clean build
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: arm64-build
+          path: build/*/app/*.click
+          retention-days: 7
+
+  build-amd64:
+    runs-on: ubuntu-latest
+    if: "!contains(github.ref, 'refs/tags')"
+    container:
+      image: clickable/ci-16.04-amd64
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Build
+        run: clickable clean build
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: amd64-build
+          path: build/*/app/*.click
+          retention-days: 7
+
+  publish-armhf:
+    runs-on: ubuntu-latest
+    if: "contains(github.ref, 'refs/tags')"
+    container:
+      image: clickable/ci-16.04-armhf
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Build and Publish
+        run: |
+          clickable clean build
+          clickable publish "${{ github.event.head_commit.message }}"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: armhf-publish
+          path: build/*/app/*.click
+          retention-days: 7
+
+  publish-arm64:
+    runs-on: ubuntu-latest
+    if: "contains(github.ref, 'refs/tags')"
+    container:
+      image: clickable/ci-16.04-arm64
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Build and Publish
+        run: clickable clean build publish
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: arm64-publish
+          path: build/*/app/*.click
+          retention-days: 7
+
+  publish-amd64:
+    runs-on: ubuntu-latest
+    if: "contains(github.ref, 'refs/tags')"
+    container:
+      image: clickable/ci-16.04-amd64
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Build and Publish
+        run: clickable clean build publish
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: amd64-publish
+          path: build/*/app/*.click
+          retention-days: 7
