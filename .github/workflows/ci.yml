@@ -52,6 +52,7 @@ jobs:
 
       - name: Build
         run: clickable clean build
+      - uses: owenthereal/action-upterm@v1
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
