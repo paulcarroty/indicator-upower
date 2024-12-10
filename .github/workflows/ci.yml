@@ -12,7 +12,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-      - uses: lhotari/action-upterm@v1
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
       - name: Build
         run: clickable clean build
       - name: Upload artifact
