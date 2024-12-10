@@ -11,13 +11,13 @@ jobs:
       image: clickable/ci-16.04-armhf
     steps:
       - name: Check out repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Build
         run: clickable clean build
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: armhf-build
           path: build/*/app/*.click
@@ -29,13 +29,13 @@ jobs:
       image: clickable/ci-16.04-arm64
     steps:
       - name: Check out repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Build
         run: clickable clean build
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: arm64-build
           path: build/*/app/*.click
@@ -48,13 +48,13 @@ jobs:
       image: clickable/ci-16.04-amd64
     steps:
       - name: Check out repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Build
         run: clickable clean build
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: amd64-build
           path: build/*/app/*.click
@@ -67,7 +67,7 @@ jobs:
       image: clickable/ci-16.04-armhf
     steps:
       - name: Check out repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Build and Publish
         run: |
@@ -75,7 +75,7 @@ jobs:
           clickable publish "${{ github.event.head_commit.message }}"
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: armhf-publish
           path: build/*/app/*.click
@@ -88,13 +88,13 @@ jobs:
       image: clickable/ci-16.04-arm64
     steps:
       - name: Check out repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Build and Publish
         run: clickable clean build publish
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: arm64-publish
           path: build/*/app/*.click
@@ -107,13 +107,13 @@ jobs:
       image: clickable/ci-16.04-amd64
     steps:
       - name: Check out repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Build and Publish
         run: clickable clean build publish
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: amd64-publish
           path: build/*/app/*.click
