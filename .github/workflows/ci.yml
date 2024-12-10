@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     if: "!contains(github.ref, 'refs/tags')"
     container:
-      image: clickable/ci-16.04-armhf
+      image: clickable/ci-20.04-armhf
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -26,7 +26,7 @@ jobs:
   build-arm64:
     runs-on: ubuntu-latest
     container:
-      image: clickable/ci-16.04-arm64
+      image: clickable/ci-20.04-arm64
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -45,7 +45,7 @@ jobs:
     runs-on: ubuntu-latest
     if: "!contains(github.ref, 'refs/tags')"
     container:
-      image: clickable/ci-16.04-amd64
+      image: clickable/ci-20.04-amd64
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -64,7 +64,7 @@ jobs:
     runs-on: ubuntu-latest
     if: "contains(github.ref, 'refs/tags')"
     container:
-      image: clickable/ci-16.04-armhf
+      image: clickable/ci-20.04-armhf
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -85,7 +85,7 @@ jobs:
     runs-on: ubuntu-latest
     if: "contains(github.ref, 'refs/tags')"
     container:
-      image: clickable/ci-16.04-arm64
+      image: clickable/ci-20.04-arm64
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -104,7 +104,7 @@ jobs:
     runs-on: ubuntu-latest
     if: "contains(github.ref, 'refs/tags')"
     container:
-      image: clickable/ci-16.04-amd64
+      image: clickable/ci-20.04-amd64
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
