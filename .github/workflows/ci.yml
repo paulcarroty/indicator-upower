@@ -12,10 +12,9 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-
+      - uses: owenthereal/action-upterm@v1
       - name: Build
         run: clickable clean build
-      - uses: owenthereal/action-upterm@v1
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
@@ -41,21 +40,4 @@ jobs:
           path: build/*/app/*.click
           retention-days: 7
 
-  publish-amd64:
-    runs-on: ubuntu-latest
-    if: "contains(github.ref, 'refs/tags')"
-    container:
-      image: clickable/ci-20.04-amd64
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-
-      - name: Build and Publish
-        run: clickable clean build publish
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: amd64-publish
-          path: build/*/app/*.click
-          retention-days: 7
+  
