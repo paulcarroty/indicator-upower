@@ -27,7 +27,6 @@ jobs:
 
   build-arm64:
     runs-on: ubuntu-latest
-    if: "!contains(github.ref, 'refs/tags')"
     container:
       image: clickable/ci-16.04-arm64
     steps:
