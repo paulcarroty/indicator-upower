@@ -2,6 +2,7 @@ name: CI
 
 on:
   push:
+  pull_request:
 
 jobs:
   
@@ -12,8 +13,6 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
       - name: Build
         run: clickable build  --accept-review-warnings ---accept-review-errors
       - name: Upload artifact
