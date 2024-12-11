@@ -20,6 +20,13 @@ jobs:
         with:
           name: arm64-build
           path: build/*/app/*.click
-
+      - name: Upload artifact on release
+        if: github.event_name == 'release'
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: build/*/app/*.click
+          asset_name: arm64-build.click
+          asset_content_type: application/octet-stream
 
   
