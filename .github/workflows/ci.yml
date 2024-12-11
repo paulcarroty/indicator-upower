@@ -15,30 +15,12 @@ jobs:
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3
       - name: Build
-        run: clickable clean build
+        run: clickable build
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: arm64-build
           path: build/*/app/*.click
-  
-  publish-arm64:
-    runs-on: ubuntu-latest
-    if: "contains(github.ref, 'refs/tags')"
-    container:
-      image: clickable/ci-20.04-arm64
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
 
-      - name: Build and Publish
-        run: clickable clean build publish
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: arm64-publish
-          path: build/*/app/*.click
-          retention-days: 7
 
   
