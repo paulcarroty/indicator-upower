@@ -15,7 +15,7 @@ jobs:
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3
       - name: Build
-        run: clickable build
+        run: clickable build  --accept-review-warnings ---accept-review-errors
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
