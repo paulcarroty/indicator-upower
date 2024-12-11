@@ -1,8 +1,8 @@
 {
-    "name": "indicator.upower.ernesst",
+    "name": "indicator.upower.ernesst.fork",
     "description": "Upower interface indicator for Ubuntu touch",
     "architecture": "@CLICK_ARCH@",
-    "title": "Upower Indicator",
+    "title": "Upower Indicator Fork",
     "hooks": {
         "indicator-upower": {
             "apparmor": "indicator-upower.apparmor",
