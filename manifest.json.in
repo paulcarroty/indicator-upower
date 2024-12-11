@@ -15,5 +15,5 @@
     },
     "version": "@VERSION@",
     "maintainer": "ernesst <ernesst@posteo.net>",
-    "framework" : "ubuntu-sdk-16.04"
+    "framework" : "ubuntu-sdk-20.04"
 }
