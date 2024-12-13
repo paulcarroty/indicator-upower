@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<application id="indicator.upower.ernesst_indicator-upowery">
+<application id="indicator.upower.ernesst.fork_indicator-upowery">
   <description>indicator upower</description>
 
   <services>
-    <service id="indicator.upower.ernesst_indicator-upower">
+    <service id="indicator.upower.ernesst.fork_indicator-upower">
       <description>Use the service in a indicator</description>
     </service>
   </services>
