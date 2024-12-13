@@ -1,6 +1,6 @@
 import QtQuick 2.4
 import QtQuick.Layouts 1.1
-import Ubuntu.Components 1.3
+import Lomiri.Components 1.3
 
 Page {
     title: i18n.tr('About')
@@ -37,7 +37,7 @@ Page {
                 wrapMode: Text.WordWrap
             }
 
-            UbuntuShape {
+            LomiriShape {
                 Layout.preferredHeight: units.gu(20)
                 Layout.preferredWidth: units.gu(20)
                 Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
@@ -105,7 +105,7 @@ Page {
                 Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
 
                 text: i18n.tr('Donate')
-                color: UbuntuColors.orange
+                color: LomiriColors.orange
                 onClicked: Qt.openUrlExternally('https://ubports.com/donate')
             }
         }

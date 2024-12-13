@@ -1,6 +1,6 @@
 import QtQuick 2.4
 import QtQuick.Layouts 1.1
-import Ubuntu.Components 1.3
+import Lomiri.Components 1.3
 import Indicator 1.0
 
 Page {
@@ -23,7 +23,7 @@ Page {
         onSaved: {
             if (!success) {
                 message.text = i18n.tr("Failed to save the settings");
-                message.color = UbuntuColors.red;
+                message.color = LomiriColors.red;
             }
         }
     }
@@ -155,23 +155,23 @@ Page {
                         message.text = i18n.tr("Please specify the Upower queries interval in seconds") + "<br>";
                         // TRANSLATORS: %1 and %2 are the min/max seconds for refreshing the indicator (e.g. 1 to 60)
                         message.text += i18n.tr("in seconds (%1 to %2)").arg(refreshMins.validator.bottom).arg(refreshMins.validator.top);
-                        message.color = UbuntuColors.orange;
+                        message.color = LomiriColors.orange;
                     }
                     else if (!thresholdCharging.acceptableInput) {
                         message.text = i18n.tr("Battery charge percentage threshold alarm") + "<br>";
                         // TRANSLATORS: %1 and %2 are the min/max UpowerIndicator for the alarm (e.g. 70 to 100)
                         message.text += i18n.tr("in percentage (%1 to %2)").arg(thresholdCharging.validator.bottom).arg(thresholdCharging.validator.top);
-                        message.color = UbuntuColors.orange;
+                        message.color = LomiriColors.orange;
                     }
                     else {
                         valid = true;
                         message.text = i18n.tr("Saved the settings, please reboot");
-                        message.color = UbuntuColors.green;
+                        message.color = LomiriColors.green;
                     }
 
                     if (valid) settings.save();
                 }
-                color: UbuntuColors.orange
+                color: LomiriColors.orange
             }
 
             Button {
@@ -182,7 +182,7 @@ Page {
                     message.visible = false;
                     Indicator.install();
                 }
-                color: UbuntuColors.green
+                color: LomiriColors.green
             }
 
             Button {
@@ -210,11 +210,11 @@ Page {
             message.visible = true;
             if (success) {
                 message.text = i18n.tr("Successfully installed, please reboot");
-                message.color = UbuntuColors.green;
+                message.color = LomiriColors.green;
             }
             else {
                 message.text = i18n.tr("Failed to install");
-                message.color = UbuntuColors.red;
+                message.color = LomiriColors.red;
             }
         }
 
@@ -222,11 +222,11 @@ Page {
             message.visible = true;
             if (success) {
                 message.text = i18n.tr("Successfully uninstalled, please reboot");
-                message.color = UbuntuColors.green;
+                message.color = LomiriColors.green;
             }
             else {
                 message.text = i18n.tr("Failed to uninstall");
-                message.color = UbuntuColors.red;
+                message.color = LomiriColors.red;
             }
         }
     }

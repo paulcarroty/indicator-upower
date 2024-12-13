@@ -187,8 +187,8 @@ class UpowerIndicator(object):
 
     def settings_action_activated(self, action, data):
         logger.debug('settings_action_activated')
-        # For some reason ubuntu-app-launch hangs without the version, so let cmake set it for us
-        subprocess.Popen(shlex.split('ubuntu-app-launch indicator.upower.ernesst_indicator-upower_0.3'))
+        # For some reason lomiri-app-launch hangs without the version, so let cmake set it for us
+        subprocess.Popen(shlex.split('lomiri-app-launch indicator.upower.ernesst_indicator-upower_@VERSION@'))
 
     def _battery_action(self):
     ## Define a buffer to reinitialize notification status
@@ -220,12 +220,12 @@ class UpowerIndicator(object):
 
     def _setup_actions(self):
         root_action = Gio.SimpleAction.new_stateful(self.ROOT_ACTION, None, self.root_state())
-        self.action_group.insert(root_action)
+        self.action_group.add_action(root_action)
 
 
         settings_action = Gio.SimpleAction.new(self.SETTINGS_ACTION, None)
         settings_action.connect('activate', self.settings_action_activated)
-        self.action_group.insert(settings_action)
+        self.action_group.add_action(settings_action)
 
     def _create_section(self):
         BATT_info_list = []
@@ -243,7 +243,7 @@ class UpowerIndicator(object):
         self.sub_menu.insert_section(self.MAIN_SECTION, 'Upower', self._create_section())
 
         root_menu_item = Gio.MenuItem.new('Upower', 'indicator.{}'.format(self.ROOT_ACTION))
-        root_menu_item.set_attribute_value('x-canonical-type', GLib.Variant.new_string('com.canonical.indicator.root'))
+        root_menu_item.set_attribute_value('x-ayatana-type', GLib.Variant.new_string('com.canonical.indicator.root'))
         root_menu_item.set_submenu(self.sub_menu)
         self.menu.append_item(root_menu_item)
 
