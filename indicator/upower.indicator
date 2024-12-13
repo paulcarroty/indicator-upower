@@ -1,0 +1,7 @@
+[Indicator Service]
+Name=upower.indicator
+ObjectPath=/upower/indicator
+Position=80
+
+[phone]
+ObjectPath=/upower/indicator/phone

@@ -18,8 +18,8 @@ import gettext
 t = gettext.translation('indicator-upower', fallback=True, localedir='/opt/click.ubuntu.com/indicator.upower.ernesst/current/share/locale/')  # TODO don't hardcode this
 _ = t.gettext
 
-BUS_NAME = "com.ernesst.indicator.upower"
-BUS_OBJECT_PATH = "/com/ernesst/indicator/upower"
+BUS_NAME = "upower.indicator"
+BUS_OBJECT_PATH = "/upower/indicator"
 BUS_OBJECT_PATH_PHONE = BUS_OBJECT_PATH + "/phone"
 
 logger = logging.getLogger()

@@ -46,8 +46,8 @@ void Indicator::onUninstallFinished(int exitCode, QProcess::ExitStatus exitStatu
 }
 
 bool Indicator::checkInstalled() {
-    QFileInfo session("/home/phablet/.config/upstart/ernesst-indicator-upower.conf");
-    QFileInfo indicator("/home/phablet/.local/share/unity/indicators/com.ernesst.indicator.upower");
+    QFileInfo session("/home/phablet/.config/systemd/user/indicator-upower.service");
+    QFileInfo indicator("/home/phablet/.local/share/unity/indicators/upower.indicator");
 
     m_isInstalled = session.exists() && indicator.exists();
     Q_EMIT isInstalledChanged(m_isInstalled);

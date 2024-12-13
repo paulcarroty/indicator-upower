@@ -1,4 +1,4 @@
-#ifndef INDICATORLUGIN_H
+#ifndef INDICATORPLUGIN_H
 #define INDICATORPLUGIN_H
 
 #include <QQmlExtensionPlugin>

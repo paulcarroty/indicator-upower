@@ -1,8 +1,10 @@
 #!/bin/bash
 
 set -e
+systemctl --user stop indicator-upower.service
+systemctl --user disable indicator-upower.service
 
-rm /home/phablet/.config/upstart/ernesst-indicator-upower.conf
-rm /home/phablet/.local/share/unity/indicators/com.ernesst.indicator.upower
+rm /home/phablet/.config/systemd/user/indicator-upower.service
+rm /home/phablet/.local/share/unity/indicators/upower.indicator
 
-echo "indicator-upower uninstalled"
+echo "indicator-upower uninstalled!"

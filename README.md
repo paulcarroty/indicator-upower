@@ -38,10 +38,9 @@ To be enable
 
 ## About the Indicator
 As for Indicator Weather, the indicator itself is rather simple. It's a python script that exports a Gtk
-menu over DBus. To start the script there is an Upstart config file located at
-.config/upstart/ernesst-indicator-upower.conf. This starts the indicator when
+menu over DBus. To start the script there is an Upstart config file located at indicator/indicator-upower.service. This starts the indicator when
 Unity starts the rest of the indicators. The other important file is
-.local/share/unity/indicators/com.ernesst.indicator.upower. This file lets Unity know where to
+indicator/upower.indicator. This file lets Unity know where to
 find the indicator on DBus and where to place the indicator on the indicator bar.
 
 If you are interested in creating your own indicator for Ubuntu Touch and have

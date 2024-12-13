@@ -1,0 +1,11 @@
+[Unit]
+Description=Indicator Upower
+After=graphical-session.target
+
+[Service]
+Restart=on-failure
+RestartSec=5
+ExecStart=/usr/bin/python3 /opt/click.ubuntu.com/indicator.upower.ernesst/current/indicator/ernesst-indicator-upower.py
+
+[Install]
+WantedBy=graphical-session.target

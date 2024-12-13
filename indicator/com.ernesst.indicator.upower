@@ -1,8 +1,0 @@
-[Indicator Service]
-Name=ernesst-indicator-upower
-ObjectPath=/com/ernesst/indicator/upower
-Position=80
-
-[phone]
-ObjectPath=/com/ernesst/indicator/upower/phone
-Position=80
