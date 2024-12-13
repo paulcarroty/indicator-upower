@@ -16,12 +16,12 @@ Indicator::Indicator() :
 
 void Indicator::install() {
     //TODO don't hardcode this
-    m_installProcess.start("bash /opt/click.ubuntu.com/indicator.upower.ernesst/current/indicator/install.sh");
+    m_installProcess.start("bash /opt/click.ubuntu.com/indicator.upower.ernesst.fork/current/indicator/install.sh");
 }
 
 void Indicator::uninstall() {
     //TODO don't hardcode this
-    m_uninstallProcess.start("bash /opt/click.ubuntu.com/indicator.upower.ernesst/current/indicator/uninstall.sh");
+    m_uninstallProcess.start("bash /opt/click.ubuntu.com/indicator.upower.ernesst.fork/current/indicator/uninstall.sh");
 }
 
 void Indicator::onInstallFinished(int exitCode, QProcess::ExitStatus exitStatus) {
@@ -47,7 +47,7 @@ void Indicator::onUninstallFinished(int exitCode, QProcess::ExitStatus exitStatu
 
 bool Indicator::checkInstalled() {
     QFileInfo session("/home/phablet/.config/systemd/user/indicator-upower.service");
-    QFileInfo indicator("/home/phablet/.local/share/unity/indicators/upower.indicator");
+    QFileInfo indicator("/home/phablet/.local/share/ayatana/indicators/upower.indicator");
 
     m_isInstalled = session.exists() && indicator.exists();
     Q_EMIT isInstalledChanged(m_isInstalled);
