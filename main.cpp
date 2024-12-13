@@ -58,8 +58,8 @@
 int main(int argc, char *argv[])
 {
     QGuiApplication::setApplicationName("indicator-upower");
-    QGuiApplication::setOrganizationName("indicator.upower.ernesst");
-    QGuiApplication::setApplicationName("indicator.upower.ernesst");
+    QGuiApplication::setOrganizationName("indicator.upower.ernesst.fork");
+    QGuiApplication::setApplicationName("indicator.upower.ernesst.fork");
     QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);
