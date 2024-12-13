@@ -15,7 +15,7 @@ from number import parseNumber
 
 
 import gettext
-t = gettext.translation('indicator-upower', fallback=True, localedir='/opt/click.ubuntu.com/indicator.upower.ernesst/current/share/locale/')  # TODO don't hardcode this
+t = gettext.translation('indicator-upower', fallback=True, localedir='/opt/click.ubuntu.com/indicator.upower.ernesst.fork/current/share/locale/')  # TODO don't hardcode this
 _ = t.gettext
 
 BUS_NAME = "upower.indicator"
@@ -37,7 +37,7 @@ class UpowerIndicator(object):
     MAIN_SECTION = 0
 
     config_file = "/home/phablet/.config/indicator.upower.ernesst/config.json"  # TODO don't hardcode this
-    config_file_device = "/opt/click.ubuntu.com/indicator.upower.ernesst/current/indicator/devices.json"  # TODO don't hardcode this
+    config_file_device = "/opt/click.ubuntu.com/indicator.upower.ernesst.fork/current/indicator/devices.json"  # TODO don't hardcode this
     charging_enabled_FILE = path.exists("/sys/class/power_supply/battery/charging_enabled")
     refresh_sec = 60
     threshold_Charging = 80
@@ -188,7 +188,7 @@ class UpowerIndicator(object):
     def settings_action_activated(self, action, data):
         logger.debug('settings_action_activated')
         # For some reason lomiri-app-launch hangs without the version, so let cmake set it for us
-        subprocess.Popen(shlex.split('lomiri-app-launch indicator.upower.ernesst_indicator-upower_@VERSION@'))
+        subprocess.Popen(shlex.split('lomiri-app-launch indicator.upower.ernesst.fork_indicator-upower_@VERSION@'))
 
     def _battery_action(self):
     ## Define a buffer to reinitialize notification status
