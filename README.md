@@ -1,4 +1,6 @@
-# Indicator upower for Ubuntu Touch (fork of https://gitlab.com/ernesst/indicator-upower/)
+# Indicator upower for Ubuntu Touch 
+
+#### fork of https://gitlab.com/ernesst/indicator-upower
 
 
 A upower indicator for Ubuntu Touch, spin-off from bhdouglass's Indicator Weather.
