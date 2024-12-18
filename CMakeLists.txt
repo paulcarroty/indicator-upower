@@ -2,7 +2,7 @@ project(indicator-upower C CXX)
 cmake_minimum_required(VERSION 3.0.0)
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
-set(VERSION "0.3")
+set(VERSION "0.4")
 
 find_package(Qt5Core)
 find_package(Qt5Qml)
