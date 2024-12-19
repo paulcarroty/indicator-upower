@@ -1,0 +1,143 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Ernesst
+# This file is distributed under the same license as the indicator.upower.ernesst package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: indicator.upower.ernesst.fork\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-20 22:37+0000\n"
+"PO-Revision-Date: 2024-12-19 11:54+0100\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: ../qml/SettingsPage.qml:9 ../qml/AboutPage.qml:35
+msgid "Upower's Indicator"
+msgstr "Upower-indicator"
+
+#: ../qml/SettingsPage.qml:14 ../qml/AboutPage.qml:6
+msgid "About"
+msgstr "Over"
+
+#: ../qml/SettingsPage.qml:25
+msgid "Failed to save the settings"
+msgstr "De instellingen kunnen niet worden bewaard"
+
+#: ../qml/SettingsPage.qml:53
+msgid "Upower queries interval (seconds)"
+msgstr "Opvragen, iedere (in seconden)"
+
+#: ../qml/SettingsPage.qml:82
+msgid "Battery charge threshold alarm (%)"
+msgstr "Laag accuniveau (in %)"
+
+#: ../qml/SettingsPage.qml:107
+msgid "Set 100% to desactivate the alarm"
+msgstr "Stel in op 100% om geen waarschuwing te tonen"
+
+#: ../qml/SettingsPage.qml:111
+msgid "How to prolong Lithium-based Batteries ? %1"
+msgstr "Hoe verleng ik de levensduur van Lithium-accu's? %1"
+
+#: ../qml/SettingsPage.qml:120
+msgid "Repeat threshold alarm (yes = 1, No = 0)"
+msgstr "Drempelwaarde van herhaling (ja=1, nee=0)"
+
+#: ../qml/SettingsPage.qml:150
+msgid "Save"
+msgstr "Opslaan"
+
+#: ../qml/SettingsPage.qml:155
+msgid "Please specify the Upower queries interval in seconds"
+msgstr "Voer een opvraagduur in seconden in"
+
+#: ../qml/SettingsPage.qml:157
+msgid "in seconds (%1 to %2)"
+msgstr "in seconden (%1 tot %2)"
+
+#: ../qml/SettingsPage.qml:161
+msgid "Battery charge percentage threshold alarm"
+msgstr "Opgeladen na"
+
+#: ../qml/SettingsPage.qml:163
+msgid "in percentage (%1 to %2)"
+msgstr "percentage (%1 tot %2)"
+
+#: ../qml/SettingsPage.qml:168
+msgid "Saved the settings, please reboot"
+msgstr "De instellingen zijn bewaard - herstart je apparaat"
+
+#: ../qml/SettingsPage.qml:180
+msgid "Install Indicator"
+msgstr "Indicator installeren"
+
+#: ../qml/SettingsPage.qml:191
+msgid "Uninstall Indicator"
+msgstr "Indicator verwijderen"
+
+#: ../qml/SettingsPage.qml:201
+msgid "* Before uninstalling the app be sure to uninstall the indicator here first"
+msgstr "* Let op: verwijder de indicator voordat je de app verwijderd"
+
+#: ../qml/SettingsPage.qml:212
+msgid "Successfully installed, please reboot"
+msgstr "De installatie is voltooid - herstart je apparaat"
+
+#: ../qml/SettingsPage.qml:216
+msgid "Failed to install"
+msgstr "De installatie is mislukt"
+
+#: ../qml/SettingsPage.qml:224
+msgid "Successfully uninstalled, please reboot"
+msgstr "Het verwijderen is voltooid - herstart je apparaat"
+
+#: ../qml/SettingsPage.qml:228
+msgid "Failed to uninstall"
+msgstr "Het verwijderen is mislukt"
+
+#: ../qml/AboutPage.qml:52
+msgid "A big thanks to:"
+msgstr "Met veel dank aan:"
+
+#: ../qml/AboutPage.qml:59
+msgid "Brian Douglass's application %1 and his help."
+msgstr "Brian Douglass's app ‘%1’ en zijn hulp."
+
+#: ../qml/AboutPage.qml:67
+msgid "BigET's application %1"
+msgstr "BigET's app ‘%1’"
+
+#: ../qml/AboutPage.qml:75
+msgid "Gustavo Reis for the Suru++ logo %1"
+msgstr "Gustavo Reis voor het Suru++-logo %1"
+
+#: ../qml/AboutPage.qml:83
+msgid "%1 command line tool"
+msgstr "%1-opdrachtregelhulpmiddel"
+
+#: ../qml/AboutPage.qml:91
+msgid "Ubports documentation on %1"
+msgstr "Ubports-documentatie op %1"
+
+#: ../qml/AboutPage.qml:99
+msgid "Consider donating to Ubports!"
+msgstr "Overweeg een donatie aan Ubports!"
+
+#: ../qml/AboutPage.qml:107
+msgid "Donate"
+msgstr "Doneren"
+
+#: ../indicator/ernesst-indicator-upower.py:234
+msgid "Upower's Battery Information: "
+msgstr "Upower-accu-informatie: "
+
+#: ../indicator/ernesst-indicator-upower.py:270
+msgid "Upower"
+msgstr "Upower"
