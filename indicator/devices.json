@@ -40,5 +40,13 @@
         "percentage":"/sys/devices/14e00000.hsi2c/i2c-6/6-0055/power_supply/bq2753x-0/capacity",
         "cycle_count":"/sys/devices/14e00000.hsi2c/i2c-6/6-0055/power_supply/bq2753x-0/cycle_count",
         "temp":"/sys/devices/14e00000.hsi2c/i2c-6/6-0055/power_supply/bq2753x-0/temp"
+    },
+    "pinephone:": {
+        "src": "/sys/devices/platform/soc/1f03400.rsb/sunxi-rsb-3a3/axp20x-battery-power-supply/power_supply/axp20x-battery/current_now",
+        "current_units": "mA",
+        "status": "/sys/devices/platform/soc/1f03400.rsb/sunxi-rsb-3a3/axp20x-battery-power-supply/power_supply/axp20x-battery/status",
+        "percentage": "/sys/devices/platform/soc/1f03400.rsb/sunxi-rsb-3a3/axp20x-battery-power-supply/power_supply/axp20x-battery/capacity",
+        "health": "/sys/devices/platform/soc/1f03400.rsb/sunxi-rsb-3a3/axp20x-battery-power-supply/power_supply/axp20x-battery/health",
+        "temp": "/sys/devices/platform/soc/1f03400.rsb/sunxi-rsb-3a3/axp813-adc/iio:device3/in_temp_raw";
     }
 }
