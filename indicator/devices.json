@@ -47,6 +47,6 @@
         "status": "/sys/devices/platform/soc/1f03400.rsb/sunxi-rsb-3a3/axp20x-battery-power-supply/power_supply/axp20x-battery/status",
         "percentage": "/sys/devices/platform/soc/1f03400.rsb/sunxi-rsb-3a3/axp20x-battery-power-supply/power_supply/axp20x-battery/capacity",
         "health": "/sys/devices/platform/soc/1f03400.rsb/sunxi-rsb-3a3/axp20x-battery-power-supply/power_supply/axp20x-battery/health",
-        "temp": "/sys/devices/platform/soc/1f03400.rsb/sunxi-rsb-3a3/axp813-adc/iio:device3/in_temp_raw";
+        "temp": "/sys/devices/platform/soc/1f03400.rsb/sunxi-rsb-3a3/axp813-adc/iio:device3/in_temp_raw"
     }
 }
