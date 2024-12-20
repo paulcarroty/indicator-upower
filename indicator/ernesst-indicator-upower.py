@@ -198,6 +198,9 @@ class UpowerIndicator(object):
     ## Push PUSH_Notification
         if self.PUSH_Notification == 1 and self.BATT_Per >= self.threshold_Charging and self.BATT_status == "charging" and self.Alarm_tobeperformed == 1 :
             json_bat = "\'\"{\\\"message\\\": \\\"foobar\\\", \\\"notification\\\":{\\\"card\\\": {\\\"summary\\\": \\\"" + self.BATT_Per_print + "\\\", \\\"body\\\": \\\"" + "Please disconnect your charger" + "\\\", \\\"popup\\\": true, \\\"persist\\\": true}, \\\"sound\\\": true, \\\"vibrate\\\": {\\\"pattern\\\": [200, 100], \\\"duration\\\": 200,\\\"repeat\\\": 2 }}}\"\'"
+            subprocess.Popen(["/usr/bin/paplay", "/usr/share/sounds/freedesktop/stereo/power-unplug.oga"])
+            subprocess.Popen(["/usr/bin/paplay", "/usr/share/sounds/freedesktop/stereo/power-unplug.oga"])
+            logger.debug("Playback of power-unplug.oga done")
             subprocess.Popen("/usr/bin/gdbus call --session --dest com.ubuntu.Postal --object-path /com/ubuntu/Postal/indicator_2eupower_2eernesst --method com.ubuntu.Postal.Post indicator.upower.ernesst_indicator-upower " +  json_bat, shell=True)
             logger.debug("Notification sent for" + self.BATT_Per_print)
             self.Alarm_tobeperformed = 0
@@ -206,6 +209,8 @@ class UpowerIndicator(object):
         if self.Stop_Charging == 1 and self.charging_enabled_FILE == 1 and self.BATT_Per >= self.threshold_Charging and self.BATT_status == "charging":
             subprocess.Popen("echo \"0\" > /sys/class/power_supply/battery/charging_enabled", shell=True)
             logger.debug("Battery threshold " + str(self.threshold_Charging) + "% reached, stop charging, will be re-enable @ " + str(0.9 * self.threshold_Charging) + "%")
+            subprocess.Popen(["/usr/bin/paplay", "/usr/share/sounds/freedesktop/stereo/power-unplug.oga"])
+            logger.debug("Playback of power-unplug.oga done")
             self.log_charging_message = 1
 
     ## Restart charging
