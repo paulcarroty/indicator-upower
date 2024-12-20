@@ -13,16 +13,17 @@ Upower is devices dependent, please raise a bug to enable your devices.
 Known support :
 
 
-|   Devices  | Status |    Current   | Temperature | Charge | Estimated Bat. capacity | Remaining life  | Limiting battery's charge |Battery Cycle|
+|   Devices  | Status |    Current   | Temperature | Charge | Estimated Bat. capacity   |Remaining life  | Limiting battery's charge |Battery Cycle|
 |:----------:|:------:|:------------:|:-----------:|:------:|:-------:|:---------------:|:----------------------:|:----------------------:|
-|   OP3(T)   |    x   |       x      |      x      |    x   |    x    |        x        |            x           |           x           |
-|    Mako    |    x   |       x      |      x      |    x   |        |        x        |           no           |                      |
-| Hammerhead |    x   |       x      |      x      |    x   |        |        no       |           no           |                      |
-|   Cedric   |    x   |       x      |      x      |    x   |        |        x        |           no           |                      |
-|    Bacon   |    x   |       x      |      x      |    x   |        |        no       |           no           |                      |
-|  vegetahd  |    x   | not reliable |      x      |    x   |        |        no       |           no           |                      |
-|  turbo     |    x   | x            |      x      |    x   |        |        no       |           no           |            x          |
-
+|   OP3(T)   |    x   |       x      |      x      |    x   |    x    |        x        |            x           |           x          |
+|    Mako    |    x   |       x      |      x      |    x   |         |        x        |           no           |                      |
+| Hammerhead |    x   |       x      |      x      |    x   |         |        no       |           no           |                      |
+|   Cedric   |    x   |       x      |      x      |    x   |         |        x        |           no           |                      |
+|    Bacon   |    x   |       x      |      x      |    x   |         |        no       |           no           |                      |
+|  Vegetahd  |    x   | not reliable |      x      |    x   |         |        no       |           no           |                      |
+|  Turbo     |    x   |       x      |      x      |    x   |         |        no       |           no           |            x         |
+| Pinephone  |    x   |       x      |      x      |    x   |         |        no       |           no           |                      |
+| Suzu       |    x   |       x      |      x      |    x   |         |        no       |           no           |                      | x
 
 ## Limiting battery's Charge
 - It's a feature which needs to be enable on the device itself.
