@@ -201,8 +201,9 @@ class UpowerIndicator(object):
             subprocess.Popen(["/usr/bin/paplay", "/usr/share/sounds/freedesktop/stereo/power-unplug.oga"])
             subprocess.Popen(["/usr/bin/paplay", "/usr/share/sounds/freedesktop/stereo/power-unplug.oga"])
             logger.debug("Playback of power-unplug.oga done")
-            subprocess.Popen("/usr/bin/gdbus call --session --dest com.ubuntu.Postal --object-path /com/ubuntu/Postal/indicator_2eupower_2eernesst --method com.ubuntu.Postal.Post indicator.upower.ernesst_indicator-upower " +  json_bat, shell=True)
-            logger.debug("Notification sent for" + self.BATT_Per_print)
+            # TODO: fix Error: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name com.ubuntu.Postal was not provided by any .service files
+            #subprocess.Popen("/usr/bin/gdbus call --session --dest com.ubuntu.Postal --object-path /com/ubuntu/Postal/indicator_2eupower_2eernesst --method com.ubuntu.Postal.Post indicator.upower.ernesst_indicator-upower " +  json_bat, shell=True)
+            #logger.debug("Notification sent for" + self.BATT_Per_print)
             self.Alarm_tobeperformed = 0
 
     ## Stop charging
