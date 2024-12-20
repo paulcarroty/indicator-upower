@@ -538,7 +538,7 @@ ApplicationWindow {
                   width: parent.width
                   wrapMode: text.Wrap
                   horizontalAlignment: Qt.AlignHLeft
-                  text: ('+ Source code hosts on %1').arg("<a href=\"https://gitlab.com/ernesst/indicator-upower\">Gitlab</a>")
+                  text: ('+ Source code hosts on %1').arg("<a href=\"https://github.com/paulcarroty/indicator-upower\">Github</a>")
                   font.pixelSize: 16
                   onLinkActivated: Qt.openUrlExternally(link)
 
@@ -553,7 +553,7 @@ ApplicationWindow {
                   anchors.horizontalCenter: parent.horizontalLeft
                   wrapMode: text.Wrap
                   horizontalAlignment: Qt.AlignHLeft
-                  text: ('+ Openstore %1').arg("<a href=\"https://gitlab.com/ernesst/indicator-upower\">link</a>")
+                  text: ('+ Openstore %1').arg("<a href=\"https://github.com/paulcarroty/indicator-upower\">link</a>")
                   font.pixelSize: 16
                   onLinkActivated: Qt.openUrlExternally(link)
               }
