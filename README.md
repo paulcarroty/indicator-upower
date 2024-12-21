@@ -6,7 +6,7 @@
 A upower indicator for Ubuntu Touch, spin-off from bhdouglass's Indicator Weather.
 it's uses data from the cli command [Upower ](https://upower.freedesktop.org/) embedded into the Ubuntu touch operating system.
 
-Upower is devices dependent, please raise a bug to enable your devices.
+Upower is devices dependent, please [submit your device data](https://github.com/paulcarroty/indicator-upower/blob/master/docs/add_device.md) to handle more info.
 
 [![OpenStore](https://open-store.io/badges/en_US.png)](https://open-store.io/app/indicator.upower-ernesst)
 
