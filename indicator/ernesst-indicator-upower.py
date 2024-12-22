@@ -139,7 +139,7 @@ class UpowerIndicator(object):
                 self.device_name = config_json['device'].strip()
                 self.read_device_config()
             else:
-                print(path.exists("/system/build.prop"))
+                print("/system/build.prop exists? " + str(path.exists("/system/build.prop")))
                 if path.exists("/system/build.prop"):
                     build_prop_file = open("/system/build.prop")
                     for line in build_prop_file:
