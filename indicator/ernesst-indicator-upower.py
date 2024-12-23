@@ -148,7 +148,7 @@ class UpowerIndicator(object):
                             try:
                                 device = line.split("=")[1]
                                 #OP5T workaround begin
-                                if device.rstrip() == "halium_arm64" and 'ro.product.vendor.device=' in open('/app/system/vendor/build.prop').read():
+                                if device.rstrip() == "halium_arm64" and 'ro.product.vendor.device=' in open('/system/vendor/build.prop').read():
                                   print("halium_arm64 device detected, applying OP5T workaround...")            
                                   build_prop_file2 = open("/system/vendor/build.prop")
                                   for line in build_prop_file2:
