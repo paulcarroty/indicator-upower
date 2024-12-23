@@ -143,10 +143,19 @@ class UpowerIndicator(object):
                 if path.exists("/system/build.prop"):
                     build_prop_file = open("/system/build.prop")
                     for line in build_prop_file:
-                        if re.search("ro.product.device", line):
+                        if re.search("ro.product.device=", line):
                             print(line)
                             try:
                                 device = line.split("=")[1]
+                                #OP5T workaround begin
+                                if device.rstrip() == "halium_arm64" and 'ro.product.vendor.device=' in open('/app/system/vendor/build.prop').read():
+                                  print("halium_arm64 device detected, applying OP5T workaround...")            
+                                  build_prop_file2 = open("/system/vendor/build.prop")
+                                  for line in build_prop_file2:
+                                    if re.search("ro.product.vendor.device=", line):
+                                      device = line.split("=")[1]
+                                      logger.debug('OP5T or similar device detected!')
+                                #OP5T workaround end    
                                 device = device.rstrip()
                                 self.device_name = device
                                 logger.debug("Device found: "+ self.device_name)
