@@ -139,34 +139,45 @@ class UpowerIndicator(object):
                 self.device_name = config_json['device'].strip()
                 self.read_device_config()
             else:
-                print("/system/build.prop exists? " + str(path.exists("/system/build.prop")))
-                if path.exists("/system/build.prop"):
-                    build_prop_file = open("/system/build.prop")
-                    for line in build_prop_file:
-                        if re.search("ro.product.device=", line):
-                            print(line)
-                            try:
-                                device = line.split("=")[1]
-                                #OP5T workaround begin
-                                if device.rstrip() == "halium_arm64" and 'ro.product.vendor.device=' in open('/system/vendor/build.prop').read():
-                                  print("halium_arm64 device detected, applying OP5T workaround...")            
-                                  build_prop_file2 = open("/system/vendor/build.prop")
-                                  for line in build_prop_file2:
-                                    if re.search("ro.product.vendor.device=", line):
-                                      device = line.split("=")[1]
-                                      logger.debug('OP5T or similar device detected!')
-                                #OP5T workaround end    
-                                device = device.rstrip()
-                                self.device_name = device
-                                logger.debug("Device found: "+ self.device_name)
-                                config_json.update({"device":self.device_name})
-                                with open(self.config_file, "w") as f:
-                                    json.dump(config_json, f)
-                                self.read_device_config()
-                                f.close()
+                if os.path.isfile('/system/build.prop') and os.access('/system/build.prop', os.R_OK) and 'ro.product.device=' in open('/system/build.prop').read():
+                   logger.debug("Loading /system/build.prop")
+                   build_prop_file = open("/system/build.prop")
+                   for line in build_prop_file:
+                     if re.search("ro.product.device=", line):
+                        try:
+                          device = line.split("=")[1]
+                          device = device.rstrip()
+                          logger.debug("Device found: " + device)
+                          f.close()
+                        except:
+                          logger.warning("Failed to parse device name!")
+                elif os.path.isfile('/etc/system-image/channel.ini') and os.access('/etc/system-image/channel.ini', os.R_OK) and 'device: ' in open('/etc/system-image/channel.ini').read(): 
+                   logger.warning("Failed to load build.prop, loading channel.ini...")
+                   build_prop_file = open("/etc/system-image/channel.ini")
+                   for line in build_prop_file:
+                     if re.search("device: ", line):
+                        try:
+                          device = line.split(": ")[1]
+                          device = device.rstrip()
+                          logger.debug("Device found: ", device)
+                          f.close()
+                        except:
+                          logger.warning("Failed to read device name!")  
 
-                            except:
-                                logger.debug('Failed to read device name: {}'.format(str(sys.exc_info()[1])))
+                else:
+                   logger.warning("Failed to load build.prop and channel.ini, closing the app!")
+                   sys.exit(1)
+
+                try: 
+                    self.device_name = device
+                    logger.debug("Device found: "+ self.device_name)
+                    config_json.update({"device":self.device_name})
+                    with open(self.config_file, "w") as f:
+                        json.dump(config_json, f)
+                    self.read_device_config()
+                    f.close()
+                except:
+                    logger.warning('Failed to read device name: {}'.format(str(sys.exc_info()[1])))  
 
     def read_device_config(self):
         with open(self.config_file_device) as f:
