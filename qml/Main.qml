@@ -368,8 +368,8 @@ ApplicationWindow {
               Label {
                   id: title_thanks
                   anchors.top: parent.top
-                  anchors.left: swipeView.left
-                  anchors.right: swipeView.right
+                  anchors.left: parent.left
+                  anchors.right: parent.right
                   anchors.horizontalCenter: parent.horizontalLeft
                   width: parent.width
                   wrapMode: Label.Wrap
@@ -492,7 +492,7 @@ ApplicationWindow {
                   anchors.right: parent.right
                   anchors.horizontalCenter: parent.horizontalLeft
                   width: parent.width
-                  wrapMode: text.Wrap
+                  wrapMode: Text.Wrap
                   horizontalAlignment: Qt.AlignHLeft
                   text: ('+ Consider supporting Ubports: %1 !').arg("<a href=\"https://ubports.com/donate\">Donate</a>")
                   font.pixelSize: 16
@@ -507,7 +507,7 @@ ApplicationWindow {
                   anchors.right: parent.right
                   anchors.horizontalCenter: parent.horizontalLeft
                   width: parent.width
-                  wrapMode: text.Wrap
+                  wrapMode: Text.Wrap
                   horizontalAlignment: Qt.AlignHLeft
                   text: "+ All testers"
                   font.pixelSize: 16
@@ -517,8 +517,8 @@ ApplicationWindow {
                   id: application
                   anchors.topMargin: 30
                   anchors.top: contributors_l.bottom
-                  anchors.left: swipeView.left
-                  anchors.right: swipeView.right
+                  anchors.left: parent.left
+                  anchors.right: parent.right
                   anchors.horizontalCenter: parent.horizontalLeft
                   width: parent.width
                   wrapMode: Label.Wrap
@@ -536,7 +536,7 @@ ApplicationWindow {
                   anchors.right: parent.right
                   anchors.horizontalCenter: parent.horizontalLeft
                   width: parent.width
-                  wrapMode: text.Wrap
+                  wrapMode: Text.Wrap
                   horizontalAlignment: Qt.AlignHLeft
                   text: ('+ Source code hosts on %1').arg("<a href=\"https://github.com/paulcarroty/indicator-upower\">Github</a>")
                   font.pixelSize: 16
@@ -551,7 +551,7 @@ ApplicationWindow {
                   anchors.left: parent.left
                   anchors.right: parent.right
                   anchors.horizontalCenter: parent.horizontalLeft
-                  wrapMode: text.Wrap
+                  wrapMode: Text.Wrap
                   horizontalAlignment: Qt.AlignHLeft
                   text: ('+ Openstore %1').arg("<a href=\"https://github.com/paulcarroty/indicator-upower\">link</a>")
                   font.pixelSize: 16
