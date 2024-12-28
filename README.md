@@ -4,11 +4,13 @@
 
 
 A upower indicator for Ubuntu Touch, spin-off from bhdouglass's Indicator Weather.
-it's uses data from the cli command [Upower ](https://upower.freedesktop.org/) embedded into the Ubuntu touch operating system.
+It's uses data from Linux API and the cli command [Upower ](https://upower.freedesktop.org/) embedded into the Ubuntu Touch operating system.
 
 Upower is devices dependent, please [submit your device data](https://github.com/paulcarroty/indicator-upower/blob/master/docs/add_device.md) to handle more info.
 
-[![OpenStore](https://open-store.io/badges/en_US.png)](https://open-store.io/app/indicator.upower-ernesst)
+<div id="openstore-logo" align="center">
+<a href="https://open-store.io/app/indicator.upower.ernesst.fork"><img src="https://open-store.io/badges/en_US.png" alt="OpenStore" /></a>
+</div>
 
 Known support :
 
