@@ -26,7 +26,7 @@ Known support :
 | suzu       |    x   |       x      |      x      |    x   |         |        no       |           no           |            x         |
 | mido       |    x   |       x      |      x      |    x   |         |        no       |           no           |                      |
 | miatoll    |    x   |       x      |      x      |    x   |         |        no       |           no           |            x         |
-| dumpling   |    x   |       x      |      x      |    x   |         |        no       |           no           |            x         |
+| dumpling   |    x   |       x      |      x      |    x   |         |        x        |           x            |            x         |
 
 ## Limiting battery's Charge
 - It's a feature which needs to be enable on the device itself.
