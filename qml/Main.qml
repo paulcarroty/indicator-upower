@@ -122,7 +122,7 @@ ApplicationWindow {
             }
             Label {
                id:text2
-                text: "Be aware, the displayed data is gathered and processed by Upower tool. Data availability is device dependent."
+                text: qsTr("Be aware, the displayed data is gathered and processed by Upower tool. Data availability is device dependent.")
                 anchors.margins: 5
                 anchors.top: text1.bottom
                 anchors.left: parent.left
@@ -134,7 +134,7 @@ ApplicationWindow {
             }
             Label {
                id:text3
-                text: i18n.tr("This application displays limited information for most devices. For more data like battery health or cycle count, see the %1.").arg("<a href=\"https://github.com/paulcarroty/indicator-upower/blob/master/docs/add_device.md\">Docs</a>");
+                text: qsTr("This application displays limited information for most devices. To get more data like battery health or cycle count, see the %1.").arg("<a href=\"https://github.com/paulcarroty/indicator-upower/blob/master/docs/add_device.md\">Docs</a>")
                 onLinkActivated: Qt.openUrlExternally(link)
                 anchors.margins: 5
                 anchors.top: text2.bottom
