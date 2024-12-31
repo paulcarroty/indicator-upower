@@ -122,7 +122,7 @@ ApplicationWindow {
             }
             Label {
                id:text2
-                text: "Be aware the displayed data are gathered and processed by Upower tool. There availability is device dependent."
+                text: qsTr("Be aware, the displayed data is gathered and processed by Upower tool. Data availability is device dependent.")
                 anchors.margins: 5
                 anchors.top: text1.bottom
                 anchors.left: parent.left
@@ -133,9 +133,23 @@ ApplicationWindow {
                 font.pixelSize: 12
             }
             Label {
+               id:text3
+                text: qsTr("This application displays limited information for most devices. To get more data like battery health or cycle count, see the %1.").arg("<a href=\"https://github.com/paulcarroty/indicator-upower/blob/master/docs/add_device.md\">Docs</a>")
+                onLinkActivated: Qt.openUrlExternally(link)
+                anchors.margins: 5
+                anchors.top: text2.bottom
+                anchors.left: parent.left
+                anchors.right: parent.right
+                horizontalAlignment: Label.AlignHCenter
+                verticalAlignment: Label.AlignVCenter
+                wrapMode: Label.Wrap
+                font.pixelSize: 12
+                font.bold : true
+            }
+            Label {
               id: refreshSec_Text
               anchors.margins: 20
-              anchors.top: text2.bottom
+              anchors.top: text3.bottom
               anchors.left: parent.left
               anchors.right: parent.right
               width: parent.width
@@ -210,7 +224,7 @@ ApplicationWindow {
                 }
               }
           /*    Label {
-                 id:text3
+                 id:text4
                   text: "To disable the alarm set the threshold to 100."
                   font.italic : true
                   anchors.leftMargin: 20
@@ -339,7 +353,7 @@ ApplicationWindow {
                 }
             }
             Label {
-               id:text4
+               id:text5
                 text: "* Before uninstalling the app, be sure to uninstall the indicator here first."
                 font.italic : true
                 font.bold : true
