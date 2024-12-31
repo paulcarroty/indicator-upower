@@ -134,7 +134,8 @@ ApplicationWindow {
             }
             Label {
                id:text3
-                text: "This app only works on supported devices! Please see the Readme for a list."
+                text: i18n.tr("This application displays limited information for most devices. For more data like battery health or cycle count, see the %1.").arg("<a href=\"https://github.com/paulcarroty/indicator-upower/blob/master/docs/add_device.md\">Docs</a>");
+                onLinkActivated: Qt.openUrlExternally(link)
                 anchors.margins: 5
                 anchors.top: text2.bottom
                 anchors.left: parent.left
