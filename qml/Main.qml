@@ -108,48 +108,35 @@ ApplicationWindow {
             id: settings_1
             width: swipeView.width
             height: swipeView.height
-            Label {
-               id:text1
-                text: "Welcome in the Upower Indicator settings menu"
+            Button {
+                id: infoButton
+                text: "Info"
                 anchors.margins: 5
                 anchors.top: parent.top
-                anchors.left: parent.left
-                anchors.right: parent.right
-                horizontalAlignment: Label.AlignHCenter
-                verticalAlignment: Label.AlignVCenter
-                wrapMode: Label.Wrap
-                font.pixelSize: 12
+                anchors.horizontalCenter: parent.horizontalCenter
+                onClicked: {
+                    infoText.visible = !infoText.visible;
+                }
             }
             Label {
-               id:text2
-                text: qsTr("Be aware, the displayed data is gathered and processed by Upower tool. Data availability is device dependent.")
-                anchors.margins: 5
-                anchors.top: text1.bottom
-                anchors.left: parent.left
-                anchors.right: parent.right
-                horizontalAlignment: Label.AlignHCenter
-                verticalAlignment: Label.AlignVCenter
-                wrapMode: Label.Wrap
-                font.pixelSize: 12
-            }
-            Label {
-               id:text3
-                text: qsTr("This application displays limited information for most devices. To get more data like battery health or cycle count, see the %1.").arg("<a href=\"https://github.com/paulcarroty/indicator-upower/blob/master/docs/add_device.md\">Docs</a>")
+                id: infoText
+                text: 'Welcome in the Upower Indicator settings menu. This application displays limited information for most devices. To get more data like battery health or cycle count, see the <a href="https://github.com/paulcarroty/indicator-upower/blob/master/docs/add_device.md">Docs</a>'
                 onLinkActivated: Qt.openUrlExternally(link)
-                anchors.margins: 5
-                anchors.top: text2.bottom
+                visible: false
+                opacity: visible ? 1 : 0
+                height: visible ? implicitHeight : 0
+                anchors.top: infoButton.bottom
                 anchors.left: parent.left
                 anchors.right: parent.right
                 horizontalAlignment: Label.AlignHCenter
                 verticalAlignment: Label.AlignVCenter
                 wrapMode: Label.Wrap
                 font.pixelSize: 12
-                font.bold : true
             }
             Label {
               id: refreshSec_Text
               anchors.margins: 20
-              anchors.top: text3.bottom
+              anchors.top: infoText.bottom
               anchors.left: parent.left
               anchors.right: parent.right
               width: parent.width
@@ -157,7 +144,7 @@ ApplicationWindow {
               horizontalAlignment: Qt.AlignHLeft
               font.pixelSize: 12
               text: "Upower queries interval in seconds:"
-                }
+            }
             TextField {
               anchors.margins: 5
               anchors.leftMargin: 60
@@ -224,7 +211,7 @@ ApplicationWindow {
                 }
               }
           /*    Label {
-                 id:text4
+                 id:text3
                   text: "To disable the alarm set the threshold to 100."
                   font.italic : true
                   anchors.leftMargin: 20
@@ -353,7 +340,7 @@ ApplicationWindow {
                 }
             }
             Label {
-               id:text5
+               id:text4
                 text: "* Before uninstalling the app, be sure to uninstall the indicator here first."
                 font.italic : true
                 font.bold : true
