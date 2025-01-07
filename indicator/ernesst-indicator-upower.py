@@ -134,9 +134,9 @@ class UpowerIndicator(object):
                 config_json = json.load(f)
             except:
                 logger.debug('Failed to load the config file: {}'.format(str(sys.exc_info()[1])))
-            print(config_json)
             if 'device' in config_json and config_json['device'].strip():
                 self.device_name = config_json['device'].strip()
+                logger.debug("Device found: %s", config_json['device'].strip())
                 self.read_device_config()
             else:
                 if os.path.isfile('/system/build.prop') and os.access('/system/build.prop', os.R_OK) and 'ro.product.device=' in open('/system/build.prop').read():
