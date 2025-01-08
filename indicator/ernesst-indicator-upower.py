@@ -147,7 +147,7 @@ class UpowerIndicator(object):
                         try:
                           device = line.split("=")[1]
                           device = device.rstrip()
-                          logger.debug("Device found: " + device)
+                          logger.debug("Device found: %s", device)
                           f.close()
                         except:
                           logger.warning("Failed to parse device name!")
@@ -159,7 +159,7 @@ class UpowerIndicator(object):
                         try:
                           device = line.split(": ")[1]
                           device = device.rstrip()
-                          logger.debug("Device found: ", device)
+                          logger.debug("Device found: %s", device)
                           f.close()
                         except:
                           logger.warning("Failed to read device name!")  
