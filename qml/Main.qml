@@ -111,7 +111,7 @@ ApplicationWindow {
             Button {
                 id: infoButton
                 text: "Info"
-                anchors.margins: 5
+                anchors.margins: -10
                 anchors.top: parent.top
                 anchors.horizontalCenter: parent.horizontalCenter
                 onClicked: {
@@ -135,7 +135,10 @@ ApplicationWindow {
             }
             Label {
               id: refreshSec_Text
-              anchors.margins: 20
+              anchors.topMargin: 10
+              anchors.leftMargin: 20
+              anchors.rightMargin: 20
+              anchors.bottomMargin: 20
               anchors.top: infoText.bottom
               anchors.left: parent.left
               anchors.right: parent.right
@@ -174,7 +177,10 @@ ApplicationWindow {
             }
             Label {
               id: thresholdCharging_Text
-              anchors.margins: 20
+              anchors.topMargin: 10
+              anchors.leftMargin: 20
+              anchors.rightMargin: 20
+              anchors.bottomMargin: 20
               anchors.top: refreshSec.bottom
               anchors.left: parent.left
               anchors.right: parent.right
@@ -295,7 +301,10 @@ ApplicationWindow {
             }
             Button {
               id: save_button
-              anchors.margins: 20
+              anchors.topMargin: 10
+              anchors.leftMargin: 20
+              anchors.rightMargin: 20
+              anchors.bottomMargin: 10
               anchors.top: stop_switch.bottom
               anchors.left: parent.left
               anchors.right: parent.right
@@ -310,7 +319,10 @@ ApplicationWindow {
             Button {
                 id: install_button
                 visible: !Indicator.isInstalled
-                anchors.margins: 20
+                anchors.topMargin: 10
+                anchors.leftMargin: 20
+                anchors.rightMargin: 20
+                anchors.bottomMargin: 10
                 anchors.top: save_button.bottom
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -328,7 +340,10 @@ ApplicationWindow {
             Button {
                 id: uninstall_button
                 visible: Indicator.isInstalled
-                anchors.margins: 20
+                anchors.topMargin: 10
+                anchors.leftMargin: 20
+                anchors.rightMargin: 20
+                anchors.bottomMargin: 10
                 anchors.top: save_button.bottom
                 anchors.left: parent.left
                 anchors.right: parent.right
