@@ -1,0 +1,141 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-07 20:13+0000\n"
+"PO-Revision-Date: 2025-01-12 08:24+0100\n"
+"Last-Translator: Daniel Frost <one@frostinfo.de>\n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+"X-Poedit-Basepath: .\n"
+
+#: ../indicator/ernesst-indicator-upower.py:261
+msgid "Upower's Battery Information: "
+msgstr "Upower's Batterieinformationen: "
+
+#: ../indicator/ernesst-indicator-upower.py:297
+msgid "Upower"
+msgstr "Upower"
+
+#: ../qml/AboutPage.qml:6 ../qml/SettingsPage.qml:14
+msgid "About"
+msgstr "Über"
+
+#: ../qml/AboutPage.qml:35 ../qml/SettingsPage.qml:9
+msgid "Upower's Indicator"
+msgstr "Upower's Indikator"
+
+#: ../qml/AboutPage.qml:52
+msgid "A big thanks to:"
+msgstr "Ein großes Dankeschön an:"
+
+#: ../qml/AboutPage.qml:59
+msgid "Brian Douglass's application %1 and his help."
+msgstr "Brian Douglass's App %1 und seine Hilfe."
+
+#: ../qml/AboutPage.qml:67
+msgid "BigET's application %1"
+msgstr "BigET's App %1"
+
+#: ../qml/AboutPage.qml:75
+msgid "Gustavo Reis for the Suru++ logo %1"
+msgstr "Gustavo Reis für das Suru++ Logo %1"
+
+#: ../qml/AboutPage.qml:83
+msgid "%1 command line tool"
+msgstr "%1 Kommandozeilenwerkzeug"
+
+#: ../qml/AboutPage.qml:91
+msgid "Ubports documentation on %1"
+msgstr "UBports Dokumentaton auf %1"
+
+#: ../qml/AboutPage.qml:99
+msgid "Consider donating to Ubports!"
+msgstr "Denke über eine Spende an UBports nach!"
+
+#: ../qml/AboutPage.qml:107
+msgid "Donate"
+msgstr "Spenden"
+
+#: ../qml/SettingsPage.qml:25
+msgid "Failed to save the settings"
+msgstr "Speichern der Einstellungen fehlgeschlagen"
+
+#: ../qml/SettingsPage.qml:53
+msgid "Upower queries interval (seconds)"
+msgstr "Upower Abfrageintervall in Sekunden"
+
+#: ../qml/SettingsPage.qml:82
+msgid "Battery charge threshold alarm (%)"
+msgstr "Batterieladebegrenzungsalarm (%)"
+
+#: ../qml/SettingsPage.qml:107
+msgid "Set 100% to desactivate the alarm"
+msgstr "100% einstellen um den Alarm zu deaktivieren"
+
+#: ../qml/SettingsPage.qml:111
+msgid "How to prolong Lithium-based Batteries ? %1"
+msgstr "Wie verlängere ich die Lebensdauer von Lithium-basierten Batterien? %1"
+
+#: ../qml/SettingsPage.qml:120
+msgid "Repeat threshold alarm (yes = 1, No = 0)"
+msgstr "Begrenzungsalarm wiederholen (Ja = 1, nein = 0)"
+
+#: ../qml/SettingsPage.qml:150
+msgid "Save"
+msgstr "Speichern"
+
+#: ../qml/SettingsPage.qml:155
+msgid "Please specify the Upower queries interval in seconds"
+msgstr "Bitte wähle das Upower Abfrageintervall in Sekunden"
+
+#: ../qml/SettingsPage.qml:157
+msgid "in seconds (%1 to %2)"
+msgstr "in Sekunden (%1 bis %2)"
+
+#: ../qml/SettingsPage.qml:161
+msgid "Battery charge percentage threshold alarm"
+msgstr "Prozent Batterieladebegrenzungsalarm"
+
+#: ../qml/SettingsPage.qml:163
+msgid "in percentage (%1 to %2)"
+msgstr "in Prozent (%1 bis %2)"
+
+#: ../qml/SettingsPage.qml:168
+msgid "Saved the settings, please reboot"
+msgstr "Einstellungen gespeichert, bitte Gerät neu starten"
+
+#: ../qml/SettingsPage.qml:180
+msgid "Install Indicator"
+msgstr "Indikator installieren"
+
+#: ../qml/SettingsPage.qml:191
+msgid "Uninstall Indicator"
+msgstr "Indikator deinstallieren"
+
+#: ../qml/SettingsPage.qml:201
+msgid ""
+"* Before uninstalling the app be sure to uninstall the indicator here first"
+msgstr ""
+"* Vor dem Deinstallieren der App unbedingt zuerst den Indikator "
+"deinstallieren"
+
+#: ../qml/SettingsPage.qml:212
+msgid "Successfully installed, please reboot"
+msgstr "Erfolgreich installiert, bitte Gerät neu starten"
+
+#: ../qml/SettingsPage.qml:216
+msgid "Failed to install"
+msgstr "Installation fehlgeschlagen"
+
+#: ../qml/SettingsPage.qml:224
+msgid "Successfully uninstalled, please reboot"
+msgstr "Erfolgreich deinstalliert, bitte Gerät neu starten"
+
+#: ../qml/SettingsPage.qml:228
+msgid "Failed to uninstall"
+msgstr "Deinstallieren fehlgeschlagen"
