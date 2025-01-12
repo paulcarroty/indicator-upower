@@ -29,6 +29,8 @@ Known support :
 | mido       |    x   |       x      |      x      |    x   |         |        no       |           no           |                      |
 | miatoll    |    x   |       x      |      x      |    x   |         |        no       |           no           |            x         |
 | dumpling   |    x   |       x      |      x      |    x   |         |        x        |           x            |            x         |
+| surya/karna|    x   |       x      |      x      |    x   |         |        x        |           x            |            x         |
+| FP4        |    x   |       x      |      x      |    x   |         |        x        |           x            |            x         |
 
 ## Limiting battery's Charge
 - It's a feature which needs to be enable on the device itself.
