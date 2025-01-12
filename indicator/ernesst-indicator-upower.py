@@ -186,11 +186,11 @@ class UpowerIndicator(object):
                 config_json_device = json.load(f)
                 self.phone_current_file = config_json_device[self.device_name]["src"]
                 self.phone_current_unit = config_json_device[self.device_name]["current_units"]
-                if self.device_name == "OnePlus3":
+                if "cycle_count" in config_json_device[self.device_name]:
                     self.phone_cycle_count_file = config_json_device[self.device_name]["cycle_count"]
+                if self.device_name == "OnePlus3":
                     self.phone_capacity_file = config_json_device[self.device_name]["capacity"]
                 if self.device_name == "turbo":
-                    self.phone_cycle_count_file = config_json_device[self.device_name]["cycle_count"]
                     self.phone_per_file = config_json_device[self.device_name]["percentage"]
                     self.phone_status_file = config_json_device[self.device_name]["status"]
                     self.phone_temp_file = config_json_device[self.device_name]["temp"]
