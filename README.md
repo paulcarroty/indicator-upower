@@ -1,18 +1,19 @@
 # Indicator upower for Ubuntu Touch 
 
-#### fork of https://gitlab.com/ernesst/indicator-upower
+#### fork of [indicator-upower](https://gitlab.com/ernesst/indicator-upower), which is [Indicator Weather](https://gitlab.com/bhdouglass/indicator-weather/) spin-off
 
 
-A upower indicator for Ubuntu Touch, spin-off from bhdouglass's Indicator Weather.
-It's uses data from Linux API and the cli command [Upower ](https://upower.freedesktop.org/) embedded into the Ubuntu Touch operating system.
+The application uses data from Linux API and the [Upower](https://upower.freedesktop.org/) cli command.
 
-Upower is devices dependent, please [submit your device data](https://github.com/paulcarroty/indicator-upower/blob/master/docs/add_device.md) to handle more info.
+Upower is **devices dependent, please** [submit your device data](https://github.com/paulcarroty/indicator-upower/blob/master/docs/add_device.md) to handle more info.
 
 <div id="openstore-logo" align="center">
 <a href="https://open-store.io/app/indicator.upower.ernesst.fork"><img src="https://open-store.io/badges/en_US.png" alt="OpenStore" /></a>
+
+<a href="https://patreon.com/paulcarroty"><img src="https://img.shields.io/badge/donate_on-patreon-f96854?style=for-the-badge" height="40" /></a>  
 </div>
 
-Known support :
+*Supported devices*:
 
 
 |   Devices  | Status |    Current   | Temperature | Charge | Estimated Bat. capacity   |Remaining life  | Limiting battery's charge |Battery Cycle|
@@ -32,30 +33,30 @@ Known support :
 | surya/karna|    x   |       x      |      x      |    x   |         |        x        |           x            |            x         |
 | FP4        |    x   |       x      |      x      |    x   |         |        x        |           x            |            x         |
 
-## Limiting battery's Charge
+## Limiting battery's charge
 - It's a feature which needs to be enable on the device itself.
-Please create a bug request against the repository of your device and mentions this commit : https://github.com/Halium/android_device_oneplus_oneplus3/pull/10/commits/f9154c467c0f6c6d9748f9d854dff01b44cce66f
+Please create a bug request against the repository of your device and mentions this [commit](https://github.com/Halium/android_device_oneplus_oneplus3/pull/10/commits/f9154c467c0f6c6d9748f9d854dff01b44cce66f)
 
 ## Installation
-- Install the application from OpenStore,
-- Go to the upower app, set setting and save,
-- install the indicators,
+- Install the application from OpenStore
+- Open to the Upower app, set the all settings the way you like and save
+- Install the indicator
 - Reboot.
 
 ## Translating
 
-TCheck `/po`.
+Check [indicator-upower.pot](https://github.com/paulcarroty/indicator-upower/blob/master/po/indicator-upower.pot)
 
 ## About the Indicator
 As for Indicator Weather, the indicator itself is rather simple. It's a python script that exports a Gtk
-menu over DBus. To start the script there is an Upstart config file located at indicator/indicator-upower.service. This starts the indicator when
+menu over DBus. To start the script there is an systemd service. This starts the indicator when
 Unity starts the rest of the indicators. The other important file is
 indicator/upower.indicator. This file lets Unity know where to
 find the indicator on DBus and where to place the indicator on the indicator bar.
 
 If you are interested in creating your own indicator for Ubuntu Touch and have
 questions, I would be glad to help.
-Moreover the Indicator Master, Brian Douglass, can be Just contact via [my website](https://bhdouglass.com/contact.html).
+Moreover the Indicator creator, Brian Douglass, can be reached via [his website](https://bhdouglass.com/contact.html).
 
 ## Building
 
@@ -67,15 +68,6 @@ The logo is from the [gusbemacbe github repository of Suru-plus icons](https://g
 
 ## Donate
 
-Please consider giving a small donation to the [Ubports project](https://ubports.com/donate).
+Please consider giving a small donation to the [Ubports project](https://ubports.com/donate) and [the contributors](https://github.com/paulcarroty/indicator-upower/graphs/contributors).
 
-## License
-
-Copyright (C) 2019 Ernesst
-
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License version 3, as published
-by the Free Software Foundation.
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranties of MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+## License [GPLv3](https://github.com/paulcarroty/indicator-upower/blob/master/LICENSE)
