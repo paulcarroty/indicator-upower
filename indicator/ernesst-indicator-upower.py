@@ -165,8 +165,7 @@ class UpowerIndicator(object):
                           logger.warning("Failed to read device name!")  
 
                 else:
-                   logger.warning("Failed to load build.prop and channel.ini, closing the app!")
-                   sys.exit(1)
+                   logger.warning("Failed to load build.prop and channel.ini")
 
                 try: 
                     self.device_name = device
