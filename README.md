@@ -39,8 +39,8 @@ It's a feature which needs to be enable on the device itself.
 - Experimental way using udev rules: create the file `/etc/udev/rules.d/90-charging_enabled.rules` with the following content:
 
 ```
-ACTION=="add|change", SUBSYSTEM=="power_supply", KERNEL=="battery", RUN+="/bin/chmod 0664 /sys/class/power_supply/%k/charging_enabled", RUN+="/bin/chown phablet /sys/class/power_supply/%k/charging_enabled"
-
+ACTION=="add|change", SUBSYSTEM=="power_supply", KERNEL=="battery", RUN+="/bin/sh -c  'f=/sys/class/power_supply/battery/charging_enabled; test -e $f && /bin/chmod 0664 $f && /bin/chown phablet $f'"
+ACTION=="add|change", SUBSYSTEM=="power_supply", KERNEL=="battery", RUN+="/bin/sh -c  'f=/sys/class/power_supply/battery/battery_charging_enabled; test -e $f && /bin/chmod 0664 $f && /bin/chown phablet $f'"
 ```
 
 ## Installation
