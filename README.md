@@ -1,4 +1,5 @@
-# Indicator upower for Ubuntu Touch 
+# Indicator upower for Ubuntu Touch [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/paulcarroty/indicator-upower/ci.yml?label=Latest%20test%20build)](https://github.com/paulcarroty/indicator-upower/actions/)
+
 
 #### fork of [indicator-upower](https://gitlab.com/ernesst/indicator-upower), which is [Indicator Weather](https://gitlab.com/bhdouglass/indicator-weather/) spin-off
 
