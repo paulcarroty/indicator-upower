@@ -333,8 +333,9 @@ ApplicationWindow {
                 text: "Install Indicator"
                 ToolTip.text: "Indicator installed, please reboot"
                 onClicked :{
-                    Indicator.install();
-                      onTriggered: dialog_Installed.open()
+                    dialogue.open();
+                    //Indicator.install();
+                    //  onTriggered: dialog_Installed.open()
                   }
                 }
             Button {
@@ -350,8 +351,9 @@ ApplicationWindow {
                 anchors.horizontalCenter: parent.horizontalLeft
                 text: "Uninstall Indicator"
                 onClicked :{
-                    Indicator.uninstall();
-                    onTriggered: dialog_unInstalled.open()
+                    dialogue.open();
+                    // Indicator.unin/stall();
+                    // onTriggered: dialog_unInstalled.open()
                 }
             }
             Label {
@@ -638,7 +640,7 @@ ApplicationWindow {
         title: "Configuration saved"
         x: (window.width - width) / 2
         y: window.height / 6
-        width: Math.min(window.width, window.height) / 3 * 2
+        width: Math.min(window.width, window.height) / 4 * 3
         contentHeight: aboutColumn3.height
         standardButtons: Dialog.Ok
             Column {
@@ -653,4 +655,56 @@ ApplicationWindow {
                 }
             }
         }
-  }
+
+        property string password : ""
+
+
+        Component.onCompleted: {
+            Indicator.commandRunner = CommandRunner;
+        }
+
+        Dialog {
+            id: dialogue
+            modal: true
+            focus: true
+            title: "Authentication required"
+            //text: "Please enter your user PIN or password to continue:"
+            x: (window.width - width) / 2
+            y: window.height / 6
+            width: Math.min(window.width, window.height) / 3 * 2
+            //contentHeight: aboutColumn3.height
+            standardButtons: Dialog.Ok | Dialog.Cancel
+
+
+            function testPassword() {
+                window.password = entry.text
+                if (CommandRunner.validatePassword()) {
+                    if (Indicator.isInstalled) {
+                        Indicator.uninstall();
+                        onTriggered: dialog_unInstalled.open()
+                    } else {
+                        Indicator.install();
+                        onTriggered: dialog_Installed.open()
+                    }
+                    dialogue.close();
+                }
+            }
+            onAccepted: dialogue.testPassword()
+            onRejected: dialogue.close()
+
+            TextField {
+                id: entry
+                placeholderText: qsTr("PIN or password")
+                echoMode: TextInput.Password
+                focus: true
+                onAccepted: dialogue.testPassword()
+            }
+        }
+
+        Connections {
+            target: CommandRunner
+            onPasswordRequested: {
+                CommandRunner.providePassword(password)
+            }
+        }
+}

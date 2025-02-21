@@ -4,10 +4,13 @@
 #include <QObject>
 #include <QProcess>
 
+#include "commandrunner.h"
+
 class Indicator: public QObject {
     Q_OBJECT
 
     Q_PROPERTY(bool isInstalled MEMBER m_isInstalled NOTIFY isInstalledChanged)
+    Q_PROPERTY(CommandRunner* commandRunner MEMBER m_commandRunner NOTIFY commandRunnerChanged)
 
 public:
     Indicator();
@@ -21,6 +24,7 @@ Q_SIGNALS:
     void uninstalled(bool success);
 
     void isInstalledChanged(const bool isInstalled);
+    void commandRunnerChanged();
 
 private Q_SLOTS:
     void onInstallFinished(int exitCode, QProcess::ExitStatus exitStatus);
@@ -34,6 +38,7 @@ private:
     QProcess m_installProcess;
     QProcess m_uninstallProcess;
     bool m_isInstalled = false;
+    CommandRunner* m_commandRunner;
 };
 
 #endif

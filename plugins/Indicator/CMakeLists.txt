@@ -6,6 +6,7 @@ set(
     plugin.cpp
     indicator.cpp
     settings.cpp
+    commandrunner.cpp
 )
 
 set(CMAKE_AUTOMOC ON)
