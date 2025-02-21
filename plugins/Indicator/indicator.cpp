@@ -62,7 +62,25 @@ bool Indicator::checkInstalled() {
     QFileInfo indicator("/home/phablet/.local/share/ayatana/indicators/upower.indicator");
     QFileInfo udev("/etc/udev/rules.d/90-charging_enabled.rules");
 
-    m_isInstalled = session.exists() && indicator.exists() && udev.exists();
+    if (session.exists()) {
+        qDebug() << "Installed file:" << session.filePath();
+    } else {
+        qDebug() << "File not installed:" << session.filePath();
+    }
+
+    if (indicator.exists()) {
+        qDebug() << "Installed file:" << indicator.filePath();
+    } else {
+        qDebug() << "File not installed:" << indicator.filePath();
+    }
+
+    if (udev.exists()) {
+        qDebug() << "Installed file:" << udev.filePath();
+    } else {
+        qDebug() << "File not installed:" << udev.filePath();
+    }    
+    
+    m_isInstalled = session.exists() && indicator.exists() || udev.exists();
     Q_EMIT isInstalledChanged(m_isInstalled);
 
     return m_isInstalled;
