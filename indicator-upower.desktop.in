@@ -1,5 +1,5 @@
 [Desktop Entry]
-_Name=indicator-upower
+Name=Upower Indicator
 Exec=indicator-upower
 Icon=assets/logo.png
 Terminal=false
