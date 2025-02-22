@@ -31,8 +31,11 @@ Upower is **devices dependent, please** [submit your device data](https://github
 | mido       |    x   |       x      |      x      |    x   |         |        no       |           no           |                      |
 | miatoll    |    x   |       x      |      x      |    x   |         |        no       |           no           |            x         |
 | dumpling   |    x   |       x      |      x      |    x   |         |        x        |           x            |            x         |
-| surya/karna|    x   |       x      |      x      |    x   |         |        x        |           x            |            x         |
-| FP4        |    x   |       x      |      x      |    x   |         |        x        |           x            |            x         |
+| surya/karna|    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
+| FP4        |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
+| lancelot   |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
+|billie v1,v2|    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
+| violet     |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
 
 ## Limiting battery's charge
 It's a feature which needs to be enable on the device itself.
