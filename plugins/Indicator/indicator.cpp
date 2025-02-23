@@ -19,11 +19,12 @@ void Indicator::install() {
     QFileInfo charging_enabled("/sys/class/power_supply/battery/charging_enabled");
     QFileInfo battery_charging_enabled("/sys/class/power_supply/battery/battery_charging_enabled");
 
-    if ((charging_enabled.exists() && !charging_enabled.isWritable()) || (battery_charging_enabled.exists() && !battery_charging_enabled.isWritable())) {
+    if ( (charging_enabled.exists() && (!charging_enabled.isWritable() || charging_enabled.owner() == "phablet"))
+        || (battery_charging_enabled.exists() && (!battery_charging_enabled.isWritable() || battery_charging_enabled.owner() == "phablet")) ) {
        m_commandRunner->sudo(QStringList{"/usr/bin/mkdir", "-p", "/etc/udev/rules.d"}, true);
        m_commandRunner->sudo(QStringList{"/usr/bin/cp", "-v", "/opt/click.ubuntu.com/indicator.upower.ernesst.fork/current/indicator/90-charging_enabled.rules", "/etc/udev/rules.d/"}, true);
     }
-    
+
     m_installProcess.start("bash /opt/click.ubuntu.com/indicator.upower.ernesst.fork/current/indicator/install.sh");
 }
 
@@ -32,7 +33,7 @@ void Indicator::uninstall() {
     QFileInfo charging_enabled_rules("/etc/udev/rules.d/90-charging_enabled.rules");
     if (charging_enabled_rules.exists()) {
        m_commandRunner->sudo(QStringList{"/usr/bin/rm", "/etc/udev/rules.d/90-charging_enabled.rules"}, true);
-    }    
+    }
     m_uninstallProcess.start("bash /opt/click.ubuntu.com/indicator.upower.ernesst.fork/current/indicator/uninstall.sh");
 }
 
@@ -78,8 +79,8 @@ bool Indicator::checkInstalled() {
         qDebug() << "Installed file:" << udev.filePath();
     } else {
         qDebug() << "File not installed:" << udev.filePath();
-    }    
-    
+    }
+
     m_isInstalled = session.exists() && indicator.exists() || udev.exists();
     Q_EMIT isInstalledChanged(m_isInstalled);
 
