@@ -442,8 +442,8 @@ class UpowerIndicator(object):
             BATT_info_list.append(self.BATT_current_print)
         if hasattr(self, 'BATT_Per_print') and self.BATT_Per_print !='':
             BATT_info_list.append(self.BATT_Per_print)
-#        if hasattr(self, 'BATT_Volt_print'):
-#            BATT_info_list.append(self.BATT_Volt_print)
+        if hasattr(self, 'BATT_Volt_print'):
+            BATT_info_list.append(self.BATT_Volt_print)
         if hasattr(self, 'BATT_Time_print') and self.BATT_Time_print !='':
             BATT_info_list.append(self.BATT_Time_print)
 
