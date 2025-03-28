@@ -312,7 +312,7 @@ class UpowerIndicator(object):
 #### Capture battery voltage
             if re.search("voltage:", element):
                 self.BATT_Volt = element.split()[1]
-                self.BATT_Volt_print = "Voltage: " + str(self.BATT_Volt) + "V"
+                self.BATT_Volt_print = "Voltage: " + str(self.BATT_Volt) + " V"
 #### Capture battery Energy
             if re.search("energy-rate:", element):
                 self.BATT_NRJ = element.split()[1]
