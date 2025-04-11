@@ -39,8 +39,12 @@ find /sys/devices -name health -type f -exec echo "{}" \; -exec cat {} \; >> pow
 find /sys/class/power_supply/ -name health -type f -exec echo "{}" \; -exec cat {} \; >> power.txt
 
 
-echo -e "udev:\n" >> power.txt
+echo -e "udev battery info:\n" >> power.txt
 udevadm info /sys/class/power_supply/battery >> power.txt
+
+
+echo -e "udev bms info:\n" >> power.txt
+udevadm info /sys/class/power_supply/bms >> power.txt
 
 ```
 
