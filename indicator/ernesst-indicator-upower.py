@@ -53,6 +53,9 @@ class UpowerIndicator(object):
         self.BATT_update = ''
         self.BATT_status = ''
         self.BATT_Volt = ''
+        self.BATT_Volt_print = ''
+        self.Power = ''
+        self.Power_print = ''
         self.BATT_NRJ = ''
         self.BATT_current_print = ''
         self.BATT_current = ''
@@ -208,7 +211,7 @@ class UpowerIndicator(object):
     def settings_action_activated(self, action, data):
         logger.debug('settings_action_activated')
         # For some reason lomiri-app-launch hangs without the version, so let cmake set it for us
-        subprocess.Popen(shlex.split('lomiri-app-launch indicator.upower.ernesst.fork_indicator-upower_@VERSION@'))
+        subprocess.Popen(shlex.split('lomiri-app-launch indicator.upower.ernesst.fork_indicator-upower_0.6'))
 
     def _battery_action(self):
     ## Define a buffer to reinitialize notification status
@@ -424,7 +427,24 @@ class UpowerIndicator(object):
                 else:
                     if self.BATT_Time_Empt_print:
                         self.BATT_Time_print = self.BATT_Time_Empt_print
+#### calculate power
+            if self.BATT_status == "discharging" and self.BATT_Volt and self.BATT_current:
+                self.Power = float(self.BATT_Volt) * float(self.BATT_current) * 0.001
+                self.Power_print = "Power: " + str(round(self.Power, 3)) + " W"
 
+            if self.BATT_status == "charging" and path.exists("/sys/class/power_supply/bms/current_now") and path.exists("/sys/class/power_supply/bms/voltage_now") and os.access('/sys/class/power_supply/bms/current_now', os.R_OK) and os.access('/sys/class/power_supply/bms/voltage_now', os.R_OK):
+                self.BATT_current = int(open('/sys/class/power_supply/bms/current_now').read().strip())
+                self.BATT_Volt = int(open('/sys/class/power_supply/bms/voltage_now').read().strip()) / 1000000
+                self.Power = float((self.BATT_Volt) * float(self.BATT_current) / 1000) if self.phone_current_unit == "mA" else float((self.BATT_Volt) * float(self.BATT_current)/1000000)
+                if self.Power > 15:
+                    self.Power_print = "Power: fast charging " + str(round(self.Power, 3)) + " W"
+                else:
+                    self.Power_print = "Power: charging " + str(round(self.Power, 3)) + " W"
+                #logger.debug("BATT_Volt: " + str(self.BATT_Volt))
+                #logger.debug("phone_current_unit: " + str(self.phone_current_unit))
+                #logger.debug("BATT_current: " + str(self.BATT_current))
+                #logger.debug("Power: " + str(self.Power_print))
+     
         process.kill()
 
         #print(hasattr(self, 'BATT_update'))
@@ -444,6 +464,8 @@ class UpowerIndicator(object):
             BATT_info_list.append(self.BATT_Per_print)
         if hasattr(self, 'BATT_Volt_print'):
             BATT_info_list.append(self.BATT_Volt_print)
+        if hasattr(self, 'Power_print') and self.Power_print !='':
+            BATT_info_list.append(self.Power_print)           
         if hasattr(self, 'BATT_Time_print') and self.BATT_Time_print !='':
             BATT_info_list.append(self.BATT_Time_print)
 
