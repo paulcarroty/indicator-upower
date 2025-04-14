@@ -352,7 +352,6 @@ ApplicationWindow {
                 ToolTip.visible: pressed
                 ToolTip.timeout: 5000
                 ToolTip.delay: 5000
-                text: "Install Indicator"
                 ToolTip.text: "Reboot before reinstall"
                 text: "Uninstall Indicator"
                 onClicked :{
