@@ -305,7 +305,9 @@ class UpowerIndicator(object):
         return vardict.end()
 
     def battery_query(self):
-        process = Popen(["upower", "-i", "/org/freedesktop/UPower/devices/battery_battery"], shell=False, stdout=PIPE)
+        env_eng = os.environ.copy()
+        env_eng["LC_ALL"] = "en_US.UTF-8"
+        process = Popen(["upower", "-i", "/org/freedesktop/UPower/devices/battery_battery"], shell=False, stdout=PIPE, env=env_eng)
         stdout = process.communicate()
         stdout = stdout[0].decode('UTF-8').split("\n")
         BATT_info_list = []
