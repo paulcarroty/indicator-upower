@@ -433,16 +433,16 @@ class UpowerIndicator(object):
 #### calculate power
             if self.BATT_status == "discharging" and self.BATT_Volt and self.BATT_current:
                 self.Power = float(self.BATT_Volt) * float(self.BATT_current) * 0.001
-                self.Power_print = "Power: " + str(round(self.Power, 3)) + " W"
+                self.Power_print = "Power: output " + str(round(self.Power, 3)) + " W"
 
             if self.BATT_status == "charging" and path.exists("/sys/class/power_supply/bms/current_now") and path.exists("/sys/class/power_supply/bms/voltage_now") and os.access('/sys/class/power_supply/bms/current_now', os.R_OK) and os.access('/sys/class/power_supply/bms/voltage_now', os.R_OK):
                 self.BATT_current = int(open('/sys/class/power_supply/bms/current_now').read().strip())
                 self.BATT_Volt = int(open('/sys/class/power_supply/bms/voltage_now').read().strip()) / 1000000
                 self.Power = float((self.BATT_Volt) * float(self.BATT_current) / 1000) if self.phone_current_unit == "mA" else float((self.BATT_Volt) * float(self.BATT_current)/1000000)
                 if self.Power > 15:
-                    self.Power_print = "Power: fast charging " + str(round(self.Power, 3)) + " W"
+                    self.Power_print = "Power: Fast Charging " + str(round(self.Power, 3)) + " W"
                 else:
-                    self.Power_print = "Power: charging " + str(round(self.Power, 3)) + " W"
+                    self.Power_print = "Power: input " + str(round(self.Power, 3)) + " W"
                 #logger.debug("BATT_Volt: " + str(self.BATT_Volt))
                 #logger.debug("phone_current_unit: " + str(self.phone_current_unit))
                 #logger.debug("BATT_current: " + str(self.BATT_current))
