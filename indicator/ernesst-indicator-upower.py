@@ -439,9 +439,9 @@ class UpowerIndicator(object):
                 self.BATT_Volt = int(open('/sys/class/power_supply/bms/voltage_now').read().strip()) / 1000000
                 self.Power = float((self.BATT_Volt) * float(self.BATT_current) / 1000) if self.phone_current_unit == "mA" else float((self.BATT_Volt) * float(self.BATT_current)/1000000)
                 if self.Power > 15:
-                    self.Power_print = "Power: ⚡⚡ " + str(round(self.Power, 3)) + " W PD"
+                    self.Power_print = "Power: " + str(round(self.Power, 3)) + " W PD"
                 else:
-                    self.Power_print = "Power: ⚡ " + str(round(self.Power, 3)) + " W in"
+                    self.Power_print = "Power: " + str(round(self.Power, 3)) + " W in"
                 #logger.debug("BATT_Volt: " + str(self.BATT_Volt))
                 #logger.debug("phone_current_unit: " + str(self.phone_current_unit))
                 #logger.debug("BATT_current: " + str(self.BATT_current))
