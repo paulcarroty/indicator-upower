@@ -7,295 +7,427 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ut-indicator-weather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-01 04:23+0000\n"
-"PO-Revision-Date: 2019-04-11 18:59+0200\n"
-"Last-Translator: Anne017 <Unknown>\n"
+"POT-Creation-Date: 2025-04-18 06:03+0000\n"
+"PO-Revision-Date: 2025-04-18 08:09+0200\n"
+"Last-Translator: Daniel Frost <one@frostinfo.de>\n"
 "Language-Team: French <fr@li.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
 
-#: ../qml/CoordHelp.qml:6 ../qml/SettingsPage.qml:177
-msgid "How to get coordinates"
-msgstr "Comment obtenir des coordonnées"
-
-#: ../qml/CoordHelp.qml:35
-msgid "To obtain coordinates for your location visit OpenStreetMap:"
+#: ../indicator/ernesst-indicator-upower.py:264
+msgid "Upower's Battery Information: "
 msgstr ""
-"Pour obtenir les coordonnées de votre position, visitez OpenStreetMap :"
 
-#: ../qml/CoordHelp.qml:71
+#: ../indicator/ernesst-indicator-upower.py:300
+msgid "Upower"
+msgstr ""
+
+#: ../qml/Main.qml:66 ../qml/Main.qml:87
+#, fuzzy
+#| msgid "Uninstall Indicator"
+msgid "Upower Indicator"
+msgstr "Désinstaller l'indicateur"
+
+#: ../qml/Main.qml:114
+msgid "Info"
+msgstr ""
+
+#: ../qml/Main.qml:124
 msgid ""
-"Navigate to your location, tap into the map and hold (or right click). From "
-"the context menu select <show address>."
+"Welcome in the Upower Indicator settings menu. This application displays "
+"limited information for most devices. To get more data like battery health "
+"or cycle count, see the <a href=\"https://github.com/paulcarroty/indicator-"
+"upower/blob/master/docs/add_device.md\">Docs</a>"
 msgstr ""
-"Allez jusqu'à votre position et maintenez appuyé sur la carte (ou faites un "
-"clic droit). Dans le menu contextuel, sélectionnez <show address>."
 
-#: ../qml/CoordHelp.qml:79
-msgid ""
-"A window opens with several information including coordinates. Those are "
-"given as 'Latitude' first, followed by 'Longitude'."
-msgstr ""
-"Une fenêtre s'ouvre avec plusieurs informations, y compris les coordonnées. "
-"Celles-ci sont données sous la forme « Latitude » puis « Longitude »."
-
-#: ../qml/CoordHelp.qml:87
-msgid ""
-"Enter the coordinates in Indicator Weather with the desired number of "
-"decimals. Bear in mind that 1 degree is aproximately 111 km."
-msgstr ""
-"Saisissez les coordonnées dans l'indicateur météorologique avec le nombre de "
-"décimales voulu. Gardez en tête qu'un degré correspond approximativement à "
-"111 km."
-
-#: ../qml/CoordHelp.qml:95
-msgid ""
-"To check the location install the indicator and from the pull down menu "
-"select 'forecast'. That should open the webpage of the selected provider on "
-"your location."
-msgstr ""
-"Pour vérifier la position, installez l'indicateur et sélectionnez « "
-"Prévisions » à partir du menu déroulant. Cela devrait ouvrir la page du site "
-"du fournisseur de données sélectionné à votre position."
-
-#: ../qml/AboutPage.qml:6 ../qml/SettingsPage.qml:14
-msgid "About"
-msgstr "À propos"
-
-#: ../qml/AboutPage.qml:35 ../qml/SettingsPage.qml:9
-msgid "Indicator Weather"
-msgstr "Indicateur météorologique"
-
-#: ../qml/AboutPage.qml:53
-msgid "The app icon is based on a weather icon by Erik Flowers (SIL OFL 1.1)"
-msgstr ""
-"L'icône de l'application est basée sur une icône météorologique d'Erik "
-"Flowers (SIL OFL 1.1)"
-
-#: ../qml/AboutPage.qml:61
-msgid ""
-"A Brian Douglass app, consider donating if you like it and want to see more "
-"apps like it!"
-msgstr ""
-"Une application de Brian Douglass. Pensez à faire un don si vous l'aimez et "
-"voulez voir plus d'applications de ce type !"
-
-#: ../qml/AboutPage.qml:69
-msgid "Donate"
-msgstr "Faire un don"
-
-#: ../qml/WeatherProviderSelect.qml:19
-msgid "Weather Provider"
-msgstr "Service météorologique"
-
-#: ../qml/WeatherProviderSelect.qml:41
-msgid "Dark Sky"
-msgstr "Dark Sky"
-
-#: ../qml/WeatherProviderSelect.qml:68
-msgid "OpenWeatherMap"
-msgstr "OpenWeatherMap"
-
-#: ../qml/TemperatureUnitSelect.qml:19
-msgid "Temperature Unit"
-msgstr "Unité de température"
-
-#: ../qml/TemperatureUnitSelect.qml:42
-msgid "Fahrenheit"
-msgstr "Fahrenheit"
-
-#: ../qml/TemperatureUnitSelect.qml:70
-msgid "Celsius"
-msgstr "Celsius"
-
-#: ../qml/TemperatureUnitSelect.qml:98
-msgid "Kelvin"
-msgstr "Kelvin"
-
-#: ../qml/SettingsPage.qml:25
-msgid "Failed to save the settings"
-msgstr "Échec de l'enregistrement des paramètres"
-
-#: ../qml/SettingsPage.qml:76
-msgid "Dark Sky API Key"
-msgstr "Clé API pour Dark Sky"
-
-#: ../qml/SettingsPage.qml:93
-msgid "OpenWeatherMap API Key"
-msgstr "Clé API pour OpenWeatherMap"
-
-#: ../qml/SettingsPage.qml:110
-msgid "Click to signup for an API key"
-msgstr "Cliquez ici pour demander une clé API"
-
-#: ../qml/SettingsPage.qml:145
-msgid "Latitude"
-msgstr "Latitude"
-
-#: ../qml/SettingsPage.qml:171
-msgid "Longitude"
-msgstr "Longitude"
-
-#: ../qml/SettingsPage.qml:197
-msgid "Weather refresh interval (minutes)"
+#: ../qml/Main.qml:150
+#, fuzzy
+#| msgid "Weather refresh interval (minutes)"
+msgid "Upower queries interval in seconds:"
 msgstr "Intervalle d'actualisation de la météo (en minutes)"
 
-#: ../qml/SettingsPage.qml:232
-msgid "Save"
-msgstr "Enregistrer"
+#: ../qml/Main.qml:192
+msgid "Battery charge limit (%):"
+msgstr ""
 
-#: ../qml/SettingsPage.qml:246 ../indicator/bhdouglass-indicator-weather.py:299
-msgid "Please specify an api key"
-msgstr "Veuillez spécifier une clé API"
+#: ../qml/Main.qml:244
+msgid "Repeat push notification"
+msgstr ""
 
-#: ../qml/SettingsPage.qml:250 ../indicator/bhdouglass-indicator-weather.py:302
-msgid "Please specify the latitude"
-msgstr "Veuillez spécifier la latitude"
+#: ../qml/Main.qml:267
+msgid "Push notification"
+msgstr ""
 
-#: ../qml/SettingsPage.qml:252 ../qml/SettingsPage.qml:258
-msgid "within the appropriate range (-%1 to %1)"
-msgstr "dans la plage appropriée (-%1 à %1)"
+#: ../qml/Main.qml:290
+msgid "Stop charging after limit is reached"
+msgstr ""
 
-#: ../qml/SettingsPage.qml:256 ../indicator/bhdouglass-indicator-weather.py:305
-msgid "Please specify the longitude"
-msgstr "Veuillez spécifier la longitude"
+#: ../qml/Main.qml:313
+msgid "Save configuration file"
+msgstr ""
 
-#: ../qml/SettingsPage.qml:262
-msgid "Please specify the weather refresh interval"
-msgstr "Veuillez spécifier l'intervalle d'actualisation de la météo"
-
-#: ../qml/SettingsPage.qml:264
-msgid "in minutes (%1 to %2)"
-msgstr "en minutes (%1 à %2)"
-
-#: ../qml/SettingsPage.qml:269
-msgid "Saved the settings, please reboot"
-msgstr "Paramètres enregistrés, veuillez redémarrer"
-
-#: ../qml/SettingsPage.qml:281
+#: ../qml/Main.qml:334
 msgid "Install Indicator"
 msgstr "Installer l'indicateur"
 
-#: ../qml/SettingsPage.qml:292
+#: ../qml/Main.qml:335
+#, fuzzy
+#| msgid "Successfully installed, please reboot"
+msgid "Indicator installed, please reboot"
+msgstr "Installation effectuée avec succès, veuillez redémarrer"
+
+#: ../qml/Main.qml:356
+msgid "Reboot before reinstall"
+msgstr ""
+
+#: ../qml/Main.qml:357
 msgid "Uninstall Indicator"
 msgstr "Désinstaller l'indicateur"
 
-#: ../qml/SettingsPage.qml:302
+#: ../qml/Main.qml:366
+#, fuzzy
+#| msgid ""
+#| "* Before uninstalling the app be sure to uninstall the indicator here "
+#| "first"
 msgid ""
-"* Before uninstalling the app be sure to uninstall the indicator here first"
+"* Before uninstalling the app, be sure to uninstall the indicator here first."
 msgstr ""
 "* Avant de désinstaller l'application, assurez-vous de désinstaller d'abord "
 "l'indicateur qui est ici"
 
-#: ../qml/SettingsPage.qml:313
-msgid "Successfully installed, please reboot"
-msgstr "Installation effectuée avec succès, veuillez redémarrer"
+#: ../qml/Main.qml:401
+msgid "A big thanks to:"
+msgstr ""
 
-#: ../qml/SettingsPage.qml:317
-msgid "Failed to install"
-msgstr "Échec de l'installation"
+#: ../qml/Main.qml:415
+msgid "+ %1 command line tool"
+msgstr ""
 
-#: ../qml/SettingsPage.qml:325
-msgid "Successfully uninstalled, please reboot"
-msgstr "Désinstallation effectuée avec succès, veuillez redémarrer"
+#: ../qml/Main.qml:430
+msgid "+ Brian Douglass's application %1 and his help."
+msgstr ""
 
-#: ../qml/SettingsPage.qml:329
-msgid "Failed to uninstall"
-msgstr "Échec de la désinstallation"
+#: ../qml/Main.qml:430
+#, fuzzy
+#| msgid "Indicator Weather"
+msgctxt ""
+"For first credits entry. The name of Brians app, which will be used as the "
+"link text instead of %1."
+msgid "indicator weather"
+msgstr "Indicateur météorologique"
 
-#: ../indicator/bhdouglass-indicator-weather.py:135
-#: ../indicator/bhdouglass-indicator-weather.py:136
-#: ../indicator/bhdouglass-indicator-weather.py:154
-msgid "Clear"
-msgstr "Clair"
+#: ../qml/Main.qml:445
+msgid "+ BigET's application %1"
+msgstr ""
 
-#: ../indicator/bhdouglass-indicator-weather.py:137
-#: ../indicator/bhdouglass-indicator-weather.py:160
-#: ../indicator/bhdouglass-indicator-weather.py:162
-msgid "Rainy"
-msgstr "Pluvieux"
+#: ../qml/Main.qml:445
+msgctxt ""
+"For second credits entry. Big ET's app name, which will be used as the link "
+"text instead of %1."
+msgid "Notification Post"
+msgstr ""
 
-#: ../indicator/bhdouglass-indicator-weather.py:138
-#: ../indicator/bhdouglass-indicator-weather.py:166
-msgid "Snowy"
-msgstr "Neigeux"
+#: ../qml/Main.qml:460
+msgid "+ Gustavo Reis for the Suru++ logo %1"
+msgstr ""
 
-#: ../indicator/bhdouglass-indicator-weather.py:139
-msgid "Sleet"
-msgstr "Neige fondue"
+#: ../qml/Main.qml:460
+msgctxt ""
+"For third credits entry. Gustavo's credits and honors page, which will be "
+"used as the link text instead of %1."
+msgid "credits and honors"
+msgstr ""
 
-#: ../indicator/bhdouglass-indicator-weather.py:140
-#: ../indicator/bhdouglass-indicator-weather.py:170
-#: ../indicator/bhdouglass-indicator-weather.py:172
-msgid "Windy"
-msgstr "Venteux"
+#: ../qml/Main.qml:475 ../qml/Main.qml:490
+msgid "+ Brian Douglass's %1."
+msgstr ""
 
-#: ../indicator/bhdouglass-indicator-weather.py:141
-#: ../indicator/bhdouglass-indicator-weather.py:158
-msgid "Foggy"
-msgstr "Brumeux"
+#: ../qml/Main.qml:475
+msgctxt ""
+"For forth credits entry. The name of Brians app, which will be used as the "
+"link text instead of %1."
+msgid "QtQuickControls2 Gallery"
+msgstr ""
 
-#: ../indicator/bhdouglass-indicator-weather.py:142
-#: ../indicator/bhdouglass-indicator-weather.py:143
-#: ../indicator/bhdouglass-indicator-weather.py:144
-#: ../indicator/bhdouglass-indicator-weather.py:156
-msgid "Cloudy"
-msgstr "Nuageux"
+#: ../qml/Main.qml:490
+msgctxt ""
+"For fifth credits entry. The name of Brians app, which will be used as the "
+"link text instead of %1."
+msgid " Clickable tool"
+msgstr ""
 
-#: ../indicator/bhdouglass-indicator-weather.py:145
-#: ../indicator/bhdouglass-indicator-weather.py:168
-msgid "Hail"
-msgstr "Grêle"
+#: ../qml/Main.qml:505
+msgid "+ Ubports documentation on %1"
+msgstr ""
 
-#: ../indicator/bhdouglass-indicator-weather.py:146
-#: ../indicator/bhdouglass-indicator-weather.py:164
-msgid "Stormy"
-msgstr "Orageux"
+#: ../qml/Main.qml:505
+msgctxt ""
+"For sixth credits entry. The chapter name of UT docs, which will be used as "
+"the link text instead of %1."
+msgid "push notification"
+msgstr ""
 
-#: ../indicator/bhdouglass-indicator-weather.py:147
-#: ../indicator/bhdouglass-indicator-weather.py:174
-msgid "Tornado"
-msgstr "Tornade"
+#: ../qml/Main.qml:520
+msgid "+ Consider supporting Ubports: %1 !"
+msgstr ""
 
-#: ../indicator/bhdouglass-indicator-weather.py:176
-msgid "Hurricane"
-msgstr "Ouragan"
+#: ../qml/Main.qml:520
+#, fuzzy
+#| msgid "Donate"
+msgctxt ""
+"For seventh credits entry. Content, which will be used as the link text "
+"instead of %1."
+msgid "Donate"
+msgstr "Faire un don"
 
-#: ../indicator/bhdouglass-indicator-weather.py:178
-msgid "Extreme Cold"
-msgstr "Froid extrême"
+#: ../qml/Main.qml:535
+msgid "+ All testers"
+msgstr ""
 
-#: ../indicator/bhdouglass-indicator-weather.py:180
-msgid "Extreme Heat"
-msgstr "Canicule"
+#: ../qml/Main.qml:550
+msgid "Upower Indicator information:"
+msgstr ""
 
-#: ../indicator/bhdouglass-indicator-weather.py:268
-msgid "Forecast"
-msgstr "Prévisions"
+#: ../qml/Main.qml:564
+msgid "+ Source code hosts on %1"
+msgstr ""
 
-#: ../indicator/bhdouglass-indicator-weather.py:271
-msgid "Weather Settings"
+#: ../qml/Main.qml:564
+msgctxt ""
+"For Github entry. Content, which will be used as the link text instead of %1."
+msgid "Github"
+msgstr ""
+
+#: ../qml/Main.qml:579
+msgid "+ Openstore %1"
+msgstr ""
+
+#: ../qml/Main.qml:579
+msgctxt ""
+"For OpenStore entry. Content, which will be used as the link text instead of "
+"%1."
+msgid "link"
+msgstr ""
+
+#: ../qml/Main.qml:590
+#, fuzzy
+#| msgid "Weather Settings"
+msgid "Settings"
 msgstr "Paramètres de la météo"
 
-#: ../indicator/bhdouglass-indicator-weather.py:318
-#: ../indicator/bhdouglass-indicator-weather.py:327
-#: ../indicator/bhdouglass-indicator-weather.py:340
-#: ../indicator/bhdouglass-indicator-weather.py:344
-#: ../indicator/bhdouglass-indicator-weather.py:359
-#: ../indicator/bhdouglass-indicator-weather.py:368
-#: ../indicator/bhdouglass-indicator-weather.py:379
-#: ../indicator/bhdouglass-indicator-weather.py:383
-msgid "Error fetching weather"
-msgstr "Erreur lors de la récupération des données météo"
+#: ../qml/Main.qml:593
+msgid "Credits"
+msgstr ""
 
-#: ../indicator/bhdouglass-indicator-weather.py:425
-msgid "Weather"
-msgstr "Météo"
+#: ../qml/Main.qml:600
+#, fuzzy
+#| msgid "Indicator Weather"
+msgid "Indicator Installed"
+msgstr "Indicateur météorologique"
 
-#. TRANSLATORS You must ensure that both {condition} and {temperature} remain intact as they are used for replacing with the actual values. For example: Clear and 75°
-#: ../indicator/bhdouglass-indicator-weather.py:439
+#: ../qml/Main.qml:612 ../qml/Main.qml:635
+#, fuzzy
+#| msgid "Saved the settings, please reboot"
+msgid "To take effect please reboot."
+msgstr "Paramètres enregistrés, veuillez redémarrer"
+
+#: ../qml/Main.qml:622
+#, fuzzy
+#| msgid "Indicator Weather"
+msgid "Indicator Removed"
+msgstr "Indicateur météorologique"
+
+#: ../qml/Main.qml:645
+msgid "Configuration saved"
+msgstr ""
+
+#: ../qml/Main.qml:657
+msgid "Please reboot."
+msgstr ""
+
+#: ../qml/Main.qml:675
+msgid "Authentication required"
+msgstr ""
+
+#: ../qml/Main.qml:702
+msgid "PIN or password"
+msgstr ""
+
+#~ msgid "How to get coordinates"
+#~ msgstr "Comment obtenir des coordonnées"
+
+#~ msgid "To obtain coordinates for your location visit OpenStreetMap:"
+#~ msgstr ""
+#~ "Pour obtenir les coordonnées de votre position, visitez OpenStreetMap :"
+
+#~ msgid ""
+#~ "Navigate to your location, tap into the map and hold (or right click). "
+#~ "From the context menu select <show address>."
+#~ msgstr ""
+#~ "Allez jusqu'à votre position et maintenez appuyé sur la carte (ou faites "
+#~ "un clic droit). Dans le menu contextuel, sélectionnez <show address>."
+
+#~ msgid ""
+#~ "A window opens with several information including coordinates. Those are "
+#~ "given as 'Latitude' first, followed by 'Longitude'."
+#~ msgstr ""
+#~ "Une fenêtre s'ouvre avec plusieurs informations, y compris les "
+#~ "coordonnées. Celles-ci sont données sous la forme « Latitude » puis « "
+#~ "Longitude »."
+
+#~ msgid ""
+#~ "Enter the coordinates in Indicator Weather with the desired number of "
+#~ "decimals. Bear in mind that 1 degree is aproximately 111 km."
+#~ msgstr ""
+#~ "Saisissez les coordonnées dans l'indicateur météorologique avec le nombre "
+#~ "de décimales voulu. Gardez en tête qu'un degré correspond "
+#~ "approximativement à 111 km."
+
+#~ msgid ""
+#~ "To check the location install the indicator and from the pull down menu "
+#~ "select 'forecast'. That should open the webpage of the selected provider "
+#~ "on your location."
+#~ msgstr ""
+#~ "Pour vérifier la position, installez l'indicateur et sélectionnez « "
+#~ "Prévisions » à partir du menu déroulant. Cela devrait ouvrir la page du "
+#~ "site du fournisseur de données sélectionné à votre position."
+
+#~ msgid "About"
+#~ msgstr "À propos"
+
+#~ msgid ""
+#~ "The app icon is based on a weather icon by Erik Flowers (SIL OFL 1.1)"
+#~ msgstr ""
+#~ "L'icône de l'application est basée sur une icône météorologique d'Erik "
+#~ "Flowers (SIL OFL 1.1)"
+
+#~ msgid ""
+#~ "A Brian Douglass app, consider donating if you like it and want to see "
+#~ "more apps like it!"
+#~ msgstr ""
+#~ "Une application de Brian Douglass. Pensez à faire un don si vous l'aimez "
+#~ "et voulez voir plus d'applications de ce type !"
+
+#~ msgid "Weather Provider"
+#~ msgstr "Service météorologique"
+
+#~ msgid "Dark Sky"
+#~ msgstr "Dark Sky"
+
+#~ msgid "OpenWeatherMap"
+#~ msgstr "OpenWeatherMap"
+
+#~ msgid "Temperature Unit"
+#~ msgstr "Unité de température"
+
+#~ msgid "Fahrenheit"
+#~ msgstr "Fahrenheit"
+
+#~ msgid "Celsius"
+#~ msgstr "Celsius"
+
+#~ msgid "Kelvin"
+#~ msgstr "Kelvin"
+
+#~ msgid "Failed to save the settings"
+#~ msgstr "Échec de l'enregistrement des paramètres"
+
+#~ msgid "Dark Sky API Key"
+#~ msgstr "Clé API pour Dark Sky"
+
+#~ msgid "OpenWeatherMap API Key"
+#~ msgstr "Clé API pour OpenWeatherMap"
+
+#~ msgid "Click to signup for an API key"
+#~ msgstr "Cliquez ici pour demander une clé API"
+
+#~ msgid "Latitude"
+#~ msgstr "Latitude"
+
+#~ msgid "Longitude"
+#~ msgstr "Longitude"
+
+#~ msgid "Save"
+#~ msgstr "Enregistrer"
+
+#~ msgid "Please specify an api key"
+#~ msgstr "Veuillez spécifier une clé API"
+
+#~ msgid "Please specify the latitude"
+#~ msgstr "Veuillez spécifier la latitude"
+
+#~ msgid "within the appropriate range (-%1 to %1)"
+#~ msgstr "dans la plage appropriée (-%1 à %1)"
+
+#~ msgid "Please specify the longitude"
+#~ msgstr "Veuillez spécifier la longitude"
+
+#~ msgid "Please specify the weather refresh interval"
+#~ msgstr "Veuillez spécifier l'intervalle d'actualisation de la météo"
+
+#~ msgid "in minutes (%1 to %2)"
+#~ msgstr "en minutes (%1 à %2)"
+
+#~ msgid "Failed to install"
+#~ msgstr "Échec de l'installation"
+
+#~ msgid "Successfully uninstalled, please reboot"
+#~ msgstr "Désinstallation effectuée avec succès, veuillez redémarrer"
+
+#~ msgid "Failed to uninstall"
+#~ msgstr "Échec de la désinstallation"
+
+#~ msgid "Clear"
+#~ msgstr "Clair"
+
+#~ msgid "Rainy"
+#~ msgstr "Pluvieux"
+
+#~ msgid "Snowy"
+#~ msgstr "Neigeux"
+
+#~ msgid "Sleet"
+#~ msgstr "Neige fondue"
+
+#~ msgid "Windy"
+#~ msgstr "Venteux"
+
+#~ msgid "Foggy"
+#~ msgstr "Brumeux"
+
+#~ msgid "Cloudy"
+#~ msgstr "Nuageux"
+
+#~ msgid "Hail"
+#~ msgstr "Grêle"
+
+#~ msgid "Stormy"
+#~ msgstr "Orageux"
+
+#~ msgid "Tornado"
+#~ msgstr "Tornade"
+
+#~ msgid "Hurricane"
+#~ msgstr "Ouragan"
+
+#~ msgid "Extreme Cold"
+#~ msgstr "Froid extrême"
+
+#~ msgid "Extreme Heat"
+#~ msgstr "Canicule"
+
+#~ msgid "Forecast"
+#~ msgstr "Prévisions"
+
+#~ msgid "Error fetching weather"
+#~ msgstr "Erreur lors de la récupération des données météo"
+
+#~ msgid "Weather"
+#~ msgstr "Météo"
+
 #, python-brace-format
-msgid "{condition} and {temperature}°"
-msgstr "{condition} et {temperature}°"
+#~ msgid "{condition} and {temperature}°"
+#~ msgstr "{condition} et {temperature}°"
