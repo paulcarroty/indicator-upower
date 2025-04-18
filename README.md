@@ -36,6 +36,9 @@ Upower is **devices dependent, please** [submit your device data](https://github
 | lancelot   |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
 |billie v1,v2|    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
 | violet     |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
+| sargo      |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
+| bonito     |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
+
 
 ## Limiting battery's charge
 It's a feature which needs to be enable on the device itself.
