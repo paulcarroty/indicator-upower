@@ -121,7 +121,7 @@ ApplicationWindow {
             }
             Label {
                 id: infoText
-                text: i18n.tr('Welcome in the Upower Indicator settings menu. This application displays limited information for most devices. To get more data like battery health or cycle count, see the <a href="https://github.com/paulcarroty/indicator-upower/blob/master/docs/add_device.md">Docs</a>')
+                text: i18n.tr('Welcome in the Upower Indicator settings menu. This application displays limited information for most devices. To get more data like battery health or cycle count, see the <a href="https://github.com/paulcarroty/indicator-upower/blob/master/docs/add_device.md">Docs</a>.')
                 onLinkActivated: Qt.openUrlExternally(link)
                 visible: false
                 opacity: visible ? 1 : 0
