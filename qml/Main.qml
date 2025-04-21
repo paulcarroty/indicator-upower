@@ -487,7 +487,7 @@ ApplicationWindow {
                   width: parent.width
                   wrapMode: Label.Wrap
                   horizontalAlignment: Qt.AlignHLeft
-                  text: i18n.tr('+ Brian Douglass\'s %1.').arg("<a href=\"http://clickable.bhdouglass.com/en/latest/\">%1</a>").arg(i18n.ctr("For fifth credits entry. The name of Brians app, which will be used as the link text instead of %1.", " Clickable tool"))
+                  text: i18n.tr('+ Brian Douglass\'s %1.').arg("<a href=\"http://clickable.bhdouglass.com/en/latest/\">%1</a>").arg(i18n.ctr("For fifth credits entry. The name of Brians app, which will be used as the link text instead of %1.", "Clickable tool"))
                   font.pixelSize: 16
                   onLinkActivated: Qt.openUrlExternally(link)
               }

@@ -317,7 +317,7 @@ class UpowerIndicator(object):
 #### Capture battery voltage
             if re.search("voltage:", element):
                 self.BATT_Volt = element.split()[1]
-                self.BATT_Volt_print = "Voltage: " + str(self.BATT_Volt) + " V"
+                self.BATT_Volt_print = _("Voltage: ") + str(self.BATT_Volt) + " V"
 #### Capture battery Energy
             if re.search("energy-rate:", element):
                 self.BATT_NRJ = element.split()[1]
@@ -326,7 +326,7 @@ class UpowerIndicator(object):
                 if re.search("percentage:", element):
                     self.BATT_Per = element.split()[1]
                     self.BATT_Per = int(self.BATT_Per[:-1])
-                    self.BATT_Per_print = "Charge: " + str(self.BATT_Per) + "%"
+                    self.BATT_Per_print = _("Charge: ") + str(self.BATT_Per) + "%"
             else:
                 #logger.debug("0 " + str(self.phone_per_file))
                 if path.exists(self.phone_per_file):
@@ -337,12 +337,12 @@ class UpowerIndicator(object):
                     #logger.debug("3 " + str(self.BATT_Per))
                     F.close()
                 if self.BATT_Per:
-                    self.BATT_Per_print = "Charge: " + str(self.BATT_Per) + "%"
+                    self.BATT_Per_print = _("Charge: ") + str(self.BATT_Per) + "%"
 #### Capture battery temperature
             if self.phone_temp_file =='':
                 if re.search("temperature", element):
                     self.BATT_temp = float(parseNumber(element.split()[1]))
-                    self.BATT_temp_print = "Temperature: " + str(self.BATT_temp) + " C"
+                    self.BATT_temp_print = _("Temperature: ") + str(self.BATT_temp) + " C"
             else:
                 #logger.debug("0 " + str(self.phone_temp_file))
                 if path.exists(self.phone_temp_file):
@@ -353,21 +353,21 @@ class UpowerIndicator(object):
                     #logger.debug("3 " + str(self.BATT_temp))
                     F.close()
                 if self.BATT_temp:
-                    self.BATT_temp_print = "Temperature: " + str(self.BATT_temp) + " C"
+                    self.BATT_temp_print = _("Temperature: ") + str(self.BATT_temp) + " C"
 
 #### Capture battery time to empty
             if re.search("time to empty", element):
                 self.BATT_Time_Empt = element.split("       ")[1]
-                self.BATT_Time_Empt_print = "Remaining life time: " + str(self.BATT_Time_Empt)
+                self.BATT_Time_Empt_print = _("Remaining life time: ") + str(self.BATT_Time_Empt)
 #### Capture battery time to full
             if re.search("time to full", element):
                 self.BATT_Time_Full = element.split("       ")[1]
-                self.BATT_Time_Full_print = "Remaining charging time: " + str(self.BATT_Time_Full)
+                self.BATT_Time_Full_print = _("Remaining charging time: ") + str(self.BATT_Time_Full)
 #### Capture battery status
             if self.phone_status_file =='':
                 if re.search("state", element):
                     self.BATT_status = element.split()[1]
-                    self.BATT_status_print = "Status: " + str(self.BATT_status)
+                    self.BATT_status_print = _("Status: ") + str(self.BATT_status)
             else:
                 #logger.debug("0 " + str(self.phone_status_file))
                 if path.exists(self.phone_status_file):
@@ -377,9 +377,14 @@ class UpowerIndicator(object):
                     #logger.debug("3 " + str(self.BATT_status))
                     F.close()
                 if self.BATT_status:
-                    self.BATT_status_print = "Status: " + str(self.BATT_status)
+                    if self.BATT_status == "discharging":
+                        self.BATT_status_print = _("Status: ") + _("discharging")
+                    elif self.BATT_status == "charging":
+                        self.BATT_status_print = _("Status: ") + _("charging")
+                    else:
+                        self.BATT_status_print = "Status: " + str(self.BATT_status)
 #### Define battery last update - Not entirely correct but independent of phone
-            self.BATT_update = "Last update : " + datetime.datetime.now().strftime("%H:%M:%S")
+            self.BATT_update = _("Last update : ") + datetime.datetime.now().strftime("%H:%M:%S")
 #### Capture battery current
             if self.phone_current_file == '':
                 if self.BATT_Volt and self.BATT_NRJ:
@@ -402,7 +407,7 @@ class UpowerIndicator(object):
                     #logger.debug("2 " + str(self.BATT_cycle_count))
                     F.close()
             if self.BATT_cycle_count:
-                self.BATT_cycle_count_print = "Battery Cycles: " + str(self.BATT_cycle_count)
+                self.BATT_cycle_count_print = _("Battery Cycles: ") + str(self.BATT_cycle_count)
 #### Capture battery estimated capacity
             if self.phone_capacity_file != '':
                 #logger.debug("0 " + str(self.phone_capacity_file))
@@ -413,14 +418,14 @@ class UpowerIndicator(object):
                     #logger.debug("3 " + str(self.BATT_capacity))
                     F.close()
             if self.BATT_capacity:
-                self.BATT_capacity_print = "Estimated capacity: " + str(self.BATT_capacity)+ " mAh"
+                self.BATT_capacity_print = _("Estimated capacity: ") + str(self.BATT_capacity)+ " mAh"
 #### Adjust current unit
             if self.BATT_current:
                 if self.phone_current_unit == "uA":
                     self.BATT_current = round(float(parseNumber(self.BATT_current)) /1000)
                 if self.phone_current_unit == "mA":
                     self.BATT_current = round(float(parseNumber(self.BATT_current)))
-                self.BATT_current_print = "Current: " + str(self.BATT_current) + " mA"
+                self.BATT_current_print = _("Current: ") + str(self.BATT_current) + " mA"
 #### select battery status print
             if self.phone_status_file =='':
                 if self.BATT_status == "charging" :
@@ -432,16 +437,16 @@ class UpowerIndicator(object):
 #### calculate power
             if self.BATT_status == "discharging" and self.BATT_Volt and self.BATT_current:
                 self.Power = float(self.BATT_Volt) * float(self.BATT_current) * 0.001
-                self.Power_print = "Power: " + str(round(self.Power, 3)) + " W out"
+                self.Power_print = _("Power: ") + str(round(self.Power, 3)) + _(" W out")
 
             if self.BATT_status == "charging" and path.exists("/sys/class/power_supply/bms/current_now") and path.exists("/sys/class/power_supply/bms/voltage_now") and os.access('/sys/class/power_supply/bms/current_now', os.R_OK) and os.access('/sys/class/power_supply/bms/voltage_now', os.R_OK):
                 self.BATT_current = int(open('/sys/class/power_supply/bms/current_now').read().strip())
                 self.BATT_Volt = int(open('/sys/class/power_supply/bms/voltage_now').read().strip()) / 1000000
                 self.Power = float((self.BATT_Volt) * float(self.BATT_current) / 1000) if self.phone_current_unit == "mA" else float((self.BATT_Volt) * float(self.BATT_current)/1000000)
                 if self.Power > 15:
-                    self.Power_print = "Power: " + str(round(self.Power, 3)) + " W PD"
+                    self.Power_print = _("Power: ") + str(round(self.Power, 3)) + _(" W PD")
                 else:
-                    self.Power_print = "Power: " + str(round(self.Power, 3)) + " W in"
+                    self.Power_print = _("Power: ") + str(round(self.Power, 3)) + _(" W in")
                 #logger.debug("BATT_Volt: " + str(self.BATT_Volt))
                 #logger.debug("phone_current_unit: " + str(self.phone_current_unit))
                 #logger.debug("BATT_current: " + str(self.BATT_current))

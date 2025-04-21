@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-18 06:15+0000\n"
-"PO-Revision-Date: 2025-04-18 08:16+0200\n"
+"POT-Creation-Date: 2025-04-21 21:48+0000\n"
+"PO-Revision-Date: 2025-04-21 23:49+0200\n"
 "Last-Translator: Daniel Frost <one@frostinfo.de>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -20,6 +20,76 @@ msgstr "Upower's Batterieinformationen: "
 #: ../indicator/ernesst-indicator-upower.py:300
 msgid "Upower"
 msgstr "Upower"
+
+#: ../indicator/ernesst-indicator-upower.py:320
+msgid "Voltage: "
+msgstr "Spannung: "
+
+#: ../indicator/ernesst-indicator-upower.py:329
+#: ../indicator/ernesst-indicator-upower.py:340
+msgid "Charge: "
+msgstr "Ladung: "
+
+#: ../indicator/ernesst-indicator-upower.py:345
+#: ../indicator/ernesst-indicator-upower.py:356
+msgid "Temperature: "
+msgstr "Temperatur: "
+
+#: ../indicator/ernesst-indicator-upower.py:361
+msgid "Remaining life time: "
+msgstr "Verbleibende Nutzungdauer: "
+
+#: ../indicator/ernesst-indicator-upower.py:365
+msgid "Remaining charging time: "
+msgstr "Verbleibende Ladedauer: "
+
+#: ../indicator/ernesst-indicator-upower.py:370
+#: ../indicator/ernesst-indicator-upower.py:381
+#: ../indicator/ernesst-indicator-upower.py:383
+msgid "Status: "
+msgstr "Status: "
+
+#: ../indicator/ernesst-indicator-upower.py:381
+msgid "discharging"
+msgstr "wird entladen"
+
+#: ../indicator/ernesst-indicator-upower.py:383
+msgid "charging"
+msgstr "wird geladen"
+
+#: ../indicator/ernesst-indicator-upower.py:387
+msgid "Last update : "
+msgstr "Letzte Aktualisierung: "
+
+#: ../indicator/ernesst-indicator-upower.py:410
+msgid "Battery Cycles: "
+msgstr "Batteriezyklen: "
+
+#: ../indicator/ernesst-indicator-upower.py:421
+msgid "Estimated capacity: "
+msgstr "Geschätzte Kapazität: "
+
+#: ../indicator/ernesst-indicator-upower.py:428
+msgid "Current: "
+msgstr "Strom: "
+
+#: ../indicator/ernesst-indicator-upower.py:440
+msgid " W out"
+msgstr " W entladen"
+
+#: ../indicator/ernesst-indicator-upower.py:440
+#: ../indicator/ernesst-indicator-upower.py:447
+#: ../indicator/ernesst-indicator-upower.py:449
+msgid "Power: "
+msgstr "Strom: "
+
+#: ../indicator/ernesst-indicator-upower.py:447
+msgid " W PD"
+msgstr " W PowerDelivery"
+
+#: ../indicator/ernesst-indicator-upower.py:449
+msgid " W in"
+msgstr " W laden"
 
 #: ../qml/Main.qml:66 ../qml/Main.qml:87
 msgid "Upower Indicator"
@@ -132,7 +202,7 @@ msgstr "Danksagungen und Ehrungen"
 
 #: ../qml/Main.qml:475 ../qml/Main.qml:490
 msgid "+ Brian Douglass's %1."
-msgstr "+ Brian Douglass's %1"
+msgstr "+ Brian Douglass's %1."
 
 #: ../qml/Main.qml:475
 msgctxt ""
@@ -145,7 +215,7 @@ msgstr "QtQuickControls2 Gallerie"
 msgctxt ""
 "For fifth credits entry. The name of Brians app, which will be used as the "
 "link text instead of %1."
-msgid " Clickable tool"
+msgid "Clickable tool"
 msgstr "Clickable Werkzeug"
 
 #: ../qml/Main.qml:505
