@@ -41,14 +41,8 @@ Upower is **devices dependent, please** [submit your device data](https://github
 
 
 ## Limiting battery's charge
-It's a feature which needs to be enable on the device itself.
-- Please create a bug request against the repository of your device and mentions this [commit](https://github.com/Halium/android_device_oneplus_oneplus3/pull/10/commits/f9154c467c0f6c6d9748f9d854dff01b44cce66f)
-- Experimental way using udev rules: create the file `/etc/udev/rules.d/90-charging_enabled.rules` with the following content:
 
-```
-ACTION=="add|change", SUBSYSTEM=="power_supply", KERNEL=="battery", RUN+="/bin/sh -c  'f=/sys/class/power_supply/battery/charging_enabled; /bin/test -e $f && /bin/chmod 0664 $f && /bin/chown phablet $f'"
-ACTION=="add|change", SUBSYSTEM=="power_supply", KERNEL=="battery", RUN+="/bin/sh -c  'f=/sys/class/power_supply/battery/battery_charging_enabled; /bin/test -e $f && /bin/chmod 0664 $f && /bin/chown phablet $f'"
-```
+[docs/limiting-charge.md](https://github.com/paulcarroty/indicator-upower/blob/master/docs/limiting-charge.md) 
 
 ## Installation
 - Install the application from OpenStore
