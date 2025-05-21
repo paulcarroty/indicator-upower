@@ -211,7 +211,7 @@ class UpowerIndicator(object):
         logger.debug('settings_action_activated')
         # For some reason lomiri-app-launch hangs without the version, so let cmake set it for us with 'lomiri-app-launch indicator.upower.ernesst.fork_indicator-upower_@VERSION@'
         # seems like it's fixed now so we don't need the version anymore
-        subprocess.Popen(shlex.split('lomiri-app-launch indicator.upower.ernesst.fork_indicator'))
+        subprocess.Popen(shlex.split('lomiri-app-launch indicator.upower.ernesst.fork_indicator-upower'))
 
     def _battery_action(self):
     ## Define a buffer to reinitialize notification status
