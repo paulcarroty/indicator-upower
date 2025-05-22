@@ -427,7 +427,7 @@ ApplicationWindow {
                   width: parent.width
                   wrapMode: Label.Wrap
                   horizontalAlignment: Qt.AlignHLeft
-                  text: i18n.tr('+ Brian Douglass\'s application %1 and his help.').arg("<a href=\"https://gitlab.com/bhdouglass/indicator-weather\">%1</a>").arg(i18n.ctr("For first credits entry. The name of Brians app, which will be used as the link text instead of %1.", "indicator weather"))
+                  text: i18n.tr('+ Brian Douglass\'s application %1 and his help').arg("<a href=\"https://gitlab.com/bhdouglass/indicator-weather\">%1</a>").arg(i18n.ctr("For first credits entry. The name of Brians app, which will be used as the link text instead of %1.", "indicator weather"))
                   font.pixelSize: 16
                   onLinkActivated: Qt.openUrlExternally(link)
               }
@@ -472,7 +472,7 @@ ApplicationWindow {
                   width: parent.width
                   wrapMode: Label.Wrap
                   horizontalAlignment: Qt.AlignHLeft
-                  text: i18n.tr('+ Brian Douglass\'s %1.').arg("<a href=\"https://gitlab.com/ubports/apps/qqc2-gallery\">%1</a>").arg(i18n.ctr("For forth credits entry. The name of Brians app, which will be used as the link text instead of %1.", "QtQuickControls2 Gallery"))
+                  text: i18n.tr('+ Brian Douglass\'s %1.').arg("<a href=\"https://gitlab.com/ubports/apps/qqc2-gallery\">%1</a>").arg(i18n.ctr("For forth credits entry. The name of Brians app, which will be used as the link text instead of %1", "QtQuickControls2 Gallery"))
                   font.pixelSize: 16
                   onLinkActivated: Qt.openUrlExternally(link)
               }
@@ -487,7 +487,7 @@ ApplicationWindow {
                   width: parent.width
                   wrapMode: Label.Wrap
                   horizontalAlignment: Qt.AlignHLeft
-                  text: i18n.tr('+ Brian Douglass\'s %1.').arg("<a href=\"http://clickable.bhdouglass.com/en/latest/\">%1</a>").arg(i18n.ctr("For fifth credits entry. The name of Brians app, which will be used as the link text instead of %1.", "Clickable tool"))
+                  text: i18n.tr('+ Brian Douglass\'s %1.').arg("<a href=\"http://clickable.bhdouglass.com/en/latest/\">%1</a>").arg(i18n.ctr("For fifth credits entry. The name of Brians app, which will be used as the link text instead of %1", "Clickable tool"))
                   font.pixelSize: 16
                   onLinkActivated: Qt.openUrlExternally(link)
               }
@@ -517,7 +517,7 @@ ApplicationWindow {
                   width: parent.width
                   wrapMode: Text.Wrap
                   horizontalAlignment: Qt.AlignHLeft
-                  text: i18n.tr('+ Consider supporting Ubports: %1 !').arg("<a href=\"https://ubports.com/donate\">%1</a>").arg(i18n.ctr("For seventh credits entry. Content, which will be used as the link text instead of %1.", "Donate"))
+                  text: i18n.tr('+ Consider supporting Ubports: %1').arg("<a href=\"https://ubports.com/donate\">%1</a>").arg(i18n.ctr("For seventh credits entry. Content, which will be used as the link text instead of %1.", "Donate"))
                   font.pixelSize: 16
                   onLinkActivated: Qt.openUrlExternally(link)
               }

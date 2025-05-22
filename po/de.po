@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-21 21:48+0000\n"
-"PO-Revision-Date: 2025-04-21 23:49+0200\n"
+"POT-Creation-Date: 2025-05-22 20:21+0000\n"
+"PO-Revision-Date: 2025-05-22 22:22+0200\n"
 "Last-Translator: Daniel Frost <one@frostinfo.de>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -168,8 +168,8 @@ msgid "+ %1 command line tool"
 msgstr "+ %1 Kommandozeilenwerkzeug"
 
 #: ../qml/Main.qml:430
-msgid "+ Brian Douglass's application %1 and his help."
-msgstr "+ Brian Douglass's App %1 und seine Hilfe."
+msgid "+ Brian Douglass's application %1 and his help"
+msgstr "+ Brian Douglass's App %1 und seine Hilfe"
 
 #: ../qml/Main.qml:430
 msgctxt ""
@@ -207,14 +207,14 @@ msgstr "+ Brian Douglass's %1."
 #: ../qml/Main.qml:475
 msgctxt ""
 "For forth credits entry. The name of Brians app, which will be used as the "
-"link text instead of %1."
+"link text instead of %1"
 msgid "QtQuickControls2 Gallery"
-msgstr "QtQuickControls2 Gallerie"
+msgstr "QtQuickControls2 Galerie"
 
 #: ../qml/Main.qml:490
 msgctxt ""
 "For fifth credits entry. The name of Brians app, which will be used as the "
-"link text instead of %1."
+"link text instead of %1"
 msgid "Clickable tool"
 msgstr "Clickable Werkzeug"
 
@@ -230,8 +230,8 @@ msgid "push notification"
 msgstr "Push Benachrichtigungen"
 
 #: ../qml/Main.qml:520
-msgid "+ Consider supporting Ubports: %1 !"
-msgstr "+ Denke über eine Spende an UBports nach: %1!"
+msgid "+ Consider supporting Ubports: %1"
+msgstr "+ Denke über eine Spende an UBports nach: %1"
 
 #: ../qml/Main.qml:520
 msgctxt ""

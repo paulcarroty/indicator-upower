@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: indicator.upower.ernesst.fork\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-21 21:48+0000\n"
-"PO-Revision-Date: 2025-04-21 23:48+0200\n"
+"POT-Creation-Date: 2025-05-22 20:21+0000\n"
+"PO-Revision-Date: 2025-05-22 22:23+0200\n"
 "Last-Translator: Daniel Frost <one@frostinfo.de>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -184,7 +184,7 @@ msgstr "%1-opdrachtregelhulpmiddel"
 #: ../qml/Main.qml:430
 #, fuzzy
 #| msgid "Brian Douglass's application %1 and his help."
-msgid "+ Brian Douglass's application %1 and his help."
+msgid "+ Brian Douglass's application %1 and his help"
 msgstr "Brian Douglass's app ‘%1’ en zijn hulp."
 
 #: ../qml/Main.qml:430
@@ -227,14 +227,14 @@ msgstr ""
 #: ../qml/Main.qml:475
 msgctxt ""
 "For forth credits entry. The name of Brians app, which will be used as the "
-"link text instead of %1."
+"link text instead of %1"
 msgid "QtQuickControls2 Gallery"
 msgstr ""
 
 #: ../qml/Main.qml:490
 msgctxt ""
 "For fifth credits entry. The name of Brians app, which will be used as the "
-"link text instead of %1."
+"link text instead of %1"
 msgid "Clickable tool"
 msgstr ""
 
@@ -254,7 +254,7 @@ msgstr ""
 #: ../qml/Main.qml:520
 #, fuzzy
 #| msgid "Consider donating to Ubports!"
-msgid "+ Consider supporting Ubports: %1 !"
+msgid "+ Consider supporting Ubports: %1"
 msgstr "Overweeg een donatie aan Ubports!"
 
 #: ../qml/Main.qml:520

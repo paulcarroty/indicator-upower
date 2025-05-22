@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: indicator.upower.ernesst.fork\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-21 21:51+0000\n"
+"POT-Creation-Date: 2025-05-22 20:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -165,7 +165,7 @@ msgid "+ %1 command line tool"
 msgstr ""
 
 #: ../qml/Main.qml:430
-msgid "+ Brian Douglass's application %1 and his help."
+msgid "+ Brian Douglass's application %1 and his help"
 msgstr ""
 
 #: ../qml/Main.qml:430
@@ -204,14 +204,14 @@ msgstr ""
 #: ../qml/Main.qml:475
 msgctxt ""
 "For forth credits entry. The name of Brians app, which will be used as the "
-"link text instead of %1."
+"link text instead of %1"
 msgid "QtQuickControls2 Gallery"
 msgstr ""
 
 #: ../qml/Main.qml:490
 msgctxt ""
 "For fifth credits entry. The name of Brians app, which will be used as the "
-"link text instead of %1."
+"link text instead of %1"
 msgid "Clickable tool"
 msgstr ""
 
@@ -227,7 +227,7 @@ msgid "push notification"
 msgstr ""
 
 #: ../qml/Main.qml:520
-msgid "+ Consider supporting Ubports: %1 !"
+msgid "+ Consider supporting Ubports: %1"
 msgstr ""
 
 #: ../qml/Main.qml:520
