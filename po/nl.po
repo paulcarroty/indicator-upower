@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: indicator.upower.ernesst.fork\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-22 20:21+0000\n"
-"PO-Revision-Date: 2025-05-22 22:23+0200\n"
+"POT-Creation-Date: 2025-05-22 20:54+0000\n"
+"PO-Revision-Date: 2025-05-22 22:56+0200\n"
 "Last-Translator: Daniel Frost <one@frostinfo.de>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -40,61 +40,85 @@ msgstr ""
 msgid "Temperature: "
 msgstr ""
 
-#: ../indicator/ernesst-indicator-upower.py:361
+#: ../indicator/ernesst-indicator-upower.py:364
+#: ../indicator/ernesst-indicator-upower.py:366
+#: ../indicator/ernesst-indicator-upower.py:368
+#: ../indicator/ernesst-indicator-upower.py:370
 msgid "Remaining life time: "
 msgstr ""
 
-#: ../indicator/ernesst-indicator-upower.py:365
+#: ../indicator/ernesst-indicator-upower.py:364
+#: ../indicator/ernesst-indicator-upower.py:377
+msgid "hours"
+msgstr ""
+
+#: ../indicator/ernesst-indicator-upower.py:366
+#: ../indicator/ernesst-indicator-upower.py:379
+msgid "minutes"
+msgstr ""
+
+#: ../indicator/ernesst-indicator-upower.py:368
+#: ../indicator/ernesst-indicator-upower.py:381
+msgid "seconds"
+msgstr ""
+
+#: ../indicator/ernesst-indicator-upower.py:377
+#: ../indicator/ernesst-indicator-upower.py:379
+#: ../indicator/ernesst-indicator-upower.py:381
+#: ../indicator/ernesst-indicator-upower.py:383
 msgid "Remaining charging time: "
 msgstr ""
 
-#: ../indicator/ernesst-indicator-upower.py:370
-#: ../indicator/ernesst-indicator-upower.py:381
-#: ../indicator/ernesst-indicator-upower.py:383
+#: ../indicator/ernesst-indicator-upower.py:389
+#: ../indicator/ernesst-indicator-upower.py:391
+#: ../indicator/ernesst-indicator-upower.py:404
+#: ../indicator/ernesst-indicator-upower.py:406
 msgid "Status: "
 msgstr ""
 
-#: ../indicator/ernesst-indicator-upower.py:381
+#: ../indicator/ernesst-indicator-upower.py:389
+#: ../indicator/ernesst-indicator-upower.py:404
 msgid "discharging"
 msgstr ""
 
-#: ../indicator/ernesst-indicator-upower.py:383
+#: ../indicator/ernesst-indicator-upower.py:391
+#: ../indicator/ernesst-indicator-upower.py:406
 msgid "charging"
 msgstr ""
 
-#: ../indicator/ernesst-indicator-upower.py:387
+#: ../indicator/ernesst-indicator-upower.py:410
 msgid "Last update : "
 msgstr ""
 
-#: ../indicator/ernesst-indicator-upower.py:410
+#: ../indicator/ernesst-indicator-upower.py:433
 msgid "Battery Cycles: "
 msgstr ""
 
-#: ../indicator/ernesst-indicator-upower.py:421
+#: ../indicator/ernesst-indicator-upower.py:444
 msgid "Estimated capacity: "
 msgstr ""
 
-#: ../indicator/ernesst-indicator-upower.py:428
+#: ../indicator/ernesst-indicator-upower.py:451
 msgid "Current: "
 msgstr ""
 
-#: ../indicator/ernesst-indicator-upower.py:440
+#: ../indicator/ernesst-indicator-upower.py:463
 msgid " W out"
 msgstr ""
 
-#: ../indicator/ernesst-indicator-upower.py:440
-#: ../indicator/ernesst-indicator-upower.py:447
-#: ../indicator/ernesst-indicator-upower.py:449
+#: ../indicator/ernesst-indicator-upower.py:463
+#: ../indicator/ernesst-indicator-upower.py:470
+#: ../indicator/ernesst-indicator-upower.py:472
 #, fuzzy
 #| msgid "Upower"
 msgid "Power: "
 msgstr "Upower"
 
-#: ../indicator/ernesst-indicator-upower.py:447
+#: ../indicator/ernesst-indicator-upower.py:470
 msgid " W PD"
 msgstr ""
 
-#: ../indicator/ernesst-indicator-upower.py:449
+#: ../indicator/ernesst-indicator-upower.py:472
 msgid " W in"
 msgstr ""
 

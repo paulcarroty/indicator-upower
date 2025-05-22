@@ -358,16 +358,39 @@ class UpowerIndicator(object):
 #### Capture battery time to empty
             if re.search("time to empty", element):
                 self.BATT_Time_Empt = element.split("       ")[1]
-                self.BATT_Time_Empt_print = _("Remaining life time: ") + str(self.BATT_Time_Empt)
+                tempValue = _("Remaining life time: ") + str(self.BATT_Time_Empt.split(" ")[0]) + " "
+                tempUnit = self.BATT_Time_Empt.split(" ")[1]
+                if tempUnit == "hours":
+                    self.BATT_Time_Empt_print = tempValue + _("hours")
+                elif tempUnit == "minutes":
+                    self.BATT_Time_Empt_print = tempValue + _("minutes")
+                elif tempUnit == "seconds":
+                    self.BATT_Time_Empt_print = tempValue + _("seconds")
+                else:
+                    self.BATT_Time_Empt_print = _("Remaining life time: ") + str(self.BATT_Time_Empt)
 #### Capture battery time to full
             if re.search("time to full", element):
                 self.BATT_Time_Full = element.split("       ")[1]
-                self.BATT_Time_Full_print = _("Remaining charging time: ") + str(self.BATT_Time_Full)
+                tempValue = _("Remaining charging time: ") + str(self.BATT_Time_Full.split(" ")[0]) + " "
+                tempUnit = self.BATT_Time_Full.split(" ")[1]
+                if tempUnit == "hours":
+                    self.BATT_Time_Full_print = tempValue + _("hours")
+                elif tempUnit == "minutes":
+                    self.BATT_Time_Full_print = tempValue + _("minutes")
+                elif tempUnit == "seconds":
+                    self.BATT_Time_Full_print = tempValue + _("seconds")
+                else:
+                    self.BATT_Time_Full_print = _("Remaining charging time: ") + str(self.BATT_Time_Full)
 #### Capture battery status
             if self.phone_status_file =='':
                 if re.search("state", element):
                     self.BATT_status = element.split()[1]
-                    self.BATT_status_print = _("Status: ") + str(self.BATT_status)
+                    if self.BATT_status == "discharging":
+                        self.BATT_status_print = _("Status: ") + _("discharging")
+                    elif self.BATT_status == "charging":
+                        self.BATT_status_print = _("Status: ") + _("charging")
+                    else:
+                        self.BATT_status_print = "Status: " + str(self.BATT_status)
             else:
                 #logger.debug("0 " + str(self.phone_status_file))
                 if path.exists(self.phone_status_file):
