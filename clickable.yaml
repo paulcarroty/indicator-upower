@@ -6,4 +6,4 @@ skip_review: true
 kill: indicator-upower
 scripts: 
     uplog1: "adb shell \"journalctl  --user -u indicator-upower\""
-    uplog2: "adb shell \"journalctl  --user -u lomiri-app-launch--application-click--indicator.upower.ernesst.fork_indicator-upower\*--.service\""
+    uplog2: "adb shell \"journalctl  --user -u lomiri-app-launch--application-click--indicator.upower.ernesst.fork_indicator-upower*--.service\""
