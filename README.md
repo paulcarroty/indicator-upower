@@ -33,6 +33,7 @@ Upower is **devices dependent, please** [submit your device data](https://github
 | dumpling   |    x   |       x      |      x      |    x   |         |        x        |           x            |            x         |
 | surya/karna|    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
 | FP4        |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
+| FP5        |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
 | lancelot   |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
 |billie v1,v2|    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
 | violet     |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
