@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: indicator.upower.ernesst.fork\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-20 22:37+0000\n"
-"PO-Revision-Date: 2024-12-19 11:54+0100\n"
-"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"POT-Creation-Date: 2025-05-22 20:54+0000\n"
+"PO-Revision-Date: 2025-05-22 22:56+0200\n"
+"Last-Translator: Daniel Frost <one@frostinfo.de>\n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -18,126 +18,382 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: ../qml/SettingsPage.qml:9 ../qml/AboutPage.qml:35
-msgid "Upower's Indicator"
-msgstr "Upower-indicator"
-
-#: ../qml/SettingsPage.qml:14 ../qml/AboutPage.qml:6
-msgid "About"
-msgstr "Over"
-
-#: ../qml/SettingsPage.qml:25
-msgid "Failed to save the settings"
-msgstr "De instellingen kunnen niet worden bewaard"
-
-#: ../qml/SettingsPage.qml:53
-msgid "Upower queries interval (seconds)"
-msgstr "Opvragen, iedere (in seconden)"
-
-#: ../qml/SettingsPage.qml:82
-msgid "Battery charge threshold alarm (%)"
-msgstr "Laag accuniveau (in %)"
-
-#: ../qml/SettingsPage.qml:107
-msgid "Set 100% to desactivate the alarm"
-msgstr "Stel in op 100% om geen waarschuwing te tonen"
-
-#: ../qml/SettingsPage.qml:111
-msgid "How to prolong Lithium-based Batteries ? %1"
-msgstr "Hoe verleng ik de levensduur van Lithium-accu's? %1"
-
-#: ../qml/SettingsPage.qml:120
-msgid "Repeat threshold alarm (yes = 1, No = 0)"
-msgstr "Drempelwaarde van herhaling (ja=1, nee=0)"
-
-#: ../qml/SettingsPage.qml:150
-msgid "Save"
-msgstr "Opslaan"
-
-#: ../qml/SettingsPage.qml:155
-msgid "Please specify the Upower queries interval in seconds"
-msgstr "Voer een opvraagduur in seconden in"
-
-#: ../qml/SettingsPage.qml:157
-msgid "in seconds (%1 to %2)"
-msgstr "in seconden (%1 tot %2)"
-
-#: ../qml/SettingsPage.qml:161
-msgid "Battery charge percentage threshold alarm"
-msgstr "Opgeladen na"
-
-#: ../qml/SettingsPage.qml:163
-msgid "in percentage (%1 to %2)"
-msgstr "percentage (%1 tot %2)"
-
-#: ../qml/SettingsPage.qml:168
-msgid "Saved the settings, please reboot"
-msgstr "De instellingen zijn bewaard - herstart je apparaat"
-
-#: ../qml/SettingsPage.qml:180
-msgid "Install Indicator"
-msgstr "Indicator installeren"
-
-#: ../qml/SettingsPage.qml:191
-msgid "Uninstall Indicator"
-msgstr "Indicator verwijderen"
-
-#: ../qml/SettingsPage.qml:201
-msgid "* Before uninstalling the app be sure to uninstall the indicator here first"
-msgstr "* Let op: verwijder de indicator voordat je de app verwijderd"
-
-#: ../qml/SettingsPage.qml:212
-msgid "Successfully installed, please reboot"
-msgstr "De installatie is voltooid - herstart je apparaat"
-
-#: ../qml/SettingsPage.qml:216
-msgid "Failed to install"
-msgstr "De installatie is mislukt"
-
-#: ../qml/SettingsPage.qml:224
-msgid "Successfully uninstalled, please reboot"
-msgstr "Het verwijderen is voltooid - herstart je apparaat"
-
-#: ../qml/SettingsPage.qml:228
-msgid "Failed to uninstall"
-msgstr "Het verwijderen is mislukt"
-
-#: ../qml/AboutPage.qml:52
-msgid "A big thanks to:"
-msgstr "Met veel dank aan:"
-
-#: ../qml/AboutPage.qml:59
-msgid "Brian Douglass's application %1 and his help."
-msgstr "Brian Douglass's app ‘%1’ en zijn hulp."
-
-#: ../qml/AboutPage.qml:67
-msgid "BigET's application %1"
-msgstr "BigET's app ‘%1’"
-
-#: ../qml/AboutPage.qml:75
-msgid "Gustavo Reis for the Suru++ logo %1"
-msgstr "Gustavo Reis voor het Suru++-logo %1"
-
-#: ../qml/AboutPage.qml:83
-msgid "%1 command line tool"
-msgstr "%1-opdrachtregelhulpmiddel"
-
-#: ../qml/AboutPage.qml:91
-msgid "Ubports documentation on %1"
-msgstr "Ubports-documentatie op %1"
-
-#: ../qml/AboutPage.qml:99
-msgid "Consider donating to Ubports!"
-msgstr "Overweeg een donatie aan Ubports!"
-
-#: ../qml/AboutPage.qml:107
-msgid "Donate"
-msgstr "Doneren"
-
-#: ../indicator/ernesst-indicator-upower.py:234
+#: ../indicator/ernesst-indicator-upower.py:264
 msgid "Upower's Battery Information: "
 msgstr "Upower-accu-informatie: "
 
-#: ../indicator/ernesst-indicator-upower.py:270
+#: ../indicator/ernesst-indicator-upower.py:300
 msgid "Upower"
 msgstr "Upower"
+
+#: ../indicator/ernesst-indicator-upower.py:320
+msgid "Voltage: "
+msgstr ""
+
+#: ../indicator/ernesst-indicator-upower.py:329
+#: ../indicator/ernesst-indicator-upower.py:340
+msgid "Charge: "
+msgstr ""
+
+#: ../indicator/ernesst-indicator-upower.py:345
+#: ../indicator/ernesst-indicator-upower.py:356
+msgid "Temperature: "
+msgstr ""
+
+#: ../indicator/ernesst-indicator-upower.py:364
+#: ../indicator/ernesst-indicator-upower.py:366
+#: ../indicator/ernesst-indicator-upower.py:368
+#: ../indicator/ernesst-indicator-upower.py:370
+msgid "Remaining life time: "
+msgstr ""
+
+#: ../indicator/ernesst-indicator-upower.py:364
+#: ../indicator/ernesst-indicator-upower.py:377
+msgid "hours"
+msgstr ""
+
+#: ../indicator/ernesst-indicator-upower.py:366
+#: ../indicator/ernesst-indicator-upower.py:379
+msgid "minutes"
+msgstr ""
+
+#: ../indicator/ernesst-indicator-upower.py:368
+#: ../indicator/ernesst-indicator-upower.py:381
+msgid "seconds"
+msgstr ""
+
+#: ../indicator/ernesst-indicator-upower.py:377
+#: ../indicator/ernesst-indicator-upower.py:379
+#: ../indicator/ernesst-indicator-upower.py:381
+#: ../indicator/ernesst-indicator-upower.py:383
+msgid "Remaining charging time: "
+msgstr ""
+
+#: ../indicator/ernesst-indicator-upower.py:389
+#: ../indicator/ernesst-indicator-upower.py:391
+#: ../indicator/ernesst-indicator-upower.py:404
+#: ../indicator/ernesst-indicator-upower.py:406
+msgid "Status: "
+msgstr ""
+
+#: ../indicator/ernesst-indicator-upower.py:389
+#: ../indicator/ernesst-indicator-upower.py:404
+msgid "discharging"
+msgstr ""
+
+#: ../indicator/ernesst-indicator-upower.py:391
+#: ../indicator/ernesst-indicator-upower.py:406
+msgid "charging"
+msgstr ""
+
+#: ../indicator/ernesst-indicator-upower.py:410
+msgid "Last update : "
+msgstr ""
+
+#: ../indicator/ernesst-indicator-upower.py:433
+msgid "Battery Cycles: "
+msgstr ""
+
+#: ../indicator/ernesst-indicator-upower.py:444
+msgid "Estimated capacity: "
+msgstr ""
+
+#: ../indicator/ernesst-indicator-upower.py:451
+msgid "Current: "
+msgstr ""
+
+#: ../indicator/ernesst-indicator-upower.py:463
+msgid " W out"
+msgstr ""
+
+#: ../indicator/ernesst-indicator-upower.py:463
+#: ../indicator/ernesst-indicator-upower.py:470
+#: ../indicator/ernesst-indicator-upower.py:472
+#, fuzzy
+#| msgid "Upower"
+msgid "Power: "
+msgstr "Upower"
+
+#: ../indicator/ernesst-indicator-upower.py:470
+msgid " W PD"
+msgstr ""
+
+#: ../indicator/ernesst-indicator-upower.py:472
+msgid " W in"
+msgstr ""
+
+#: ../qml/Main.qml:66 ../qml/Main.qml:87
+#, fuzzy
+#| msgid "Upower's Indicator"
+msgid "Upower Indicator"
+msgstr "Upower-indicator"
+
+#: ../qml/Main.qml:114
+msgid "Info"
+msgstr ""
+
+#: ../qml/Main.qml:124
+msgid ""
+"Welcome in the Upower Indicator settings menu. This application displays "
+"limited information for most devices. To get more data like battery health "
+"or cycle count, see the <a href=\"https://github.com/paulcarroty/indicator-"
+"upower/blob/master/docs/add_device.md\">Docs</a>."
+msgstr ""
+
+#: ../qml/Main.qml:150
+#, fuzzy
+#| msgid "Upower queries interval (seconds)"
+msgid "Upower queries interval in seconds:"
+msgstr "Opvragen, iedere (in seconden)"
+
+#: ../qml/Main.qml:192
+#, fuzzy
+#| msgid "Battery charge threshold alarm (%)"
+msgid "Battery charge limit (%):"
+msgstr "Laag accuniveau (in %)"
+
+#: ../qml/Main.qml:244
+msgid "Repeat push notification"
+msgstr ""
+
+#: ../qml/Main.qml:267
+msgid "Push notification"
+msgstr ""
+
+#: ../qml/Main.qml:290
+msgid "Stop charging after limit is reached"
+msgstr ""
+
+#: ../qml/Main.qml:313
+msgid "Save configuration file"
+msgstr ""
+
+#: ../qml/Main.qml:334
+msgid "Install Indicator"
+msgstr "Indicator installeren"
+
+#: ../qml/Main.qml:335
+#, fuzzy
+#| msgid "Successfully installed, please reboot"
+msgid "Indicator installed, please reboot"
+msgstr "De installatie is voltooid - herstart je apparaat"
+
+#: ../qml/Main.qml:356
+msgid "Reboot before reinstall"
+msgstr ""
+
+#: ../qml/Main.qml:357
+msgid "Uninstall Indicator"
+msgstr "Indicator verwijderen"
+
+#: ../qml/Main.qml:366
+#, fuzzy
+#| msgid ""
+#| "* Before uninstalling the app be sure to uninstall the indicator here "
+#| "first"
+msgid ""
+"* Before uninstalling the app, be sure to uninstall the indicator here first."
+msgstr "* Let op: verwijder de indicator voordat je de app verwijderd"
+
+#: ../qml/Main.qml:401
+msgid "A big thanks to:"
+msgstr "Met veel dank aan:"
+
+#: ../qml/Main.qml:415
+#, fuzzy
+#| msgid "%1 command line tool"
+msgid "+ %1 command line tool"
+msgstr "%1-opdrachtregelhulpmiddel"
+
+#: ../qml/Main.qml:430
+#, fuzzy
+#| msgid "Brian Douglass's application %1 and his help."
+msgid "+ Brian Douglass's application %1 and his help"
+msgstr "Brian Douglass's app ‘%1’ en zijn hulp."
+
+#: ../qml/Main.qml:430
+msgctxt ""
+"For first credits entry. The name of Brians app, which will be used as the "
+"link text instead of %1."
+msgid "indicator weather"
+msgstr ""
+
+#: ../qml/Main.qml:445
+#, fuzzy
+#| msgid "BigET's application %1"
+msgid "+ BigET's application %1"
+msgstr "BigET's app ‘%1’"
+
+#: ../qml/Main.qml:445
+msgctxt ""
+"For second credits entry. Big ET's app name, which will be used as the link "
+"text instead of %1."
+msgid "Notification Post"
+msgstr ""
+
+#: ../qml/Main.qml:460
+#, fuzzy
+#| msgid "Gustavo Reis for the Suru++ logo %1"
+msgid "+ Gustavo Reis for the Suru++ logo %1"
+msgstr "Gustavo Reis voor het Suru++-logo %1"
+
+#: ../qml/Main.qml:460
+msgctxt ""
+"For third credits entry. Gustavo's credits and honors page, which will be "
+"used as the link text instead of %1."
+msgid "credits and honors"
+msgstr ""
+
+#: ../qml/Main.qml:475 ../qml/Main.qml:490
+msgid "+ Brian Douglass's %1."
+msgstr ""
+
+#: ../qml/Main.qml:475
+msgctxt ""
+"For forth credits entry. The name of Brians app, which will be used as the "
+"link text instead of %1"
+msgid "QtQuickControls2 Gallery"
+msgstr ""
+
+#: ../qml/Main.qml:490
+msgctxt ""
+"For fifth credits entry. The name of Brians app, which will be used as the "
+"link text instead of %1"
+msgid "Clickable tool"
+msgstr ""
+
+#: ../qml/Main.qml:505
+#, fuzzy
+#| msgid "Ubports documentation on %1"
+msgid "+ Ubports documentation on %1"
+msgstr "Ubports-documentatie op %1"
+
+#: ../qml/Main.qml:505
+msgctxt ""
+"For sixth credits entry. The chapter name of UT docs, which will be used as "
+"the link text instead of %1."
+msgid "push notification"
+msgstr ""
+
+#: ../qml/Main.qml:520
+#, fuzzy
+#| msgid "Consider donating to Ubports!"
+msgid "+ Consider supporting Ubports: %1"
+msgstr "Overweeg een donatie aan Ubports!"
+
+#: ../qml/Main.qml:520
+#, fuzzy
+#| msgid "Donate"
+msgctxt ""
+"For seventh credits entry. Content, which will be used as the link text "
+"instead of %1."
+msgid "Donate"
+msgstr "Doneren"
+
+#: ../qml/Main.qml:535
+msgid "+ All testers"
+msgstr ""
+
+#: ../qml/Main.qml:550
+#, fuzzy
+#| msgid "Upower's Battery Information: "
+msgid "Upower Indicator information:"
+msgstr "Upower-accu-informatie: "
+
+#: ../qml/Main.qml:564
+msgid "+ Source code hosts on %1"
+msgstr ""
+
+#: ../qml/Main.qml:564
+msgctxt ""
+"For Github entry. Content, which will be used as the link text instead of %1."
+msgid "Github"
+msgstr ""
+
+#: ../qml/Main.qml:579
+msgid "+ Openstore %1"
+msgstr ""
+
+#: ../qml/Main.qml:579
+msgctxt ""
+"For OpenStore entry. Content, which will be used as the link text instead of "
+"%1."
+msgid "link"
+msgstr ""
+
+#: ../qml/Main.qml:590
+msgid "Settings"
+msgstr ""
+
+#: ../qml/Main.qml:593
+msgid "Credits"
+msgstr ""
+
+#: ../qml/Main.qml:600
+msgid "Indicator Installed"
+msgstr ""
+
+#: ../qml/Main.qml:612 ../qml/Main.qml:635
+#, fuzzy
+#| msgid "Saved the settings, please reboot"
+msgid "To take effect please reboot."
+msgstr "De instellingen zijn bewaard - herstart je apparaat"
+
+#: ../qml/Main.qml:622
+msgid "Indicator Removed"
+msgstr ""
+
+#: ../qml/Main.qml:645
+msgid "Configuration saved"
+msgstr ""
+
+#: ../qml/Main.qml:657
+msgid "Please reboot."
+msgstr ""
+
+#: ../qml/Main.qml:675
+msgid "Authentication required"
+msgstr ""
+
+#: ../qml/Main.qml:702
+msgid "PIN or password"
+msgstr ""
+
+#~ msgid "About"
+#~ msgstr "Over"
+
+#~ msgid "Failed to save the settings"
+#~ msgstr "De instellingen kunnen niet worden bewaard"
+
+#~ msgid "Set 100% to desactivate the alarm"
+#~ msgstr "Stel in op 100% om geen waarschuwing te tonen"
+
+#~ msgid "How to prolong Lithium-based Batteries ? %1"
+#~ msgstr "Hoe verleng ik de levensduur van Lithium-accu's? %1"
+
+#~ msgid "Repeat threshold alarm (yes = 1, No = 0)"
+#~ msgstr "Drempelwaarde van herhaling (ja=1, nee=0)"
+
+#~ msgid "Save"
+#~ msgstr "Opslaan"
+
+#~ msgid "Please specify the Upower queries interval in seconds"
+#~ msgstr "Voer een opvraagduur in seconden in"
+
+#~ msgid "in seconds (%1 to %2)"
+#~ msgstr "in seconden (%1 tot %2)"
+
+#~ msgid "Battery charge percentage threshold alarm"
+#~ msgstr "Opgeladen na"
+
+#~ msgid "in percentage (%1 to %2)"
+#~ msgstr "percentage (%1 tot %2)"
+
+#~ msgid "Failed to install"
+#~ msgstr "De installatie is mislukt"
+
+#~ msgid "Successfully uninstalled, please reboot"
+#~ msgstr "Het verwijderen is voltooid - herstart je apparaat"
+
+#~ msgid "Failed to uninstall"
+#~ msgstr "Het verwijderen is mislukt"

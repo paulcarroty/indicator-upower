@@ -55,6 +55,7 @@ import QtQuick.Controls.Material 2.1
 import QtQuick.Controls.Universal 2.1
 import Qt.labs.settings 1.0
 import Indicator 1.0
+import Lomiri.Components 1.3 as TR  // only imported to allow using i18n.tr() translations, named TR to avoid lomiri components being used as default
 
 
 ApplicationWindow {
@@ -62,7 +63,7 @@ ApplicationWindow {
     width: 360
     height: 520
     visible: true
-    title: "Upower Indicator"
+    title: i18n.tr("Upower Indicator")
 
     Settings {
         id: settings
@@ -83,7 +84,7 @@ ApplicationWindow {
             anchors.fill: parent
             Label {
                 id: titleLabel
-                text: "Upower Indicator"
+                text: i18n.tr("Upower Indicator")
                 font.pixelSize: 20
                 elide: Label.ElideRight
                 horizontalAlignment: Qt.AlignHCenter
@@ -110,7 +111,7 @@ ApplicationWindow {
             height: swipeView.height
             Button {
                 id: infoButton
-                text: "Info"
+                text: i18n.tr("Info")
                 anchors.margins: -10
                 anchors.top: parent.top
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -120,7 +121,7 @@ ApplicationWindow {
             }
             Label {
                 id: infoText
-                text: 'Welcome in the Upower Indicator settings menu. This application displays limited information for most devices. To get more data like battery health or cycle count, see the <a href="https://github.com/paulcarroty/indicator-upower/blob/master/docs/add_device.md">Docs</a>'
+                text: i18n.tr('Welcome in the Upower Indicator settings menu. This application displays limited information for most devices. To get more data like battery health or cycle count, see the <a href="https://github.com/paulcarroty/indicator-upower/blob/master/docs/add_device.md">Docs</a>.')
                 onLinkActivated: Qt.openUrlExternally(link)
                 visible: false
                 opacity: visible ? 1 : 0
@@ -146,7 +147,7 @@ ApplicationWindow {
               wrapMode: Label.Wrap
               horizontalAlignment: Qt.AlignHLeft
               font.pixelSize: 12
-              text: "Upower queries interval in seconds:"
+              text: i18n.tr("Upower queries interval in seconds:")
             }
             TextField {
               anchors.margins: 5
@@ -188,7 +189,7 @@ ApplicationWindow {
               wrapMode: Label.Wrap
               horizontalAlignment: Qt.AlignHLeft
               font.pixelSize: 12
-              text: "Battery charge limit (%):"
+              text: i18n.tr("Battery charge limit (%):")
                 }
             TextField {
                 anchors.margins : 5
@@ -240,7 +241,7 @@ ApplicationWindow {
                 Switch {
                     id: repeat_switch_switch
                     checked: (settings.repeat_alarm == 1) ? true : false
-                    text: "Repeat push notification"
+                    text: i18n.tr("Repeat push notification")
                     font.pixelSize: 12
                     onCheckedChanged: {
                         if(checked){
@@ -263,7 +264,7 @@ ApplicationWindow {
                 width: parent.width
                 Switch {
                     checked: (settings.PUSH_Notification == 1) ? true : false
-                    text: "Push notification"
+                    text: i18n.tr("Push notification")
                     font.pixelSize: 12
                     onCheckedChanged: {
                         if(checked){
@@ -286,7 +287,7 @@ ApplicationWindow {
                     id: stop_switch_switch
                     //checked: (settings.Stop_Charging == 1) ? true : false
                     checked: (settings.Stop_Charging == 1) ? true : false
-                    text: "Stop charging after limit reached"
+                    text: i18n.tr("Stop charging after limit is reached")
                     font.pixelSize: 12
                     enabled: (settings.chargingFILE == 1) ? true : false
                     onCheckedChanged: {
@@ -309,7 +310,7 @@ ApplicationWindow {
               anchors.left: parent.left
               anchors.right: parent.right
               anchors.horizontalCenter: parent.horizontalLeft
-              text: "Save configuration file"
+              text: i18n.tr("Save configuration file")
               onClicked :
               { if (refreshSec.acceptableInput & thresholdCharging.acceptableInput) {
                 settings.save();
@@ -330,8 +331,8 @@ ApplicationWindow {
                 ToolTip.visible: pressed
                 ToolTip.timeout: 5000
                 ToolTip.delay: 5000
-                text: "Install Indicator"
-                ToolTip.text: "Indicator installed, please reboot"
+                text: i18n.tr("Install Indicator")
+                ToolTip.text: i18n.tr("Indicator installed, please reboot")
                 onClicked :{
                     dialogue.open();
                     //Indicator.install();
@@ -352,8 +353,8 @@ ApplicationWindow {
                 ToolTip.visible: pressed
                 ToolTip.timeout: 5000
                 ToolTip.delay: 5000
-                ToolTip.text: "Reboot before reinstall"
-                text: "Uninstall Indicator"
+                ToolTip.text: i18n.tr("Reboot before reinstall")
+                text: i18n.tr("Uninstall Indicator")
                 onClicked :{
                     dialogue.open();
                     // Indicator.unin/stall();
@@ -362,7 +363,7 @@ ApplicationWindow {
             }
             Label {
                id:text4
-                text: "* Before uninstalling the app, be sure to uninstall the indicator here first."
+                text: i18n.tr("* Before uninstalling the app, be sure to uninstall the indicator here first.")
                 font.italic : true
                 font.bold : true
                 anchors.leftMargin: 20
@@ -397,7 +398,7 @@ ApplicationWindow {
                   wrapMode: Label.Wrap
                   font.bold : true
                   horizontalAlignment: Qt.AlignHLeft
-                  text: "A big thanks to:"
+                  text: i18n.tr("A big thanks to:")
                   font.pixelSize: 20
               }
               Label {
@@ -411,7 +412,7 @@ ApplicationWindow {
                   width: parent.width
                   wrapMode: Label.Wrap
                   horizontalAlignment: Qt.AlignHLeft
-                  text: ("+ %1 command line tool").arg("<a href=\"https://upower.freedesktop.org/\">UPower</a>")
+                  text: i18n.tr("+ %1 command line tool").arg("<a href=\"https://upower.freedesktop.org/\">UPower</a>")
                   font.pixelSize: 16
                   onLinkActivated: Qt.openUrlExternally(link)
               }
@@ -426,7 +427,7 @@ ApplicationWindow {
                   width: parent.width
                   wrapMode: Label.Wrap
                   horizontalAlignment: Qt.AlignHLeft
-                  text: ('+ Brian Douglass\'s application %1 and his help.').arg("<a href=\"https://gitlab.com/bhdouglass/indicator-weather\"> indicator weather</a>")
+                  text: i18n.tr('+ Brian Douglass\'s application %1 and his help').arg("<a href=\"https://gitlab.com/bhdouglass/indicator-weather\">%1</a>").arg(i18n.ctr("For first credits entry. The name of Brians app, which will be used as the link text instead of %1.", "indicator weather"))
                   font.pixelSize: 16
                   onLinkActivated: Qt.openUrlExternally(link)
               }
@@ -441,7 +442,7 @@ ApplicationWindow {
                   width: parent.width
                   wrapMode: Label.Wrap
                   horizontalAlignment: Qt.AlignHLeft
-                  text: ("+ BigET\'s application %1").arg("<a href=\"https://github.com/BigET/NotificationPost\">Notification Post</a>")
+                  text: i18n.tr("+ BigET\'s application %1").arg("<a href=\"https://github.com/BigET/NotificationPost\">%1</a>").arg(i18n.ctr("For second credits entry. Big ET's app name, which will be used as the link text instead of %1.", "Notification Post"))
                   font.pixelSize: 16
                   onLinkActivated: Qt.openUrlExternally(link)
               }
@@ -456,7 +457,7 @@ ApplicationWindow {
                   width: parent.width
                   wrapMode: Label.Wrap
                   horizontalAlignment: Qt.AlignHLeft
-                  text: ("+ Gustavo Reis for the Suru++ logo %1").arg("<a href=\"https://github.com/gusbemacbe/suru-plus\">credits and honors</a>")
+                  text: i18n.tr("+ Gustavo Reis for the Suru++ logo %1").arg("<a href=\"https://github.com/gusbemacbe/suru-plus\">%1</a>").arg(i18n.ctr("For third credits entry. Gustavo's credits and honors page, which will be used as the link text instead of %1.", "credits and honors"))
                   font.pixelSize: 16
                   onLinkActivated: Qt.openUrlExternally(link)
               }
@@ -471,7 +472,7 @@ ApplicationWindow {
                   width: parent.width
                   wrapMode: Label.Wrap
                   horizontalAlignment: Qt.AlignHLeft
-                  text: ('+ Brian Douglass\'s %1.').arg("<a href=\"https://gitlab.com/ubports/apps/qqc2-gallery\"> QtQuickControls2 Gallery</a>")
+                  text: i18n.tr('+ Brian Douglass\'s %1.').arg("<a href=\"https://gitlab.com/ubports/apps/qqc2-gallery\">%1</a>").arg(i18n.ctr("For forth credits entry. The name of Brians app, which will be used as the link text instead of %1", "QtQuickControls2 Gallery"))
                   font.pixelSize: 16
                   onLinkActivated: Qt.openUrlExternally(link)
               }
@@ -486,7 +487,7 @@ ApplicationWindow {
                   width: parent.width
                   wrapMode: Label.Wrap
                   horizontalAlignment: Qt.AlignHLeft
-                  text: ('+ Brian Douglass\'s %1.').arg("<a href=\"http://clickable.bhdouglass.com/en/latest/\"> Clickable tool</a>")
+                  text: i18n.tr('+ Brian Douglass\'s %1.').arg("<a href=\"http://clickable.bhdouglass.com/en/latest/\">%1</a>").arg(i18n.ctr("For fifth credits entry. The name of Brians app, which will be used as the link text instead of %1", "Clickable tool"))
                   font.pixelSize: 16
                   onLinkActivated: Qt.openUrlExternally(link)
               }
@@ -501,7 +502,7 @@ ApplicationWindow {
                   width: parent.width
                   wrapMode: Label.Wrap
                   horizontalAlignment: Qt.AlignHLeft
-                  text: ("+ Ubports documentation on %1").arg("<a href=\"https://docs.ubports.com/en/latest/appdev/guides/pushnotifications.html/\">push notification</a>")
+                  text: i18n.tr("+ Ubports documentation on %1").arg("<a href=\"https://docs.ubports.com/en/latest/appdev/guides/pushnotifications.html/\">%1</a>").arg(i18n.ctr("For sixth credits entry. The chapter name of UT docs, which will be used as the link text instead of %1.", "push notification"))
                   font.pixelSize: 16
                   onLinkActivated: Qt.openUrlExternally(link)
               }
@@ -516,7 +517,7 @@ ApplicationWindow {
                   width: parent.width
                   wrapMode: Text.Wrap
                   horizontalAlignment: Qt.AlignHLeft
-                  text: ('+ Consider supporting Ubports: %1 !').arg("<a href=\"https://ubports.com/donate\">Donate</a>")
+                  text: i18n.tr('+ Consider supporting Ubports: %1').arg("<a href=\"https://ubports.com/donate\">%1</a>").arg(i18n.ctr("For seventh credits entry. Content, which will be used as the link text instead of %1.", "Donate"))
                   font.pixelSize: 16
                   onLinkActivated: Qt.openUrlExternally(link)
               }
@@ -531,7 +532,7 @@ ApplicationWindow {
                   width: parent.width
                   wrapMode: Text.Wrap
                   horizontalAlignment: Qt.AlignHLeft
-                  text: "+ All testers"
+                  text: i18n.tr("+ All testers")
                   font.pixelSize: 16
                   onLinkActivated: Qt.openUrlExternally(link)
               }
@@ -546,7 +547,7 @@ ApplicationWindow {
                   wrapMode: Label.Wrap
                   font.bold : true
                   horizontalAlignment: Qt.AlignHLeft
-                  text: "Upower Indicator information:"
+                  text: i18n.tr("Upower Indicator information:")
                   font.pixelSize: 20
               }
               Label {
@@ -560,7 +561,7 @@ ApplicationWindow {
                   width: parent.width
                   wrapMode: Text.Wrap
                   horizontalAlignment: Qt.AlignHLeft
-                  text: ('+ Source code hosts on %1').arg("<a href=\"https://github.com/paulcarroty/indicator-upower\">Github</a>")
+                  text: i18n.tr('+ Source code hosts on %1').arg("<a href=\"https://github.com/paulcarroty/indicator-upower\">%1</a>").arg(i18n.ctr("For Github entry. Content, which will be used as the link text instead of %1.", "Github"))
                   font.pixelSize: 16
                   onLinkActivated: Qt.openUrlExternally(link)
 
@@ -575,7 +576,7 @@ ApplicationWindow {
                   anchors.horizontalCenter: parent.horizontalLeft
                   wrapMode: Text.Wrap
                   horizontalAlignment: Qt.AlignHLeft
-                  text: ('+ Openstore %1').arg("<a href=\"https://github.com/paulcarroty/indicator-upower\">link</a>")
+                  text: i18n.tr('+ Openstore %1').arg("<a href=\"https://github.com/paulcarroty/indicator-upower\">%1</a>").arg(i18n.ctr("For OpenStore entry. Content, which will be used as the link text instead of %1.", "link"))
                   font.pixelSize: 16
                   onLinkActivated: Qt.openUrlExternally(link)
               }
@@ -586,17 +587,17 @@ ApplicationWindow {
         id: tabBar
         currentIndex: swipeView.currentIndex
         TabButton {
-            text: "Settings"
+            text: i18n.tr("Settings")
         }
         TabButton {
-            text: "Credits"
+            text: i18n.tr("Credits")
         }
     }
     Dialog {
       id: dialog_Installed
       modal: true
       focus: true
-      title: "Indicator Installed"
+      title: i18n.tr("Indicator Installed")
       x: (window.width - width) / 2
       y: window.height / 6
       width: Math.min(window.width, window.height) / 3 * 2
@@ -608,7 +609,7 @@ ApplicationWindow {
 
               Label {
                   width: dialog_Installed.availableWidth
-                  text: "To take effect please reboot."
+                  text: i18n.tr("To take effect please reboot.")
                   wrapMode: Label.Wrap
                   font.pixelSize: 12
               }
@@ -618,7 +619,7 @@ ApplicationWindow {
       id: dialog_unInstalled
       modal: true
       focus: true
-      title: "Indicator Removed"
+      title: i18n.tr("Indicator Removed")
       x: (window.width - width) / 2
       y: window.height / 6
       width: Math.min(window.width, window.height) / 3 * 2
@@ -631,7 +632,7 @@ ApplicationWindow {
               Label {
                   width: dialog_unInstalled.availableWidth
                   horizontalAlignment: Dialog.AlignHCenter
-                  text: "To take effect please reboot"
+                  text: i18n.tr("To take effect please reboot.")
                   wrapMode: Label.Wrap
                   font.pixelSize: 12
               }
@@ -641,7 +642,7 @@ ApplicationWindow {
         id: dialog_save
         modal: true
         focus: true
-        title: "Configuration saved"
+        title: i18n.tr("Configuration saved")
         x: (window.width - width) / 2
         y: window.height / 6
         width: Math.min(window.width, window.height) / 4 * 3
@@ -653,7 +654,7 @@ ApplicationWindow {
 
                 Label {
                     width: dialog_save.availableWidth
-                    text: "Please reboot."
+                    text: i18n.tr("Please reboot.")
                     wrapMode: Label.Wrap
                     font.pixelSize: 12
                 }
@@ -671,7 +672,7 @@ ApplicationWindow {
             id: dialogue
             modal: true
             focus: true
-            title: "Authentication required"
+            title: i18n.tr("Authentication required")
             //text: "Please enter your user PIN or password to continue:"
             x: (window.width - width) / 2
             y: window.height / 6
@@ -698,7 +699,7 @@ ApplicationWindow {
 
             TextField {
                 id: entry
-                placeholderText: qsTr("PIN or password")
+                placeholderText: i18n.tr("PIN or password")
                 echoMode: TextInput.Password
                 focus: true
                 onAccepted: dialogue.testPassword()

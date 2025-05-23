@@ -15,9 +15,10 @@ add_custom_target(${POT_FILE} ALL
         -D ${CMAKE_CURRENT_BINARY_DIR}
         --from-code=UTF-8
         --c++ --qt --language=python --add-comments=TRANSLATORS
-        --keyword=tr --keyword=tr:1,2 --keyword=N_ --keyword=_
+        --keyword=tr --keyword=tr:1,2 --keyword=ctr:1c,2 --keyword=dctr:2c,3 --keyword=N_ --keyword=_
         --package-name='indicator.upower.ernesst.fork'
         --copyright-holder='Ernesst'
+        --sort-by-file
         ${I18N_SRC_FILES}
     COMMAND ${CMAKE_COMMAND} -E copy ${POT_FILE} ${CMAKE_CURRENT_SOURCE_DIR})
 
@@ -26,8 +27,7 @@ add_custom_target(${POT_FILE} ALL
 foreach(PO_FILE ${PO_FILES})
     get_filename_component(LANG ${PO_FILE} NAME_WE)
     gettext_process_po_files(${LANG} ALL PO_FILES ${PO_FILE})
-    string(REPLACE "indicator-weather-" "" SHORT_LANG ${LANG})
-    set(INSTALL_DIR ${CMAKE_INSTALL_LOCALEDIR}/share/locale/${SHORT_LANG}/LC_MESSAGES)
+    set(INSTALL_DIR ${CMAKE_INSTALL_LOCALEDIR}/share/locale/${LANG}/LC_MESSAGES)
     install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${LANG}.gmo
             DESTINATION ${INSTALL_DIR}
             RENAME ${DOMAIN}.mo)

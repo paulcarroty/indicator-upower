@@ -54,13 +54,19 @@
 #include <QSettings>
 #include <QQuickStyle>
 #include <QDebug>
+#include <libintl.h>
+#include <locale.h>
 
 int main(int argc, char *argv[])
 {
-    QGuiApplication::setApplicationName("indicator-upower");
     QGuiApplication::setOrganizationName("indicator.upower.ernesst.fork");
     QGuiApplication::setApplicationName("indicator.upower.ernesst.fork");
     QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+
+    // setlocale(LC_ALL, "");
+    bindtextdomain("indicator-upower", "/opt/click.ubuntu.com/indicator.upower.ernesst.fork/current/share/locale");
+    bind_textdomain_codeset("indicator-upower", "UTF-8");
+    textdomain("indicator-upower");
 
     QGuiApplication app(argc, argv);
 
