@@ -462,7 +462,7 @@ class UpowerIndicator(object):
                 self.Power = float(self.BATT_Volt) * float(self.BATT_current) * 0.001
                 self.Power_print = _("Power: ") + str(round(self.Power, 3)) + _(" W out")
 
-            if self.BATT_status == "charging" and path.exists("/sys/class/power_supply/bms/current_now") and path.exists("/sys/class/power_supply/bms/voltage_now") and os.access('/sys/class/power_supply/bms/current_now', os.R_OK) and os.access('/sys/class/power_supply/bms/voltage_now', os.R_OK):
+            if self.BATT_status == "charging" and os.access('/sys/class/power_supply/bms/current_now', os.R_OK) and os.access('/sys/class/power_supply/bms/voltage_now', os.R_OK):
                 self.BATT_current = int(open('/sys/class/power_supply/bms/current_now').read().strip())
                 self.BATT_Volt = int(open('/sys/class/power_supply/bms/voltage_now').read().strip()) / 1000000
                 self.Power = float((self.BATT_Volt) * float(self.BATT_current) / 1000) if self.phone_current_unit == "mA" else float((self.BATT_Volt) * float(self.BATT_current)/1000000)
