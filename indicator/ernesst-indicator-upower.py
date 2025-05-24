@@ -142,7 +142,7 @@ class UpowerIndicator(object):
                 logger.debug("Device found: %s", config_json['device'].strip())
                 self.read_device_config()
             else:
-                if os.path.isfile('/system/build.prop') and os.access('/system/build.prop', os.R_OK) and 'ro.product.device=' in open('/system/build.prop').read():
+                if os.access('/system/build.prop', os.R_OK) and 'ro.product.device=' in open('/system/build.prop').read():
                    logger.debug("Loading /system/build.prop")
                    build_prop_file = open("/system/build.prop")
                    for line in build_prop_file:
@@ -154,7 +154,7 @@ class UpowerIndicator(object):
                           f.close()
                         except:
                           logger.warning("Failed to parse device name!")
-                elif os.path.isfile('/etc/system-image/channel.ini') and os.access('/etc/system-image/channel.ini', os.R_OK) and 'device: ' in open('/etc/system-image/channel.ini').read(): 
+                elif os.access('/etc/system-image/channel.ini', os.R_OK) and 'device: ' in open('/etc/system-image/channel.ini').read(): 
                    logger.warning("Failed to load build.prop, loading channel.ini...")
                    build_prop_file = open("/etc/system-image/channel.ini")
                    for line in build_prop_file:
