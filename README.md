@@ -31,6 +31,7 @@ Upower is **devices dependent, please** [submit your device data](https://github
 | mido       |    x   |       x      |      x      |    x   |         |        no       |           no           |                      |
 | miatoll    |    x   |       x      |      x      |    x   |         |        no       |           no           |            x         |
 | dumpling   |    x   |       x      |      x      |    x   |         |        x        |           x            |            x         |
+| kebab      |    x   |       x      |      x      |    x   |         |        x        |           x            |            x         |
 | surya/karna|    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
 | FP4        |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
 | FP5        |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
