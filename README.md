@@ -40,6 +40,8 @@ Upower is **devices dependent, please** [submit your device data](https://github
 | violet     |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
 | sargo      |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
 | bonito     |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
+| lavender   |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
+| X00TD      |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
 
 
 ## Limiting battery's charge
