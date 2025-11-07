@@ -9,9 +9,19 @@
 
 Settings::Settings() {
     QFile config(m_configPath + "config.json");
-    config.open(QFile::ReadOnly);
+    if (!config.open(QFile::ReadOnly)) {
+        qDebug() << "Failed to open config file for reading";
+        return;
+    }
 
     QJsonDocument doc = QJsonDocument::fromJson(config.readAll());
+    config.close();
+    
+    if (doc.isNull() || !doc.isObject()) {
+        qDebug() << "Invalid JSON in config file";
+        return;
+    }
+    
     QJsonObject object = doc.object();
 
     m_refreshSec = object.value("refresh_sec").toString().trimmed();
@@ -28,7 +38,6 @@ Settings::Settings() {
     Q_EMIT Stop_ChargingChanged(m_Stop_Charging);
     Q_EMIT PUSH_NotificationChanged(m_PUSH_Notification);
     Q_EMIT chargingFILEChanged(m_chargingFILE);
-    config.close();
 }
 
 void Settings::save() {
@@ -44,13 +53,23 @@ void Settings::save() {
     doc.setObject(object);
 
     if (!QDir(m_configPath).exists()) {
-        QDir().mkdir(m_configPath);
+        if (!QDir().mkpath(m_configPath)) {
+            qDebug() << "Failed to create config directory";
+            Q_EMIT saved(false);
+            return;
+        }
     }
 
     QFile config(m_configPath + "config.json");
-    bool success = config.open(QFile::WriteOnly | QFile::Text | QFile::Truncate);
-    config.write(doc.toJson());
+    if (!config.open(QFile::WriteOnly | QFile::Text | QFile::Truncate)) {
+        qDebug() << "Failed to open config file for writing";
+        Q_EMIT saved(false);
+        return;
+    }
+    
+    qint64 bytesWritten = config.write(doc.toJson());
     config.close();
-
+    
+    bool success = (bytesWritten > 0);
     Q_EMIT saved(success);
 }
