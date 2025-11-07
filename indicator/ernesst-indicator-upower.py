@@ -94,92 +94,96 @@ class UpowerIndicator(object):
         logger.debug("Push notification status: " + str(self.PUSH_Notification))
 
     def get_config(self):
-        with open(self.config_file) as f:
-            config_json = {}
-            try:
+        try:
+            with open(self.config_file) as f:
                 config_json = json.load(f)
-            except:
-                logger.warning('Failed to load the config file: {}'.format(str(sys.exc_info()[1])))
+        except:
+            logger.warning('Failed to load the config file: {}'.format(str(sys.exc_info()[1])))
+            config_json = {}
 
-            if 'refresh_sec' in config_json and config_json['refresh_sec'].strip().isnumeric():
-                self.refresh_sec = int(config_json['refresh_sec'].strip())
-            if 'threshold_Charging' in config_json and config_json['threshold_Charging'].strip().isnumeric():
-                self.threshold_Charging = int(config_json['threshold_Charging'].strip())
-            if 'repeat_alarm' in config_json and config_json['repeat_alarm'].strip().isnumeric():
-                self.Repeat_Alarm_setting = int(config_json['repeat_alarm'].strip())
-            if 'Stop_Charging' in config_json and config_json['Stop_Charging'].strip().isnumeric():
-                self.Stop_Charging = int(config_json['Stop_Charging'].strip())
-            if 'PUSH_Notification' in config_json and config_json['PUSH_Notification'].strip().isnumeric():
-                self.PUSH_Notification = int(config_json['PUSH_Notification'].strip())
+        if 'refresh_sec' in config_json and config_json['refresh_sec'].strip().isnumeric():
+            self.refresh_sec = int(config_json['refresh_sec'].strip())
+        if 'threshold_Charging' in config_json and config_json['threshold_Charging'].strip().isnumeric():
+            self.threshold_Charging = int(config_json['threshold_Charging'].strip())
+        if 'repeat_alarm' in config_json and config_json['repeat_alarm'].strip().isnumeric():
+            self.Repeat_Alarm_setting = int(config_json['repeat_alarm'].strip())
+        if 'Stop_Charging' in config_json and config_json['Stop_Charging'].strip().isnumeric():
+            self.Stop_Charging = int(config_json['Stop_Charging'].strip())
+        if 'PUSH_Notification' in config_json and config_json['PUSH_Notification'].strip().isnumeric():
+            self.PUSH_Notification = int(config_json['PUSH_Notification'].strip())
 
 
 
     def get_config_device(self):
-        ### check for Battery_charging file
-        with open(self.config_file) as f:
-            config_json = {}
-            try:
+        ### check for Battery_charging file and load config once
+        try:
+            with open(self.config_file) as f:
                 config_json = json.load(f)
-            except:
-                logger.warning('Failed to load the config file: {}'.format(str(sys.exc_info()[1])))
-            if self.charging_enabled_FILE is True:
-                logger.debug("File charging_enabled found")
-                config_json.update({"chargingFILE":"1"})
-                with open(self.config_file, "w") as f:
-                    json.dump(config_json, f)
-                f.close()
-            else:
-                logger.debug("No file charging_enabled found")
+        except:
+            logger.warning('Failed to load the config file: {}'.format(str(sys.exc_info()[1])))
+            config_json = {}
+        
+        config_changed = False
+        
+        if self.charging_enabled_FILE is True:
+            logger.debug("File charging_enabled found")
+            config_json.update({"chargingFILE":"1"})
+            config_changed = True
+        else:
+            logger.debug("No file charging_enabled found")
+        
         ### check for device
-        with open(self.config_file) as f:
-            config_json = {}
-            try:
-                config_json = json.load(f)
-            except:
-                logger.debug('Failed to load the config file: {}'.format(str(sys.exc_info()[1])))
-            if 'device' in config_json and config_json['device'].strip():
-                self.device_name = config_json['device'].strip()
-                logger.debug("Device found: %s", config_json['device'].strip())
-                self.read_device_config()
+        if 'device' in config_json and config_json['device'].strip():
+            self.device_name = config_json['device'].strip()
+            logger.debug("Device found: %s", config_json['device'].strip())
+            self.read_device_config()
+        else:
+            device = None
+            # Read build.prop line by line
+            if os.access('/system/build.prop', os.R_OK):
+                logger.debug("Loading /system/build.prop")
+                try:
+                    with open("/system/build.prop") as build_prop_file:
+                        for line in build_prop_file:
+                            if "ro.product.device=" in line:
+                                device = line.split("=")[1].rstrip()
+                                logger.debug("Device found: %s", device)
+                                break
+                except:
+                    logger.warning("Failed to parse device name from build.prop!")
+            
+            # Read channel.ini line by line if build.prop failed
+            if device is None and os.access('/etc/system-image/channel.ini', os.R_OK):
+                logger.warning("Failed to load build.prop, loading channel.ini...")
+                try:
+                    with open("/etc/system-image/channel.ini") as channel_file:
+                        for line in channel_file:
+                            if "device: " in line:
+                                device = line.split(": ")[1].rstrip()
+                                logger.debug("Device found: %s", device)
+                                break
+                except:
+                    logger.warning("Failed to read device name from channel.ini!")
+
+            if device is None:
+                logger.warning("Failed to load build.prop and channel.ini")
             else:
-                if os.access('/system/build.prop', os.R_OK) and 'ro.product.device=' in open('/system/build.prop').read():
-                   logger.debug("Loading /system/build.prop")
-                   build_prop_file = open("/system/build.prop")
-                   for line in build_prop_file:
-                     if re.search("ro.product.device=", line):
-                        try:
-                          device = line.split("=")[1]
-                          device = device.rstrip()
-                          logger.debug("Device found: %s", device)
-                          f.close()
-                        except:
-                          logger.warning("Failed to parse device name!")
-                elif os.access('/etc/system-image/channel.ini', os.R_OK) and 'device: ' in open('/etc/system-image/channel.ini').read(): 
-                   logger.warning("Failed to load build.prop, loading channel.ini...")
-                   build_prop_file = open("/etc/system-image/channel.ini")
-                   for line in build_prop_file:
-                     if re.search("device: ", line):
-                        try:
-                          device = line.split(": ")[1]
-                          device = device.rstrip()
-                          logger.debug("Device found: %s", device)
-                          f.close()
-                        except:
-                          logger.warning("Failed to read device name!")  
-
-                else:
-                   logger.warning("Failed to load build.prop and channel.ini")
-
                 try: 
                     self.device_name = device
                     logger.debug("Device found: "+ self.device_name)
                     config_json.update({"device":self.device_name})
-                    with open(self.config_file, "w") as f:
-                        json.dump(config_json, f)
+                    config_changed = True
                     self.read_device_config()
-                    f.close()
                 except:
-                    logger.warning('Failed to read device name: {}'.format(str(sys.exc_info()[1])))  
+                    logger.warning('Failed to read device name: {}'.format(str(sys.exc_info()[1])))
+        
+        # Write config file only once if changed
+        if config_changed:
+            try:
+                with open(self.config_file, "w") as f:
+                    json.dump(config_json, f)
+            except:
+                logger.warning('Failed to save config file: {}'.format(str(sys.exc_info()[1])))  
 
     def read_device_config(self):
         with open(self.config_file_device) as f:
@@ -330,12 +334,13 @@ class UpowerIndicator(object):
             else:
                 #logger.debug("0 " + str(self.phone_per_file))
                 if path.exists(self.phone_per_file):
-                    F = open(self.phone_per_file,'r')
-                    per_data = F.read().split()
-                    self.BATT_Per = per_data[0]
-                    self.BATT_Per = int(self.BATT_Per)
-                    #logger.debug("3 " + str(self.BATT_Per))
-                    F.close()
+                    try:
+                        with open(self.phone_per_file,'r') as F:
+                            per_data = F.read().split()
+                            self.BATT_Per = int(per_data[0])
+                            #logger.debug("3 " + str(self.BATT_Per))
+                    except:
+                        logger.warning("Failed to read percentage file")
                 if self.BATT_Per:
                     self.BATT_Per_print = _("Charge: ") + str(self.BATT_Per) + "%"
 #### Capture battery temperature
@@ -346,12 +351,13 @@ class UpowerIndicator(object):
             else:
                 #logger.debug("0 " + str(self.phone_temp_file))
                 if path.exists(self.phone_temp_file):
-                    F = open(self.phone_temp_file,'r')
-                    temp_data = F.read().split()
-                    self.BATT_temp = temp_data[0]
-                    self.BATT_temp = round(float(self.BATT_temp)/10,0) #Convert into C unit
-                    #logger.debug("3 " + str(self.BATT_temp))
-                    F.close()
+                    try:
+                        with open(self.phone_temp_file,'r') as F:
+                            temp_data = F.read().split()
+                            self.BATT_temp = round(float(temp_data[0])/10,0) #Convert into C unit
+                            #logger.debug("3 " + str(self.BATT_temp))
+                    except:
+                        logger.warning("Failed to read temperature file")
                 if self.BATT_temp:
                     self.BATT_temp_print = _("Temperature: ") + str(self.BATT_temp) + " C"
 
@@ -394,11 +400,13 @@ class UpowerIndicator(object):
             else:
                 #logger.debug("0 " + str(self.phone_status_file))
                 if path.exists(self.phone_status_file):
-                    F = open(self.phone_status_file,'r')
-                    status_data = F.read().split()
-                    self.BATT_status = status_data[0]
-                    #logger.debug("3 " + str(self.BATT_status))
-                    F.close()
+                    try:
+                        with open(self.phone_status_file,'r') as F:
+                            status_data = F.read().split()
+                            self.BATT_status = status_data[0]
+                            #logger.debug("3 " + str(self.BATT_status))
+                    except:
+                        logger.warning("Failed to read status file")
                 if self.BATT_status:
                     if self.BATT_status == "discharging":
                         self.BATT_status_print = _("Status: ") + _("discharging")
@@ -415,31 +423,37 @@ class UpowerIndicator(object):
             else:
                 #logger.debug("0 " + str(self.phone_current_file))
                 if path.exists(self.phone_current_file):
-                    F = open(self.phone_current_file,'r')
-                    Current_data = F.read().split()
-                    self.BATT_current = Current_data[0]
-                    #logger.debug("1 " + str(self.BATT_current))
-                    F.close()
+                    try:
+                        with open(self.phone_current_file,'r') as F:
+                            Current_data = F.read().split()
+                            self.BATT_current = Current_data[0]
+                            #logger.debug("1 " + str(self.BATT_current))
+                    except:
+                        logger.warning("Failed to read current file")
 #### Capture battery cycle count
             if self.phone_cycle_count_file != '':
                 #logger.debug("0 " + str(self.phone_cycle_count_file))
                 if path.exists(self.phone_cycle_count_file):
-                    F = open(self.phone_cycle_count_file,'r')
-                    Count_data = F.read().split()
-                    self.BATT_cycle_count = Count_data[0]
-                    #logger.debug("2 " + str(self.BATT_cycle_count))
-                    F.close()
+                    try:
+                        with open(self.phone_cycle_count_file,'r') as F:
+                            Count_data = F.read().split()
+                            self.BATT_cycle_count = Count_data[0]
+                            #logger.debug("2 " + str(self.BATT_cycle_count))
+                    except:
+                        logger.warning("Failed to read cycle count file")
             if self.BATT_cycle_count:
                 self.BATT_cycle_count_print = _("Battery Cycles: ") + str(self.BATT_cycle_count)
 #### Capture battery estimated capacity
             if self.phone_capacity_file != '':
                 #logger.debug("0 " + str(self.phone_capacity_file))
                 if path.exists(self.phone_capacity_file):
-                    F = open(self.phone_capacity_file,'r')
-                    Capacity_data = F.read().split()
-                    self.BATT_capacity = Capacity_data[0]
-                    #logger.debug("3 " + str(self.BATT_capacity))
-                    F.close()
+                    try:
+                        with open(self.phone_capacity_file,'r') as F:
+                            Capacity_data = F.read().split()
+                            self.BATT_capacity = Capacity_data[0]
+                            #logger.debug("3 " + str(self.BATT_capacity))
+                    except:
+                        logger.warning("Failed to read capacity file")
             if self.BATT_capacity:
                 self.BATT_capacity_print = _("Estimated capacity: ") + str(self.BATT_capacity)+ " mAh"
 #### Adjust current unit
@@ -463,19 +477,29 @@ class UpowerIndicator(object):
                 self.Power_print = _("Power: ") + str(round(self.Power, 3)) + _(" W out")
 
             if self.BATT_status == "charging" and os.access('/sys/class/power_supply/bms/current_now', os.R_OK) and os.access('/sys/class/power_supply/bms/voltage_now', os.R_OK):
-                self.BATT_current = int(open('/sys/class/power_supply/bms/current_now').read().strip())
-                self.BATT_Volt = int(open('/sys/class/power_supply/bms/voltage_now').read().strip()) / 1000000
-                self.Power = float((self.BATT_Volt) * float(self.BATT_current) / 1000) if self.phone_current_unit == "mA" else float((self.BATT_Volt) * float(self.BATT_current)/1000000)
-                if self.Power > 15:
-                    self.Power_print = _("Power: ") + str(round(self.Power, 3)) + _(" W PD")
-                else:
-                    self.Power_print = _("Power: ") + str(round(self.Power, 3)) + _(" W in")
+                try:
+                    with open('/sys/class/power_supply/bms/current_now', 'r') as f:
+                        self.BATT_current = int(f.read().strip())
+                    with open('/sys/class/power_supply/bms/voltage_now', 'r') as f:
+                        self.BATT_Volt = int(f.read().strip()) / 1000000
+                    self.Power = float((self.BATT_Volt) * float(self.BATT_current) / 1000) if self.phone_current_unit == "mA" else float((self.BATT_Volt) * float(self.BATT_current)/1000000)
+                    if self.Power > 15:
+                        self.Power_print = _("Power: ") + str(round(self.Power, 3)) + _(" W PD")
+                    else:
+                        self.Power_print = _("Power: ") + str(round(self.Power, 3)) + _(" W in")
+                except:
+                    logger.warning("Failed to read BMS power files")
                 #logger.debug("BATT_Volt: " + str(self.BATT_Volt))
                 #logger.debug("phone_current_unit: " + str(self.phone_current_unit))
                 #logger.debug("BATT_current: " + str(self.BATT_current))
                 #logger.debug("Power: " + str(self.Power_print))
      
-        process.kill()
+        # Terminate process gracefully
+        try:
+            process.terminate()
+            process.wait(timeout=1)
+        except:
+            process.kill()
 
         #print(hasattr(self, 'BATT_update'))
         if hasattr(self, 'BATT_update') and self.BATT_update !='':
