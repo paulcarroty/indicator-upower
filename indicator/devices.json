@@ -219,5 +219,23 @@
         "percentage": "/sys/devices/platform/battery/power_supply/battery/capacity",
         "status": "/sys/devices/platform/battery/power_supply/battery/status",
         "temp": "/sys/devices/platform/battery/power_supply/battery/temp"
+    },
+    "amar_row_lte": {
+        "src": "/sys/devices/platform/1000d000.pwrap/1000d000.pwrap:main_pmic/mt6357-gauge/power_supply/battery/current_now",
+        "current_units": "uA",
+        "cycle_count": "/sys/devices/platform/1000d000.pwrap/1000d000.pwrap:main_pmic/mt6357-gauge/power_supply/battery/cycle_count",
+        "health": "/sys/devices/platform/1000d000.pwrap/1000d000.pwrap:main_pmic/mt6357-gauge/power_supply/battery/health",
+        "percentage": "/sys/devices/platform/1000d000.pwrap/1000d000.pwrap:main_pmic/mt6357-gauge/power_supply/battery/capacity",
+        "status": "/sys/devices/platform/1000d000.pwrap/1000d000.pwrap:main_pmic/mt6357-gauge/power_supply/battery/status",
+        "temp": "/sys/devices/platform/1000d000.pwrap/1000d000.pwrap:main_pmic/mt6357-gauge/power_supply/battery/temp"
+    },
+    "amar_row_wifi": {
+        "src": "/sys/devices/platform/1000d000.pwrap/1000d000.pwrap:main_pmic/mt6357-gauge/power_supply/battery/current_now",
+        "current_units": "uA",
+        "cycle_count": "/sys/devices/platform/1000d000.pwrap/1000d000.pwrap:main_pmic/mt6357-gauge/power_supply/battery/cycle_count",
+        "health": "/sys/devices/platform/1000d000.pwrap/1000d000.pwrap:main_pmic/mt6357-gauge/power_supply/battery/health",
+        "percentage": "/sys/devices/platform/1000d000.pwrap/1000d000.pwrap:main_pmic/mt6357-gauge/power_supply/battery/capacity",
+        "status": "/sys/devices/platform/1000d000.pwrap/1000d000.pwrap:main_pmic/mt6357-gauge/power_supply/battery/status",
+        "temp": "/sys/devices/platform/1000d000.pwrap/1000d000.pwrap:main_pmic/mt6357-gauge/power_supply/battery/temp"
     }
 }
