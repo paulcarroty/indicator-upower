@@ -12,3 +12,24 @@ SUBSYSTEM=="power_supply", TEST=="/sys/class/power_supply/battery/battery_chargi
 
 SUBSYSTEM=="power_supply", TEST=="/sys/class/power_supply/battery/battery_charging_enabled", \
     RUN+="/bin/chown phablet /sys/class/power_supply/battery/battery_charging_enabled"
+
+
+SUBSYSTEM=="power_supply", TEST=="/sys/devices/platform/mtk-master-charger/charging_enable", \
+    RUN+="/bin/chmod 0664 /sys/devices/platform/mtk-master-charger/charging_enable"
+
+SUBSYSTEM=="power_supply", TEST=="/sys/devices/platform/mtk-master-charger/charging_enable", \
+    RUN+="/bin/chown phablet /sys/devices/platform/mtk-master-charger/charging_enable"
+
+
+SUBSYSTEM=="power_supply", TEST=="/sys/class/power_supply/charger/charging_enabled", \
+    RUN+="/bin/chmod 0664 /sys/class/power_supply/charger/charging_enabled"
+
+SUBSYSTEM=="power_supply", TEST=="/sys/class/power_supply/charger/charging_enabled", \
+    RUN+="/bin/chown phablet /sys/class/power_supply/charger/charging_enabled"
+
+
+SUBSYSTEM=="power_supply", TEST=="/sys/devices/platform/odm/odm:charger_controller/cmd_charging_enabled", \
+    RUN+="/bin/chmod 0664 /sys/devices/platform/odm/odm:charger_controller/cmd_charging_enabled"
+
+SUBSYSTEM=="power_supply", TEST=="/sys/devices/platform/odm/odm:charger_controller/cmd_charging_enabled", \
+    RUN+="/bin/chown phablet /sys/devices/platform/odm/odm:charger_controller/cmd_charging_enabled"
