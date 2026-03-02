@@ -8,7 +8,7 @@ SUBSYSTEM=="power_supply", TEST=="/sys/class/power_supply/battery/battery_chargi
     RUN+="/bin/chmod 0664 /sys/class/power_supply/battery/battery_charging_enabled", \
     RUN+="/bin/chown phablet /sys/class/power_supply/battery/battery_charging_enabled"
 
-SUBSYSTEM=="power_supply", TEST=="/proc/mtk_battery_cmd/current_cmd", \
+SUBSYSTEM=="platform", TEST=="/proc/mtk_battery_cmd/current_cmd", \
     RUN+="/bin/chmod 0664 /proc/mtk_battery_cmd/current_cmd", \
     RUN+="/bin/chown phablet /proc/mtk_battery_cmd/current_cmd"
 
