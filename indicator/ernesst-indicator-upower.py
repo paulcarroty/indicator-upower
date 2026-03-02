@@ -84,7 +84,7 @@ class UpowerIndicator(object):
         self.PUSH_Notification = 0
         self.log_charging_message = ''
         self.charging_enabled_FILE = path.exists("/sys/class/power_supply/battery/charging_enabled") or path.exists("/sys/class/power_supply/battery/battery_charging_enabled")
-        self.charging_enabled_FILE_PATH = next((p for p in ["/sys/class/power_supply/battery/battery_charging_enabled", "/sys/class/power_supply/battery/charging_enabled"] if os.path.exists(p)), None)
+        self.charging_enabled_FILE_PATH = next((p for p in ["/sys/class/power_supply/battery/battery_charging_enabled", "/sys/class/power_supply/battery/charging_enabled", "/sys/devices/platform/mtk-master-charger/charging_enable", "/sys/class/power_supply/charger/charging_enabled", "/sys/devices/platform/odm/odm:charger_controller/cmd_charging_enabled"] if os.path.exists(p)), None)
         self.get_config()
         self.get_config_device()
         logger.debug("Repeat notification status: " + str(self.Repeat_Alarm_setting))
