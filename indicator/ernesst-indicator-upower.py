@@ -84,7 +84,7 @@ class UpowerIndicator(object):
         self.PUSH_Notification = 0
         self.log_charging_message = ''
         self.charging_enabled_FILE = path.exists("/sys/class/power_supply/battery/charging_enabled") or path.exists("/sys/class/power_supply/battery/battery_charging_enabled")
-        self.charging_enabled_FILE_PATH = next((p for p in ["/sys/class/power_supply/battery/battery_charging_enabled", "/sys/class/power_supply/battery/charging_enabled", "/sys/devices/platform/mtk-master-charger/charging_enable", "/sys/class/power_supply/charger/charging_enabled", "/sys/devices/platform/odm/odm:charger_controller/cmd_charging_enabled"] if os.path.exists(p)), None)
+        self.charging_enabled_FILE_PATH = next((p for p in ["/sys/class/power_supply/battery/battery_charging_enabled", "/sys/class/power_supply/battery/charging_enabled", "/proc/mtk_battery_cmd/current_cmd", "/sys/devices/platform/mtk-master-charger/charging_enable", "/sys/class/power_supply/charger/charging_enabled", "/sys/devices/platform/odm/odm:charger_controller/cmd_charging_enabled"] if os.path.exists(p)), None)
         self.get_config()
         self.get_config_device()
         logger.debug("Repeat notification status: " + str(self.Repeat_Alarm_setting))
@@ -232,7 +232,11 @@ class UpowerIndicator(object):
 
     ## Stop charging
         if self.Stop_Charging == 1 and self.charging_enabled_FILE == 1 and self.BATT_Per >= self.threshold_Charging and self.BATT_status == "charging":
-            subprocess.Popen(f"echo \"0\" > {self.charging_enabled_FILE_PATH}", shell=True)
+            if self.charging_enabled_FILE_PATH == "/proc/mtk_battery_cmd/current_cmd":
+                subprocess.Popen(f"echo \"0 1\" > {self.charging_enabled_FILE_PATH}", shell=True)
+            else:  
+                subprocess.Popen(f"echo \"0\" > {self.charging_enabled_FILE_PATH}", shell=True)
+                
             logger.debug("Battery threshold " + str(self.threshold_Charging) + "% reached, stop charging, will be re-enable @ " + str(0.9 * self.threshold_Charging) + "%")
             subprocess.Popen(["/usr/bin/paplay", "/usr/share/sounds/freedesktop/stereo/power-unplug.oga"])
             logger.debug("Playback of power-unplug.oga done")
@@ -240,9 +244,14 @@ class UpowerIndicator(object):
 
     ## Restart charging
         if self.BATT_Per < 0.9 * self.threshold_Charging and self.charging_enabled_FILE == 1 and self.log_charging_message == 1:
-            subprocess.Popen(f"echo \"1\" > {self.charging_enabled_FILE_PATH}", shell=True)
+            if self.charging_enabled_FILE_PATH == "/proc/mtk_battery_cmd/current_cmd":
+                subprocess.Popen(f"echo \"0 0\" > {self.charging_enabled_FILE_PATH}", shell=True)
+            else:  
+                subprocess.Popen(f"echo \"1\" > {self.charging_enabled_FILE_PATH}", shell=True)
+                            
             logger.debug("Charging authorized")
             self.log_charging_message = 0
+
 
     ## Repeat alarm, set 1 to Alarm_tobeperformed trigger
         if self.Repeat_Alarm_setting == 1 :
