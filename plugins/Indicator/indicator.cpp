@@ -18,8 +18,13 @@ void Indicator::install() {
     //TODO don't hardcode this
     QFileInfo charging_enabled("/sys/class/power_supply/battery/charging_enabled");
     QFileInfo battery_charging_enabled("/sys/class/power_supply/battery/battery_charging_enabled");
+    QFileInfo current_cmd("/proc/mtk_battery_cmd/current_cmd")
+    QFileInfo mtk_master_charger("/sys/devices/platform/mtk-master-charger/charging_enable")
+    QFileInfo charger_charging_enabled("/sys/class/power_supply/charger/charging_enabled")
+    QFileInfo cmd_charging_enabled("/sys/devices/platform/odm/odm:charger_controller/cmd_charging_enabled")
 
-    if ((charging_enabled.exists() && !charging_enabled.isWritable()) || (battery_charging_enabled.exists() && !battery_charging_enabled.isWritable())) {
+    
+    if ((charging_enabled.exists() && !charging_enabled.isWritable()) || (battery_charging_enabled.exists() && !battery_charging_enabled.isWritable()) || (current_cmd.exists() && !current_cmd.isWritable()) || (mtk_master_charger.exists() && !mtk_master_charger.isWritable()) || (charger_charging_enabled.exists() && !charger_charging_enabled.isWritable()) || (cmd_charging_enabled.exists() && !cmd_charging_enabled.isWritable())) {
        m_commandRunner->sudo(QStringList{"/usr/bin/mkdir", "-p", "/etc/udev/rules.d"}, true);
        m_commandRunner->sudo(QStringList{"/usr/bin/cp", "-v", "/opt/click.ubuntu.com/indicator.upower.ernesst.fork/current/indicator/90-charging_enabled.rules", "/etc/udev/rules.d/"}, true);
     }
