@@ -38,7 +38,7 @@ class UpowerIndicator(object):
 
     config_file = "/home/phablet/.config/indicator.upower.ernesst/config.json"  # TODO don't hardcode this
     config_file_device = "/opt/click.ubuntu.com/indicator.upower.ernesst.fork/current/indicator/devices.json"  # TODO don't hardcode this
-    charging_enabled_FILE = path.exists("/sys/class/power_supply/battery/charging_enabled") or path.exists("/sys/class/power_supply/battery/battery_charging_enabled")
+    charging_enabled_FILE = path.exists("/sys/class/power_supply/battery/charging_enabled") or path.exists("/sys/class/power_supply/battery/battery_charging_enabled") or path.exists("/proc/mtk_battery_cmd/current_cmd") or path.exists("/sys/devices/platform/mtk-master-charger/charging_enabled") or path.exists("/sys/class/power_supply/charger/charging_enabled") or path.exists("/sys/devices/platform/odm/odm:charger_controller/cmd_charging_enabled")
     refresh_sec = 60
     threshold_Charging = 80
     Repeat_Alarm_setting = 0
