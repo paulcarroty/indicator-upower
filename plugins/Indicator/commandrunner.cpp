@@ -38,10 +38,17 @@ int CommandRunner::shell(const QStringList &command, const bool waitForCompletio
     QStringList cmd = QStringList{"-c", command.join(" ")};
 
     this->m_process->start("bash", cmd, QProcess::ReadWrite);
-    this->m_process->waitForStarted();
+    if (!this->m_process->waitForStarted(5000)) {
+        qDebug() << "Failed to start shell command";
+        return -1;
+    }
 
     if (waitForCompletion) {
-        this->m_process->waitForFinished(std::numeric_limits<int>::max());
+        // Use reasonable timeout of 30 seconds instead of max int
+        if (!this->m_process->waitForFinished(30000)) {
+            qDebug() << "Shell command timed out";
+            return -1;
+        }
         if (output) {
             *output = this->m_process->readAllStandardOutput();
         }
@@ -60,10 +67,17 @@ int CommandRunner::sudo(const QStringList &command, const bool waitForCompletion
     auto process = separateProcess ? newProcess() : m_process;
 
     process->start("sudo", cmd, QProcess::ReadWrite);
-    process->waitForStarted();
+    if (!process->waitForStarted(5000)) {
+        qDebug() << "Failed to start sudo command";
+        return -1;
+    }
 
     if (waitForCompletion) {
-        process->waitForFinished(std::numeric_limits<int>::max());
+        // Use reasonable timeout of 30 seconds instead of max int
+        if (!process->waitForFinished(30000)) {
+            qDebug() << "Sudo command timed out";
+            return -1;
+        }
         if (output) {
             *output = process->readAllStandardOutput();
         }
@@ -82,7 +96,10 @@ bool CommandRunner::sudo(const QStringList &command)
 QByteArray CommandRunner::readFile(const QString &absolutePath)
 {
     sudo(QStringList{"cat" , absolutePath});
-    this->m_process->waitForFinished();
+    if (!this->m_process->waitForFinished(5000)) {
+        qDebug() << "Failed to read file:" << absolutePath;
+        return QByteArray();
+    }
     const QByteArray value = this->m_process->readAllStandardOutput();
     qDebug() << absolutePath << "=" << value;
     return value;
@@ -120,13 +137,21 @@ bool CommandRunner::validatePassword()
         QStringLiteral("id"), QStringLiteral("-u")
     };
     sudo(idCommand);
-    this->m_process->waitForFinished();
+    if (!this->m_process->waitForFinished(5000)) {
+        qDebug() << "Password validation timed out";
+        return false;
+    }
     const QByteArray output = this->m_process->readAllStandardOutput();
     return (output.trimmed() == "0");
 }
 
 void CommandRunner::cancel()
 {
-    m_process->kill();
-    m_process->waitForFinished();
+    if (m_process->state() != QProcess::NotRunning) {
+        m_process->terminate();
+        if (!m_process->waitForFinished(3000)) {
+            m_process->kill();
+            m_process->waitForFinished(1000);
+        }
+    }
 }
