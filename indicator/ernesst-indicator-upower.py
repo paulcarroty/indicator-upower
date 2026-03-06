@@ -251,7 +251,7 @@ class UpowerIndicator(object):
             else:  
                 #subprocess.Popen(f"echo \"0\" > {self.charging_enabled_FILE_PATH}", shell=True)
                 with open(self.charging_enabled_FILE_PATH, "w") as f:
-    f.              f.write("0")
+                    f.write("0")
                 subprocess.Popen(["/usr/bin/paplay", "/usr/share/sounds/freedesktop/stereo/power-unplug.oga"])
                 logger.debug("Playback of power-unplug.oga done")
                 
