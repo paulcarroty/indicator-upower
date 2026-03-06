@@ -226,20 +226,20 @@ class UpowerIndicator(object):
             logger.debug("Playback of power-unplug.oga done")
             # TODO: fix Error: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name com.ubuntu.Postal was not provided by any .service files
             # maybe it was renamed and should be com.lomiri.Postal
-            #subprocess.Popen("/usr/bin/gdbus call --session --dest com.ubuntu.Postal --object-path /com/ubuntu/Postal/indicator_2eupower_2eernesst --method com.ubuntu.Postal.Post indicator.upower.ernesst_indicator-upower " +  json_bat, shell=True)
-            #logger.debug("Notification sent for" + self.BATT_Per_print)
+            # subprocess.Popen("/usr/bin/gdbus call --session --dest com.ubuntu.Postal --object-path /com/ubuntu/Postal/indicator_2eupower_2eernesst --method com.ubuntu.Postal.Post indicator.upower.ernesst_indicator-upower " +  json_bat, shell=True)
+            # logger.debug("Notification sent for" + self.BATT_Per_print)
             self.Alarm_tobeperformed = 0
 
     ## Stop charging
         logger.debug("Battery threshold " + str(self.threshold_Charging) + "% reached, stop charging, will be re-enable @ " + str(0.9 * self.threshold_Charging) + "%")
-        logger.debug("START of Stop charging debug")
-        logger.debug("Stop_Charging (from config): " + str(self.Stop_Charging))
-        logger.debug("charging_enabled_FILE: " + str(self.charging_enabled_FILE))
-        logger.debug("BATT_Per: " + str(self.BATT_Per))
-        logger.debug("threshold_Charging: " + str(self.threshold_Charging))
-        logger.debug("BATT_status: " + str(self.BATT_status))
-        logger.debug("charging_enabled_FILE_PATH: " + str(self.charging_enabled_FILE_PATH))
-        logger.debug("END of Stop charging debug")
+        #logger.debug("START of Stop charging debug")
+        #logger.debug("Stop_Charging (from config): " + str(self.Stop_Charging))
+        #logger.debug("charging_enabled_FILE: " + str(self.charging_enabled_FILE))
+        #logger.debug("BATT_Per: " + str(self.BATT_Per))
+        #logger.debug("threshold_Charging: " + str(self.threshold_Charging))
+        #logger.debug("BATT_status: " + str(self.BATT_status))
+        #logger.debug("charging_enabled_FILE_PATH: " + str(self.charging_enabled_FILE_PATH))
+        #logger.debug("END of Stop charging debug")
                 
         if self.Stop_Charging == 1 and self.charging_enabled_FILE == 1 and self.BATT_Per >= self.threshold_Charging and self.BATT_status == "charging":
             if self.charging_enabled_FILE_PATH == "/proc/mtk_battery_cmd/current_cmd":
