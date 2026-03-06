@@ -243,11 +243,15 @@ class UpowerIndicator(object):
                 
         if self.Stop_Charging == 1 and self.charging_enabled_FILE == 1 and self.BATT_Per >= self.threshold_Charging and self.BATT_status == "charging":
             if self.charging_enabled_FILE_PATH == "/proc/mtk_battery_cmd/current_cmd":
-                subprocess.Popen(f"echo \"0 1\" > {self.charging_enabled_FILE_PATH}", shell=True)
+                #subprocess.Popen(f"echo \"0 1\" > {self.charging_enabled_FILE_PATH}", shell=True)
+                with open(self.charging_enabled_FILE_PATH, "w") as f:
+                    f.write("0 1")
                 subprocess.Popen(["/usr/bin/paplay", "/usr/share/sounds/freedesktop/stereo/power-unplug.oga"])
                 logger.debug("Playback of power-unplug.oga done")
             else:  
-                subprocess.Popen(f"echo \"0\" > {self.charging_enabled_FILE_PATH}", shell=True)
+                #subprocess.Popen(f"echo \"0\" > {self.charging_enabled_FILE_PATH}", shell=True)
+                with open(self.charging_enabled_FILE_PATH, "w") as f:
+    f.              f.write("0")
                 subprocess.Popen(["/usr/bin/paplay", "/usr/share/sounds/freedesktop/stereo/power-unplug.oga"])
                 logger.debug("Playback of power-unplug.oga done")
                 
