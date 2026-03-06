@@ -231,7 +231,6 @@ class UpowerIndicator(object):
             self.Alarm_tobeperformed = 0
 
     ## Stop charging
-        logger.debug("Battery threshold " + str(self.threshold_Charging) + "% reached, stop charging, will be re-enable @ " + str(0.9 * self.threshold_Charging) + "%")
         #logger.debug("START of Stop charging debug")
         #logger.debug("Stop_Charging (from config): " + str(self.Stop_Charging))
         #logger.debug("charging_enabled_FILE: " + str(self.charging_enabled_FILE))
@@ -242,14 +241,13 @@ class UpowerIndicator(object):
         #logger.debug("END of Stop charging debug")
                 
         if self.Stop_Charging == 1 and self.charging_enabled_FILE == 1 and self.BATT_Per >= self.threshold_Charging and self.BATT_status == "charging":
+            logger.debug("Battery threshold " + str(self.threshold_Charging) + "% reached, stop charging, will be re-enable @ " + str(0.9 * self.threshold_Charging) + "%")
             if self.charging_enabled_FILE_PATH == "/proc/mtk_battery_cmd/current_cmd":
-                #subprocess.Popen(f"echo \"0 1\" > {self.charging_enabled_FILE_PATH}", shell=True)
                 with open(self.charging_enabled_FILE_PATH, "w") as f:
                     f.write("0 1")
                 subprocess.Popen(["/usr/bin/paplay", "/usr/share/sounds/freedesktop/stereo/power-unplug.oga"])
                 logger.debug("Playback of power-unplug.oga done")
             else:  
-                #subprocess.Popen(f"echo \"0\" > {self.charging_enabled_FILE_PATH}", shell=True)
                 with open(self.charging_enabled_FILE_PATH, "w") as f:
                     f.write("0")
                 subprocess.Popen(["/usr/bin/paplay", "/usr/share/sounds/freedesktop/stereo/power-unplug.oga"])
@@ -260,10 +258,12 @@ class UpowerIndicator(object):
     ## Restart charging
         if self.BATT_Per < 0.9 * self.threshold_Charging and self.charging_enabled_FILE == 1 and self.log_charging_message == 1:
             if self.charging_enabled_FILE_PATH == "/proc/mtk_battery_cmd/current_cmd":
-                subprocess.Popen(f"echo \"0 0\" > {self.charging_enabled_FILE_PATH}", shell=True)
+                with open(self.charging_enabled_FILE_PATH, "w") as f:
+                    f.write("0 0")
             else:  
-                subprocess.Popen(f"echo \"1\" > {self.charging_enabled_FILE_PATH}", shell=True)
-                            
+                with open(self.charging_enabled_FILE_PATH, "w") as f:
+                    f.write("1")
+                    
             logger.debug("Charging authorized")
             self.log_charging_message = 0
 
