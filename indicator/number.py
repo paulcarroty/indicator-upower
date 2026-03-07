@@ -250,7 +250,7 @@ def representsFloat(text):
         if len(text) < 3:
             return False
         text = text.strip()
-        return re.search("^[0-9]{1,}\.[0-9]{1,}$", text) is not None
+        return re.search("^[0-9]{1,}\\.[0-9]{1,}$", text) is not None
     else:
         return False
 
