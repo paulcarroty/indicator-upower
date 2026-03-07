@@ -165,7 +165,7 @@ def removeCommasBetweenDigits(text):
     if text is None:
         return None
     else:
-        return re.sub(r"([0-9]),([0-9])", "\g<1>\g<2>", text)
+        return re.sub(r"([0-9]),([0-9])", "\\g<1>\\g<2>", text)
 
 def getAllNumbers(text, removeCommas=False):
     if text is None:
