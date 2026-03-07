@@ -185,7 +185,7 @@ def getAllNumbers(text, removeCommas=False):
         if allMatchIter is not None:
             for current in allMatchIter:
                 currentFloat = current.group()
-                currentFloat = re.sub("\s", "", currentFloat)
+                currentFloat = re.sub("\\s", "", currentFloat)
                 currentFloat = re.sub(",", ".", currentFloat)
                 currentFloat = float(currentFloat)
                 if currentFloat.is_integer():
