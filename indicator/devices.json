@@ -237,5 +237,14 @@
         "percentage": "/sys/devices/platform/1000d000.pwrap/1000d000.pwrap:main_pmic/mt6357-gauge/power_supply/battery/capacity",
         "status": "/sys/devices/platform/1000d000.pwrap/1000d000.pwrap:main_pmic/mt6357-gauge/power_supply/battery/status",
         "temp": "/sys/devices/platform/1000d000.pwrap/1000d000.pwrap:main_pmic/mt6357-gauge/power_supply/battery/temp"
+    },
+        "brax3": {
+        "src": "/sys/devices/platform/soc/1c804000.spmi/spmi-0/0-04/mt6377-gauge/power_supply/battery/current_now",
+        "current_units": "uA",
+        "cycle_count": "/sys/devices/platform/soc/1c804000.spmi/spmi-0/0-04/mt6377-gauge/power_supply/battery/cycle_count",
+        "health": "/sys/devices/platform/soc/1c804000.spmi/spmi-0/0-04/mt6377-gauge/power_supply/battery/health",
+        "percentage": "/sys/devices/platform/soc/1c804000.spmi/spmi-0/0-04/mt6377-gauge/power_supply/battery/capacity",
+        "status": "/sys/devices/platform/soc/1c804000.spmi/spmi-0/0-04/mt6377-gauge/power_supply/battery/status",
+        "temp": "/sys/devices/platform/soc/1c804000.spmi/spmi-0/0-04/mt6377-gauge/power_supply/battery/temp"
     }
 }
