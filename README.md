@@ -17,31 +17,36 @@ Upower is **devices dependent, please** [submit your device data](https://github
 *Supported devices*:
 
 
-|   Devices  | Status |    Current   | Temperature | Charge | Estimated Bat. capacity   |Remaining life  | Limiting battery's charge |Battery Cycle|
-|:----------:|:------:|:------------:|:-----------:|:------:|:-------:|:---------------:|:----------------------:|:----------------------:|
-|   OP3(T)   |    x   |       x      |      x      |    x   |    x    |        x        |            x           |           x          |
-|    mako    |    x   |       x      |      x      |    x   |         |        x        |           no           |                      |
-| hammerhead |    x   |       x      |      x      |    x   |         |        no       |           no           |                      |
-|   cedric   |    x   |       x      |      x      |    x   |         |        x        |           no           |                      |
-|    bacon   |    x   |       x      |      x      |    x   |         |        no       |           no           |                      |
-|  vegetahd  |    x   | not reliable |      x      |    x   |         |        no       |           no           |                      |
-|  turbo     |    x   |       x      |      x      |    x   |         |        no       |           no           |            x         |
-| pinephone  |    x   |       x      |      x      |    x   |         |        no       |           no           |                      |
-| suzu       |    x   |       x      |      x      |    x   |         |        no       |           no           |            x         |
-| mido       |    x   |       x      |      x      |    x   |         |        no       |           no           |                      |
-| miatoll    |    x   |       x      |      x      |    x   |         |        no       |           no           |            x         |
-| dumpling   |    x   |       x      |      x      |    x   |         |        x        |           x            |            x         |
-| kebab      |    x   |       x      |      x      |    x   |         |        x        |           x            |            x         |
-| surya/karna|    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
-| FP4        |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
-| FP5        |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
-| lancelot   |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
-|billie v1,v2|    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
-| violet     |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
-| sargo      |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
-| bonito     |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
-| lavender   |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
-| X00TD      |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
+|   Devices   | Status |    Current   | Temperature | Charge | Estimated Bat. capacity   |Remaining life  | Limiting battery's charge |Battery Cycle|
+|:----------: |:------:|:------------:|:-----------:|:------:|:-------:|:---------------:|:----------------------:|:----------------------:|
+| OP3(T)    |    x   |       x      |      x      |    x   |    x    |        x        |            x           |           x          |
+| mako        |    x   |       x      |      x      |    x   |         |        x        |           no           |                      |
+| hammerhead  |    x   |       x      |      x      |    x   |         |        no       |           no           |                      |
+| cedric      |    x   |       x      |      x      |    x   |         |        x        |           no           |                      |
+| bacon       |    x   |       x      |      x      |    x   |         |        no       |           no           |                      |
+| vegetahd    |    x   | not reliable |      x      |    x   |         |        no       |           no           |                      |
+| turbo       |    x   |       x      |      x      |    x   |         |        no       |           no           |            x         |
+| pinephone   |    x   |       x      |      x      |    x   |         |        no       |           no           |                      |
+| suzu        |    x   |       x      |      x      |    x   |         |        no       |           no           |            x         |
+| mido        |    x   |       x      |      x      |    x   |         |        no       |           no           |                      |
+| miatoll     |    x   |       x      |      x      |    x   |         |        no       |           no           |            x         |
+| dumpling    |    x   |       x      |      x      |    x   |         |        x        |           x            |            x         |
+| kebab       |    x   |       x      |      x      |    x   |         |        x        |           x            |            x         |
+| surya/karna |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
+| FP4         |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
+| FP5         |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
+| lancelot    |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
+|billie v1,v2 |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
+| violet      |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
+| sargo       |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
+| bonito      |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
+| lavender    |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
+| X00TD       |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
+|amar_row_lte |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
+|amar_row_wifi|    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
+| algiz       |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
+| brax3       |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
+
 
 
 ## Limiting battery's charge
