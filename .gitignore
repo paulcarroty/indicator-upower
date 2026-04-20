@@ -1,3 +1,5 @@
 build
 external
 *.click
+__pycache__
+*.pyc
