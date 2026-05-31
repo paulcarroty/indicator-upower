@@ -41,11 +41,12 @@ Upower is **devices dependent, please** [submit your device data](https://github
 | sargo       |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
 | bonito      |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
 | lavender    |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
-| X00TD       |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
+| X00TD       |    x   |       x      |      x      |    x   |         |        x        |           x            |            x         |
 |amar_row_lte |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
 |amar_row_wifi|    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
 | algiz       |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
 | brax3       |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
+| spacewar    |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
 
 
 
