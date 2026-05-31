@@ -52,7 +52,8 @@ Upower is **devices dependent, please** [submit your device data](https://github
 
 ## Limiting battery's charge
 
-[docs/limiting-charge.md](https://github.com/paulcarroty/indicator-upower/blob/master/docs/limiting-charge.md) 
+* [docs/limiting-charge.md](https://github.com/paulcarroty/indicator-upower/blob/master/docs/limiting-charge.md)
+* [docs/fairphone5.md](https://github.com/paulcarroty/indicator-upower/blob/master/docs/fairphone5.md)
 
 ## Installation
 - Install the application from OpenStore
