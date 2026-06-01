@@ -247,7 +247,7 @@
         "status": "/sys/devices/platform/soc/1c804000.spmi/spmi-0/0-04/mt6377-gauge/power_supply/battery/status",
         "temp": "/sys/devices/platform/soc/1c804000.spmi/spmi-0/0-04/mt6377-gauge/power_supply/battery/temp"
     },
-        "spacewar": {
+        "Spacewar": {
         "src": "/sys/devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:qcom,battery_charger/power_supply/battery/current_now",
         "current_units": "uA",
         "cycle_count": "/sys/devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:qcom,battery_charger/power_supply/battery/cycle_count",
