@@ -38,7 +38,7 @@ class UpowerIndicator(object):
 
     config_file = "/home/phablet/.config/indicator.upower.ernesst/config.json"  # TODO don't hardcode this
     config_file_device = "/opt/click.ubuntu.com/indicator.upower.ernesst.fork/current/indicator/devices.json"  # TODO don't hardcode this
-    charging_enabled_FILE = path.exists("/sys/class/power_supply/battery/charging_enabled") or path.exists("/sys/class/power_supply/battery/battery_charging_enabled") or path.exists("/proc/mtk_battery_cmd/current_cmd") or path.exists("/sys/devices/platform/mtk-master-charger/charging_enabled") or path.exists("/sys/class/power_supply/charger/charging_enabled") or path.exists("/sys/devices/platform/odm/odm:charger_controller/cmd_charging_enabled")
+    charging_enabled_FILE = path.exists("/sys/class/power_supply/battery/charging_enabled") or path.exists("/sys/class/power_supply/battery/battery_charging_enabled") or path.exists("/proc/mtk_battery_cmd/current_cmd") or path.exists("/sys/devices/platform/mtk-master-charger/charging_enabled") or path.exists("/sys/class/power_supply/charger/charging_enabled") or path.exists("/sys/devices/platform/odm/odm:charger_controller/cmd_charging_enabled") or path.exists("/sys/class/qcom-battery/charging_enabled")
     refresh_sec = 60
     threshold_Charging = 80
     Repeat_Alarm_setting = 0
@@ -83,8 +83,8 @@ class UpowerIndicator(object):
         self.device_name = ''
         self.PUSH_Notification = 0
         self.log_charging_message = ''
-        self.charging_enabled_FILE = path.exists("/sys/class/power_supply/battery/charging_enabled") or path.exists("/sys/class/power_supply/battery/battery_charging_enabled") or path.exists("/proc/mtk_battery_cmd/current_cmd") or path.exists("/sys/devices/platform/mtk-master-charger/charging_enabled") or path.exists("/sys/class/power_supply/charger/charging_enabled") or path.exists("/sys/devices/platform/odm/odm:charger_controller/cmd_charging_enabled") 
-        self.charging_enabled_FILE_PATH = next((p for p in ["/sys/class/power_supply/battery/battery_charging_enabled", "/sys/class/power_supply/battery/charging_enabled", "/proc/mtk_battery_cmd/current_cmd", "/sys/devices/platform/mtk-master-charger/charging_enable", "/sys/class/power_supply/charger/charging_enabled", "/sys/devices/platform/odm/odm:charger_controller/cmd_charging_enabled"] if os.path.exists(p)), None)
+        self.charging_enabled_FILE = path.exists("/sys/class/power_supply/battery/charging_enabled") or path.exists("/sys/class/power_supply/battery/battery_charging_enabled") or path.exists("/proc/mtk_battery_cmd/current_cmd") or path.exists("/sys/devices/platform/mtk-master-charger/charging_enabled") or path.exists("/sys/class/power_supply/charger/charging_enabled") or path.exists("/sys/devices/platform/odm/odm:charger_controller/cmd_charging_enabled") or path.exists("/sys/class/qcom-battery/charging_enabled")
+        self.charging_enabled_FILE_PATH = next((p for p in ["/sys/class/power_supply/battery/battery_charging_enabled", "/sys/class/power_supply/battery/charging_enabled", "/proc/mtk_battery_cmd/current_cmd", "/sys/devices/platform/mtk-master-charger/charging_enable", "/sys/class/power_supply/charger/charging_enabled", "/sys/devices/platform/odm/odm:charger_controller/cmd_charging_enabled", "/sys/class/qcom-battery/charging_enabled"] if os.path.exists(p)), None)
         self.get_config()
         self.get_config_device()
         logger.debug("Repeat notification status: " + str(self.Repeat_Alarm_setting))
