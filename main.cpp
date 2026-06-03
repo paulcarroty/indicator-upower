@@ -59,8 +59,8 @@
 
 int main(int argc, char *argv[])
 {
-    QGuiApplication::setOrganizationName("indicator.upower.ernesst.fork");
-    QGuiApplication::setApplicationName("indicator.upower.ernesst.fork");
+    QGuiApplication::setOrganizationName("indicator.upower.ernesst");
+    QGuiApplication::setApplicationName("indicator.upower.ernesst");
     QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     // setlocale(LC_ALL, "");
