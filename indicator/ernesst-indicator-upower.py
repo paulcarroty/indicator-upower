@@ -32,7 +32,6 @@ logger.setLevel(logging.DEBUG)
 class UpowerIndicator(object):
     ROOT_ACTION = 'root'
     CURRENT_ACTION = 'open-current-app'
-    FORECAST_ACTION = 'open-forecast-app'
     SETTINGS_ACTION = 'settings'
     MAIN_SECTION = 0
 
