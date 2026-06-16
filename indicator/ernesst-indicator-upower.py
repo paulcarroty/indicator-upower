@@ -359,7 +359,7 @@ class UpowerIndicator(object):
                     self.BATT_Per = int(self.BATT_Per)
                     #logger.debug("3 " + str(self.BATT_Per))
                     F.close()
-                if self.BATT_Per:
+                if self.BATT_Per <= 100:
                     self.BATT_Per_print = _("Charge: ") + str(self.BATT_Per) + "%"
 #### Capture battery temperature
             if self.phone_temp_file =='':
