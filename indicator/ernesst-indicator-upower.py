@@ -279,17 +279,6 @@ class UpowerIndicator(object):
         settings_action.connect('activate', self.settings_action_activated)
         self.action_group.add_action(settings_action)
 
-    def _create_section(self):
-        BATT_info_list = []
-        BATT_info_list = self.battery_query()
-        section = Gio.Menu()
-        settings_menu_item = Gio.MenuItem.new(_('Upower\'s Battery Information: '))
-        section.append_item(settings_menu_item)
-        for word in BATT_info_list:
-            settings_menu_item = Gio.MenuItem.new(word)
-            section.append_item(settings_menu_item)
-        self._battery_action()
-        return section
 
     def _create_section(self):
         section = Gio.Menu()
@@ -304,7 +293,7 @@ class UpowerIndicator(object):
             logger.warning('battery_query failed: {}'.format(str(e)))
         finally:
             self._battery_action()  # always runs, even if upower failed
-    return section
+        return section
 
 
     def _setup_menu(self):
