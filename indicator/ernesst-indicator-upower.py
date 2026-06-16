@@ -65,7 +65,7 @@ class UpowerIndicator(object):
         self.BATT_cycle_count = ''
         self.BATT_cycle_count_print = ''
         self.phone_cycle_count_file = ''
-        self.BATT_Per = ''
+        self.BATT_Per = 0
         self.BATT_Per_print = ''
         self.phone_per_file = ''
         self.BATT_status = ''
