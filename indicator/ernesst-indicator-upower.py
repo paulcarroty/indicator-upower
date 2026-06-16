@@ -407,7 +407,7 @@ class UpowerIndicator(object):
 #### Capture battery status
             if self.phone_status_file =='':
                 if re.search("state", element):
-                    self.BATT_status = element.split()[1]
+                    self.BATT_status = element.split()[1].lower()
                     if self.BATT_status == "discharging":
                         self.BATT_status_print = _("Status: ") + _("discharging")
                     elif self.BATT_status == "charging":
@@ -419,7 +419,7 @@ class UpowerIndicator(object):
                 if path.exists(self.phone_status_file):
                     F = open(self.phone_status_file,'r')
                     status_data = F.read().split()
-                    self.BATT_status = status_data[0]
+                    self.BATT_status = status_data[0].lower()
                     #logger.debug("3 " + str(self.BATT_status))
                     F.close()
                 if self.BATT_status:
