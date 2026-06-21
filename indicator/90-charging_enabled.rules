@@ -28,3 +28,9 @@ SUBSYSTEM=="power_supply", TEST=="/sys/class/qcom-battery/charging_enabled", \
     RUN+="/bin/chmod 0664 /sys/class/qcom-battery/charging_enabled", \
     RUN+="/bin/chown phablet /sys/class/qcom-battery/charging_enabled"
 
+SUBSYSTEM=="power_supply", KERNEL=="battery", ACTION=="change", ENV{POWER_SUPPLY_STATUS}=="Charging", ENV{POWER_SUPPLY_CAPACITY}=="?*", \
+  RUN+="/bin/sh -c 'PID=$(pgrep -f ernesst-indicator-upower.py); STATE=$(ps -o stat= -p $PID 2>/dev/null || echo not-found); echo \"$(date +%%Y-%%m-%%dT%%H:%%M:%%S) ernesst-indicator-upower.py pid=$PID state=$STATE\" >> /tmp/upower_log.txt'", \
+  RUN+="/bin/pkill --signal CONT -f ernesst-indicator-upower.py", \
+  RUN+="/bin/sh -c 'echo \"$(date +%%Y-%%m-%%dT%%H:%%M:%%S) power event received, capacity: $env{POWER_SUPPLY_CAPACITY}%%\" >> /tmp/upower_log.txt'", \
+  RUN+="/bin/sh -c 'PID=$(pgrep -f ernesst-indicator-upower.py); STATE=$(ps -o stat= -p $PID 2>/dev/null || echo not-found); echo \"$(date +%%Y-%%m-%%dT%%H:%%M:%%S) ernesst-indicator-upower.py pid=$PID state=$STATE\" >> /tmp/upower_log.txt'"
+
