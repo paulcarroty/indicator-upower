@@ -2,6 +2,7 @@ import sys
 import os
 import json
 import subprocess
+import signal
 import shlex
 import logging
 import os.path
@@ -321,6 +322,14 @@ class UpowerIndicator(object):
         GLib.timeout_add_seconds(self.refresh_sec, self._update_menu)
         self._update_menu()
 
+        signal.signal(signal.SIGCONT, self._on_sigcont)
+
+    
+    def _on_sigcont(self, signum, frame):
+        logger.debug("SIGCONT received: running immediate update")
+        self._update_menu()    
+
+    
     def root_state(self):
         vardict = GLib.VariantDict.new()
         vardict.insert_value('visible', GLib.Variant.new_boolean(True))
