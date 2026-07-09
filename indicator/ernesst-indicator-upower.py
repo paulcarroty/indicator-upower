@@ -541,7 +541,7 @@ class UpowerIndicator(object):
 if __name__ == '__main__':
     bus = Gio.bus_get_sync(Gio.BusType.SESSION, None)
     proxy = Gio.DBusProxy.new_sync(bus, 0, None, 'org.freedesktop.DBus', '/org/freedesktop/DBus', 'org.freedesktop.DBus', None)
-    result = proxy.RequestName('(su)', BUS_NAME, 0x4)
+    result = proxy.RequestName('(su)', BUS_NAME, 0x5)
     if result != 1:
         logger.critical('Error: Bus name is already taken')
         sys.exit(1)
