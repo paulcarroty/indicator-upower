@@ -3,6 +3,11 @@
 #include <QDebug>
 #include <QThread>
 #include <limits>
+#include <QDBusInterface>
+#include <QDBusReply>
+#include <QDBusConnection>
+#include <QDBusObjectPath>
+
 
 CommandRunner::CommandRunner(QObject *parent) :
     QObject(parent),
@@ -129,4 +134,28 @@ void CommandRunner::cancel()
 {
     m_process->kill();
     m_process->waitForFinished();
+}
+
+bool CommandRunner::restartUserService(const QString& serviceName)
+{
+    QDBusInterface systemd(
+        "org.freedesktop.systemd1",
+        "/org/freedesktop/systemd1",
+        "org.freedesktop.systemd1.Manager",
+        QDBusConnection::sessionBus()
+    );
+
+    if (!systemd.isValid()) {
+        qWarning() << "systemd D-Bus interface not valid:" << systemd.lastError().message();
+        return false;
+    }
+
+    QDBusReply<QDBusObjectPath> reply = systemd.call("RestartUnit", serviceName, "replace");
+    if (!reply.isValid()) {
+        qWarning() << "RestartUnit failed:" << reply.error().message();
+        return false;
+    }
+
+    qDebug() << "RestartUnit job queued at" << reply.value().path();
+    return true;
 }
