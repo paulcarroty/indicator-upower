@@ -334,7 +334,8 @@ ApplicationWindow {
                 ToolTip.timeout: 5000
                 ToolTip.delay: 5000
                 text: i18n.tr("Install Indicator")
-                ToolTip.text: i18n.tr("Indicator installed, please reboot")
+                //ToolTip.text: i18n.tr("Indicator installed, please reboot")
+                ToolTip.text: i18n.tr("Indicator installed!")
                 onClicked :{
                     dialogue.open();
                     //Indicator.install();
