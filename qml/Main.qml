@@ -315,7 +315,8 @@ ApplicationWindow {
               { if (refreshSec.acceptableInput & thresholdCharging.acceptableInput) {
                 settings.save();
                 CommandRunner.restartUserService("indicator-upower.service");
-                onTriggered: dialog_save.open()}
+                //onTriggered: dialog_save.open()
+                }
               }
             }
             Button {
