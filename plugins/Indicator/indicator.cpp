@@ -17,7 +17,9 @@ Indicator::Indicator() :
 void Indicator::install() {
     m_commandRunner->sudo(QStringList{"/usr/bin/mkdir", "-p", "/etc/udev/rules.d"}, true);
     m_commandRunner->sudo(QStringList{"/usr/bin/cp", "-v", "/opt/click.ubuntu.com/indicator.upower.ernesst.fork/current/indicator/90-charging_enabled.rules", "/etc/udev/rules.d/"}, true);
-    
+    m_commandRunner->sudo(QStringList{"/usr/bin/udevadm", "control", "--reload-rules"}, true);
+    m_commandRunner->sudo(QStringList{"/usr/bin/udevadm", "trigger", "--action=add", "--subsystem-match=power_supply"}, true);
+
     m_installProcess.start("bash /opt/click.ubuntu.com/indicator.upower.ernesst.fork/current/indicator/install.sh");
 }
 
