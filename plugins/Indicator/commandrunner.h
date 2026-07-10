@@ -16,6 +16,7 @@ public:
     QByteArray readFile(const QString& absolutePath);
     bool writeFile(const QString& absolutePath, const QByteArray& value);
     bool rm(const QString& path);
+    Q_INVOKABLE bool restartUserService(const QString& serviceName);
 
 public slots:
     bool sudo(const QStringList& command);
