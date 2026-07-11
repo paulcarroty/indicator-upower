@@ -612,7 +612,7 @@ ApplicationWindow {
 
               Label {
                   width: dialog_Installed.availableWidth
-                  text: i18n.tr("To take effect please reboot.")
+                  text: i18n.tr("The indicator at top bar is ready.")
                   wrapMode: Label.Wrap
                   font.pixelSize: 12
               }
