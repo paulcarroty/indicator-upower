@@ -330,12 +330,11 @@ ApplicationWindow {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.horizontalCenter: parent.horizontalLeft
-                ToolTip.visible: pressed
+                ToolTip.visible: hovered
                 ToolTip.timeout: 5000
-                ToolTip.delay: 5000
+                ToolTip.delay: 100
                 text: i18n.tr("Install Indicator")
-                //ToolTip.text: i18n.tr("Indicator installed, please reboot")
-                ToolTip.text: i18n.tr("Indicator installed!")
+                ToolTip.text: i18n.tr("Install to control charging limits")
                 onClicked :{
                     dialogue.open();
                     //Indicator.install();
