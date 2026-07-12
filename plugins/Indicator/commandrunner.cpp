@@ -150,6 +150,11 @@ bool CommandRunner::restartUserService(const QString& serviceName)
         return false;
     }
 
+
+    // 5s timeout for d-bus call
+    systemd.setTimeout(5000); 
+
+
     QDBusReply<QDBusObjectPath> reply = systemd.call("RestartUnit", serviceName, "replace");
     if (!reply.isValid()) {
         qWarning() << "RestartUnit failed:" << reply.error().message();
