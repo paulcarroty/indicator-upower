@@ -255,6 +255,22 @@
         "percentage": "/sys/devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:qcom,battery_charger/power_supply/battery/capacity",
         "status": "/sys/devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:qcom,battery_charger/power_supply/battery/status",
         "temp": "/sys/devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:qcom,battery_charger/power_supply/battery/temp"
-    }
+    },
+        "enchilada": {
+        "src": "/sys/devices/platform/soc@0/c440000.spmi/spmi-0/0-02/c440000.spmi:pmic@2:charger@1000/power_supply/pmi8998-charger/current_now",
+        "current_units": "uA",
+        "health": "/sys/devices/platform/soc@0/c440000.spmi/spmi-0/0-02/c440000.spmi:pmic@2:charger@1000/power_supply/pmi8998-charger/health",
+        "percentage": "/sys/devices/platform/soc@0/ac0000.geniqup/a88000.i2c/i2c-10/10-0055/power_supply/bq27411-0/capacity",
+        "status": "/sys/devices/platform/soc@0/c440000.spmi/spmi-0/0-02/c440000.spmi:pmic@2:charger@1000/power_supply/pmi8998-charger/status",
+        "temp": "/sys/devices/platform/soc@0/ac0000.geniqup/a88000.i2c/i2c-10/10-0055/power_supply/bq27411-0/temp"
+    },
+        "fajita": {
+        "src": "/sys/devices/platform/soc@0/c440000.spmi/spmi-0/0-02/c440000.spmi:pmic@2:charger@1000/power_supply/pmi8998-charger/current_now",
+        "current_units": "uA",
+        "health": "/sys/devices/platform/soc@0/c440000.spmi/spmi-0/0-02/c440000.spmi:pmic@2:charger@1000/power_supply/pmi8998-charger/health",
+        "percentage": "/sys/devices/platform/soc@0/ac0000.geniqup/a88000.i2c/i2c-10/10-0055/power_supply/bq27411-0/capacity",
+        "status": "/sys/devices/platform/soc@0/c440000.spmi/spmi-0/0-02/c440000.spmi:pmic@2:charger@1000/power_supply/pmi8998-charger/status",
+        "temp": "/sys/devices/platform/soc@0/ac0000.geniqup/a88000.i2c/i2c-10/10-0055/power_supply/bq27411-0/temp"
+    }  
     
 }
