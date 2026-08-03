@@ -18,8 +18,8 @@ Upower is **devices dependent, please** [submit your device data](https://github
 
 
 |   Devices   | Status |    Current   | Temperature | Charge | Estimated Bat. capacity   |Remaining life  | Limiting battery's charge |Battery Cycle|
-|:----------: |:------:|:------------:|:-----------:|:------:|:-------:|:---------------:|:----------------------:|:----------------------:|
-| OP3(T)    |    x   |       x      |      x      |    x   |    x    |        x        |            x           |           x          |
+|:----------: |:------:|:------------:|:-----------:|:------:|:-------:|:---------------:|:----------------------:|:--------------------:|
+| OP3(T)      |    x   |       x      |      x      |    x   |    x    |        x        |            x           |            x         |
 | mako        |    x   |       x      |      x      |    x   |         |        x        |           no           |                      |
 | hammerhead  |    x   |       x      |      x      |    x   |         |        no       |           no           |                      |
 | cedric      |    x   |       x      |      x      |    x   |         |        x        |           no           |                      |
@@ -47,6 +47,8 @@ Upower is **devices dependent, please** [submit your device data](https://github
 | algiz       |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
 | brax3       |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
 | spacewar    |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
+| enchilada   |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
+| fajita      |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
 
 
 
