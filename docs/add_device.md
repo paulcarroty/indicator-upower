@@ -40,11 +40,11 @@ find /sys/class/power_supply/ -name health -type f -exec echo "{}" \; -exec cat 
 
 
 echo -e "udev battery info:\n" >> power.txt
-udevadm info /sys/class/power_supply/battery >> power.txt
+udevadm info -a -p /sys/class/power_supply/battery >> power.txt
 
 
 echo -e "udev bms info:\n" >> power.txt
-udevadm info /sys/class/power_supply/bms >> power.txt
+udevadm info -a -p /sys/class/power_supply/bms >> power.txt
 
 ```
 
