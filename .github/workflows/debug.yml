@@ -7,8 +7,8 @@ jobs:
   
   build-arm64:
     runs-on: ubuntu-latest
-    container:
-      image: clickable/ci-dev-ut24.04-2.x-arm64
+#    container:
+#      image: clickable/ci-dev-ut24.04-2.x-arm64
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
