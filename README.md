@@ -49,6 +49,7 @@ Upower is **devices dependent, please** [submit your device data](https://github
 | spacewar    |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
 | enchilada   |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
 | fajita      |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
+| vayu        |    x   |       x      |      x      |    x   |         |        x        |                        |            x         |
 
 
 
